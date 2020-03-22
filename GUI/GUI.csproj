@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{05993907-9601-4E6A-A97F-7CB3691A553A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GUI</RootNamespace>
+    <AssemblyName>GUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI\管理员端\GTeachersList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\GTeachersList.Designer.cs">
+      <DependentUpon>GTeachersList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\TeacherInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\TeacherInformation.Designer.cs">
+      <DependentUpon>TeacherInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\Notice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\Notice.Designer.cs">
+      <DependentUpon>Notice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\GCheckNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\GCheckNotification.Designer.cs">
+      <DependentUpon>GCheckNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\ViewResults.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\ViewResults.Designer.cs">
+      <DependentUpon>ViewResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\GPersonalCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\GPersonalCenter.Designer.cs">
+      <DependentUpon>GPersonalCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\Teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\Teacher.Designer.cs">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\Student.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\Student.Designer.cs">
+      <DependentUpon>Student.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\XTeacherLise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\XTeacherLise.Designer.cs">
+      <DependentUpon>XTeacherLise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\MyVolunteer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\MyVolunteer.Designer.cs">
+      <DependentUpon>MyVolunteer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\StudentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\StudentList.Designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\XPersonalCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\XPersonalCenter.Designer.cs">
+      <DependentUpon>XPersonalCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\XPersonalInformationPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\XPersonalInformationPreview.Designer.cs">
+      <DependentUpon>XPersonalInformationPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\CheckMentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\CheckMentor.Designer.cs">
+      <DependentUpon>CheckMentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\学生端\XCheckNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\学生端\XCheckNotification.Designer.cs">
+      <DependentUpon>XCheckNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\NoticeDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\NoticeDetails.Designer.cs">
+      <DependentUpon>NoticeDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\Matching.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\Matching.Designer.cs">
+      <DependentUpon>Matching.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MyMentor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MyMentor.Designer.cs">
+      <DependentUpon>MyMentor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\DPersonalInformationPreview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\DPersonalInformationPreview.Designer.cs">
+      <DependentUpon>DPersonalInformationPreview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\DPersonalCenter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\DPersonalCenter.Designer.cs">
+      <DependentUpon>DPersonalCenter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\CheckStudentsVolunteer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\CheckStudentsVolunteer.Designer.cs">
+      <DependentUpon>CheckStudentsVolunteer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\AddTeacherInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\AddTeacherInformation.Designer.cs">
+      <DependentUpon>AddTeacherInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\DCheckNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\DCheckNotification.Designer.cs">
+      <DependentUpon>DCheckNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\教师端\MyStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\教师端\MyStudents.Designer.cs">
+      <DependentUpon>MyStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form32.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form32.Designer.cs">
+      <DependentUpon>Form32.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form33.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form33.Designer.cs">
+      <DependentUpon>Form33.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form34.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form34.Designer.cs">
+      <DependentUpon>Form34.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form35.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form35.Designer.cs">
+      <DependentUpon>Form35.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form36.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form36.Designer.cs">
+      <DependentUpon>Form36.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form37.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form37.Designer.cs">
+      <DependentUpon>Form37.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form38.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form38.Designer.cs">
+      <DependentUpon>Form38.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form39.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form39.Designer.cs">
+      <DependentUpon>Form39.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\AddStudentInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\AddStudentInformation.Designer.cs">
+      <DependentUpon>AddStudentInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form40.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form40.Designer.cs">
+      <DependentUpon>Form40.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form41.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form41.Designer.cs">
+      <DependentUpon>Form41.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form42.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form42.Designer.cs">
+      <DependentUpon>Form42.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form43.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form43.Designer.cs">
+      <DependentUpon>Form43.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form44.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form44.Designer.cs">
+      <DependentUpon>Form44.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form45.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form45.Designer.cs">
+      <DependentUpon>Form45.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form46.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form46.Designer.cs">
+      <DependentUpon>Form46.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form47.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form47.Designer.cs">
+      <DependentUpon>Form47.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\HomePage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HomePage.Designer.cs">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form6.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form6.Designer.cs">
+      <DependentUpon>Form6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Form7.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Form7.Designer.cs">
+      <DependentUpon>Form7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\StudentInformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\StudentInformation.Designer.cs">
+      <DependentUpon>StudentInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LoginInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoginInterface.Designer.cs">
+      <DependentUpon>LoginInterface.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\管理员端\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\管理员端\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\NoticeDetails.resx">
+      <DependentUpon>NoticeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\CheckMentor.resx">
+      <DependentUpon>CheckMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MyMentor.resx">
+      <DependentUpon>MyMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\MyVolunteer.resx">
+      <DependentUpon>MyVolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XPersonalInformationPreview.resx">
+      <DependentUpon>XPersonalInformationPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\Student.resx">
+      <DependentUpon>Student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XCheckNotification.resx">
+      <DependentUpon>XCheckNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XPersonalCenter.resx">
+      <DependentUpon>XPersonalCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XTeacherLise.resx">
+      <DependentUpon>XTeacherLise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\CheckStudentsVolunteer.resx">
+      <DependentUpon>CheckStudentsVolunteer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\DPersonalCenter.resx">
+      <DependentUpon>DPersonalCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\DPersonalInformationPreview.resx">
+      <DependentUpon>DPersonalInformationPreview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\DCheckNotification.resx">
+      <DependentUpon>DCheckNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\MyStudents.resx">
+      <DependentUpon>MyStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\Teacher.resx">
+      <DependentUpon>Teacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\GCheckNotification.resx">
+      <DependentUpon>GCheckNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\Matching.resx">
+      <DependentUpon>Matching.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\Notice.resx">
+      <DependentUpon>Notice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\GPersonalCenter.resx">
+      <DependentUpon>GPersonalCenter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\StudentInformation.resx">
+      <DependentUpon>StudentInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoginInterface.resx">
+      <DependentUpon>LoginInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\TeacherInformation.resx">
+      <DependentUpon>TeacherInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\GTeachersList.resx">
+      <DependentUpon>GTeachersList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\StudentList.resx">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\AddTeacherInformation.resx">
+      <DependentUpon>AddTeacherInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\AddStudentInformation.resx">
+      <DependentUpon>AddStudentInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HomePage.resx">
+      <DependentUpon>HomePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\管理员端\ViewResults.resx">
+      <DependentUpon>ViewResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BenNHControl\BenNHControl.csproj">
+      <Project>{8d4e9176-79a8-4f7f-9efe-18e379b73d3f}</Project>
+      <Name>BenNHControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="img\横幅.png" />
+    <Content Include="img\横幅2.png" />
+    <Content Include="img\背景.jpg" />
+    <Content Include="index.html" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
