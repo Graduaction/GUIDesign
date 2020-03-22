@@ -448,6 +448,14 @@
       <Project>{8d4e9176-79a8-4f7f-9efe-18e379b73d3f}</Project>
       <Name>BenNHControl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{7d03359b-2150-4210-92d0-f534d9174661}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{09049a42-d681-4a05-ba68-c931c16765a7}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
