@@ -36,7 +36,9 @@ namespace GUI.UI
         {
            
         }
+#pragma warning disable CS0169 // 从不使用字段“DPersonalInformationPreview.y”
         private int y;
+#pragma warning restore CS0169 // 从不使用字段“DPersonalInformationPreview.y”
        
         private void XPersonalInformationPreview_Load(object sender, PaintEventArgs e)
         {
