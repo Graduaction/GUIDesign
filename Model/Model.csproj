@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminData.cs" />
+    <Compile Include="GroupStuData.cs" />
     <Compile Include="GroupTableData.cs" />
+    <Compile Include="GroupVolData.cs" />
     <Compile Include="InformationData.cs" />
     <Compile Include="ManageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

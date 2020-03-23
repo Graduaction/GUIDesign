@@ -6,26 +6,23 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    [Serializable]
-   public class GroupTableData
+    public class GroupVolData
     {
         private int _groupID = 0;
-        private string topic = string.Empty;
-        private int _memberNum = 0;
-
-
+        private int _volLevel = 0;
+        private string _teaNo = string.Empty;
         /// <summary>
         /// 组别ID
         /// </summary>
         public int GroupID { get => _groupID; set => _groupID = value; }
         /// <summary>
-        /// 课题
+        /// 志愿等级
         /// </summary>
-        public string Topic { get => topic; set => topic = value; }
-
+        public int VolLevel { get => _volLevel; set => _volLevel = value; }
         /// <summary>
-        /// 该组总人数
+        /// 教师工号
         /// </summary>
-        public int MemberNum { get => _memberNum; set => _memberNum = value; }
+        public string TeaNo { get => _teaNo; set => _teaNo = value; }
+        
     }
 }
