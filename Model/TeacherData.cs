@@ -21,7 +21,7 @@ namespace Model
      
 
         /// <summary>
-        /// 工号
+        /// 工号 更改
         /// </summary>
         public string TeaNo { get => _teaNo; set => _teaNo = value; }
 
