@@ -12,7 +12,7 @@ namespace Model
         private int _volLevel = 0;
         private string _teaNo = string.Empty;
         /// <summary>
-        /// 组别ID
+        /// 组别ID 更改
         /// </summary>
         public int GroupID { get => _groupID; set => _groupID = value; }
         /// <summary>

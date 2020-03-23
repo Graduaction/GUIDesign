@@ -11,7 +11,7 @@ namespace Model
         private int _groupID = 0;
         private string _stuNo = string.Empty;
         /// <summary>
-        /// 组号
+        /// 组号   更改
         /// </summary>
 
         public int GroupID { get => _groupID; set => _groupID = value; }
