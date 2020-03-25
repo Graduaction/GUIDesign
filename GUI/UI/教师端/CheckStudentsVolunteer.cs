@@ -44,7 +44,7 @@ namespace GUI.UI
             try
             {
                 conn.Open();
-
+                ///显示学生志愿，需要一个当前老师工号的参数，还没做
                 string sql = "select distinct(b.groupid),PARSENAME(STUFF((select '.'+a.StuNo from GroupStu a where a.GroupID=b.GroupID for xml path('')),1,1,''),2) as 学生一,PARSENAME(STUFF((select '.'+a.StuNo from GroupStu a where a.GroupID=b.GroupID for xml path('')),1,1,''),1) as 学生2,(select avg(grade) as avg_grade from Student e,GroupStu d where e.StuNo=d.StuNo and d.groupid=b.groupid) as avg,c.vollevel from groupstu b,GroupVol c where b.groupid=c.groupid and c.TeaNo=1001 order by avg desc ";
                 SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
                 DataSet ds = new DataSet();
