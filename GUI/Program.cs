@@ -15,7 +15,7 @@ namespace GUI.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginInterface());
+            Application.Run(new CheckStudentsVolunteer());
         }
     }
 }
