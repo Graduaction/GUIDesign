@@ -17,15 +17,11 @@ namespace Model
         private string profile = string.Empty;
         private int _groupNumber = 0;
         private string contaction = string.Empty;
-        private int _chooseNo1 = 0;
-        private int _chooseNo2 = 0;
-        private int _chooseNo3 = 0;
-        private int _chooseNo4 = 0;
-        private int _chooseNo5 = 0;
-        private int _chooseNo6 = 0;
+       
+     
 
         /// <summary>
-        /// 工号
+        /// 工号 更改
         /// </summary>
         public string TeaNo { get => _teaNo; set => _teaNo = value; }
 
@@ -64,34 +60,6 @@ namespace Model
         /// </summary>
         public string Contaction { get => contaction; set => contaction = value; }
 
-        /// <summary>
-        /// 所选组号一
-        /// </summary>
-        public int ChooseNo1 { get => _chooseNo1; set => _chooseNo1 = value; }
-
-        /// <summary>
-        /// 所选组号二
-        /// </summary>
-        public int ChooseNo2 { get => _chooseNo2; set => _chooseNo2 = value; }
-
-        /// <summary>
-        /// 所选组号三
-        /// </summary>
-        public int ChooseNo3 { get => _chooseNo3; set => _chooseNo3 = value; }
-
-        /// <summary>
-        /// 所选组号四
-        /// </summary>
-        public int ChooseNo4 { get => _chooseNo4; set => _chooseNo4 = value; }
-
-        /// <summary>
-        /// 所选组号五
-        /// </summary>
-        public int ChooseNo5 { get => _chooseNo5; set => _chooseNo5 = value; }
-
-        /// <summary>
-        /// 所选组号六
-        /// </summary>
-        public int ChooseNo6 { get => _chooseNo6; set => _chooseNo6 = value; }
+       
     }
 }
