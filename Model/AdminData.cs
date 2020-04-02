@@ -9,6 +9,7 @@ namespace Model
     [Serializable]
     public class AdminData
     {
+        ///
         /// <summary>
         /// Admin表
         /// </summary>
