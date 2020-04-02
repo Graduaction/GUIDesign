@@ -20,6 +20,7 @@ namespace GUI.UI
         public const string LOGINFAILED = "登录失败";
         public const string INPUTNOEXIST = "用户名或密码不存在";
         readonly StudentManager sm = new StudentManager();//实例化对象
+        readonly TeacherManager tm = new TeacherManager();
         #endregion
 
  
@@ -88,10 +89,17 @@ namespace GUI.UI
                 }
                 else if (RadioTeacher.Checked == true)
                 {
+                    if (tm.CheckTeacherLogin(TxtName.Text.Trim(), TxtPwd.Text.Trim()))
+                   {
                     this.Visible = false;
                     Teacher f2 = new Teacher();
                     f2.ShowDialog();
                     this.Visible = true;
+                   }
+                   else
+                   {
+                       MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                   }
                 }
                 else
                 {
