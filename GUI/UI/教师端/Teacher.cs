@@ -63,7 +63,9 @@ namespace GUI.UI
                 this.button11.BackColor = Color.FromArgb(53, 66, 83);
 
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 return false;
             }
@@ -122,7 +124,9 @@ namespace GUI.UI
                         break;
                     }
                 }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
                 catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
                 {
                     //
                 }
@@ -147,7 +151,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
@@ -175,7 +181,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
@@ -203,7 +211,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
@@ -231,7 +241,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
@@ -259,7 +271,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
@@ -286,7 +300,9 @@ namespace GUI.UI
                     return;
                 }
             }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
             {
                 //
             }
