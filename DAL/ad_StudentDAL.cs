@@ -5,6 +5,7 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using Model;
+using System.Windows.Forms;
 
 
 namespace DAL
@@ -126,17 +127,65 @@ namespace DAL
         //导入excel文件功能
         public DataTable importFile(string sql, string filePath)
         {
+            
             DataTable dataTable = new DataTable();
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
-            sqlDataAdapter.SelectCommand.CommandText = "select * from Student";
-            SqlCommandBuilder scb = new SqlCommandBuilder(sqlDataAdapter);
-            dataTable = Transferfile.ExcelSheetImportToDataTable(filePath);
-            sqlDataAdapter.Fill(dataTable);
-            return dataTable;
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();            
+            using (SqlConnection conn=SQLHelper.createConnection())
+            {                
+                using (SqlCommand cmd =conn.CreateCommand())
+                {                    
+                    sqlDataAdapter.SelectCommand.CommandText = sql;
+                    SqlCommandBuilder scb = new SqlCommandBuilder(sqlDataAdapter);
+                    Transferfile transferfile = new Transferfile();
+                    dataTable = transferfile.ExcelSheetImportToDataTable(filePath);
+                    sqlDataAdapter.Fill(dataTable);
+                    //sqlDataAdapter.Update(dataTable);
+                    return dataTable;
+
+                }
+
+            }
+            
+            
         }
 
+        //datatable数据批量导入数据库
+        public void DataTableToSQLServer(DataTable dt)
+        {            
+            using (SqlConnection destinationConnection = SQLHelper.createConnection())
+            {
+               // destinationConnection.Open();
+                using (SqlBulkCopy bulkCopy = new SqlBulkCopy(destinationConnection))
+                {
+                    try
+                    {
+                        bulkCopy.DestinationTableName = "Student";//要插入的表的表名
+                        bulkCopy.BatchSize = dt.Rows.Count;
+                        bulkCopy.ColumnMappings.Add("学生学号", "StuNo");//映射字段名 DataTable列名 ,数据库 对应的列名 
+                        bulkCopy.ColumnMappings.Add("学生密码", "StuPwd");
+                        bulkCopy.ColumnMappings.Add("学生姓名", "StuName");
+                        bulkCopy.ColumnMappings.Add("学生年级", "StuNianji");
+                        bulkCopy.ColumnMappings.Add("学生学院", "Academy");
+                        bulkCopy.ColumnMappings.Add("学生专业", "Profession");
+                        bulkCopy.ColumnMappings.Add("学生班级", "StuClass");
+                        bulkCopy.ColumnMappings.Add("学生综测", "Grade");                                               
+                        bulkCopy.WriteToServer(dt);
+                        MessageBox.Show("插入成功","提示");
+                    }
+                    catch (Exception ex)
+                    {                                             
+                        MessageBox.Show(ex.Message,"提示");
+                    }
+                    finally
+                    {
 
 
+                    }
+                }
+
+
+            }
+        }
     }
 }
 
