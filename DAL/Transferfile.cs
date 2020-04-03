@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace DAL
 {
-    public partial class Transferfile
+    public  class Transferfile
     {
         /// <summary>
         /// Excel某sheet中内容导入到DataTable中
@@ -21,7 +21,7 @@ namespace DAL
         /// <param name="filePath">Excel文件路径,含文件全名</param>
         /// <param name="sheetName">此Excel中sheet名</param>
         /// <returns></returns>
-        public static DataTable ExcelSheetImportToDataTable(string filePath)
+        public  DataTable ExcelSheetImportToDataTable(string filePath)
         {
             HSSFWorkbook hssfworkbook;
             XSSFWorkbook xssfworkbook;

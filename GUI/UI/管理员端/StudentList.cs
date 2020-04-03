@@ -220,5 +220,37 @@ namespace GUI.UI
             xlApp.Quit();
             GC.Collect();//强行销毁 
         }
+
+        private void button1_Click(object sender, EventArgs e)//浏览
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Title = "请选择要导入的Excel文件";
+            open.Filter = "XLSX 工作表 (*.xlsx)|*.xlsx|Excel表（*.xls）|*.xls";            
+            if(open.ShowDialog()==DialogResult.OK)
+            {
+                string fileName = open.FileName;
+                textBox1.Text = fileName;
+                ad_StudentBLL bLL = new ad_StudentBLL();
+                //  string sql = "select * from Student";
+                DataTable dataTable = bLL.importToExcel(fileName);
+                bLL.DataTableToSQLServer(dataTable);
+                dataGridView1.DataSource = bLL.importToExcel(fileName);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)//提交
+        {
+            //try
+            //{
+            //    sda.Update(dt);
+            //    MessageBox.Show("提交成功");
+            //    txtFilePath.Text = "";
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.ToString());
+            //}
+           
+        }
     }
 }

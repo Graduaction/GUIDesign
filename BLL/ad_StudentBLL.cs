@@ -12,6 +12,7 @@ namespace BLL
     public class ad_StudentBLL
     {
         private ad_StudentDAL sDAL = new ad_StudentDAL();
+       
         public DataTable Select()
         {
             return sDAL.Select();
@@ -64,5 +65,19 @@ namespace BLL
             return sDAL.CheckNo(id);
         }
         #endregion
+
+
+        public DataTable importToExcel(string filePath)
+        {
+             //return sDAL.importFile(sql,filePath);
+            Transferfile transferfile = new Transferfile();
+            return transferfile.ExcelSheetImportToDataTable(filePath);
+        }
+
+
+        public void DataTableToSQLServer(DataTable dt)
+        {
+            sDAL.DataTableToSQLServer(dt);
+        }
     }
 }
