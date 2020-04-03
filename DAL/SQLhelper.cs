@@ -231,6 +231,10 @@ namespace DAL
         }
         #endregion
 
+
+
+
+
         #region  md5加密
         /// <summary>
         /// md5加密
