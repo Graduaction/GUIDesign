@@ -30,7 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -44,6 +43,7 @@
             this.所在专业 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.所在学院 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.联系方式 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button6 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -51,8 +51,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.label1);
@@ -68,22 +68,13 @@
             // button5
             // 
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(1033, 456);
+            this.button5.Location = new System.Drawing.Point(1146, 431);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(154, 48);
             this.button5.TabIndex = 5;
             this.button5.Text = "添加单个学生信息";
             this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(1207, 456);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(93, 48);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "返回";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // label2
             // 
@@ -209,6 +200,17 @@
             this.联系方式.Name = "联系方式";
             this.联系方式.Width = 125;
             // 
+            // button6
+            // 
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button6.Location = new System.Drawing.Point(969, 431);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(154, 48);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "更新单个学生信息";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -236,7 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
@@ -248,5 +249,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn 所在专业;
         private System.Windows.Forms.DataGridViewTextBoxColumn 所在学院;
         private System.Windows.Forms.DataGridViewTextBoxColumn 联系方式;
+        private System.Windows.Forms.Button button6;
     }
 }

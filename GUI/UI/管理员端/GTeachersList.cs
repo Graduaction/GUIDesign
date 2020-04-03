@@ -96,10 +96,15 @@ namespace GUI.UI
 
         private void button5_Click(object sender, EventArgs e)
         {
+            AddTeacherInformation frm = new AddTeacherInformation();
+            if (frm.ShowDialog() == DialogResult.OK)//对话框返回值为ok时运行
+            {
+                button5_Click(sender, e); //这个是当前页面的重新加载的查询事件
+            }
             //try
             //{
-               
-                
+
+
             //    Monitor.Enter(this.lockObj);
             //    if (!formSwitchFlag)
             //    {
@@ -120,6 +125,15 @@ namespace GUI.UI
             //{
             //    Monitor.Exit(this.lockObj);
             //}
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            UpdateTeacherInformation frm = new UpdateTeacherInformation();
+            if (frm.ShowDialog() == DialogResult.OK)//对话框返回值为ok时运行
+            {
+                button6_Click(sender, e); //这个是当前页面的重新加载的查询事件
+            }
         }
     }
 }

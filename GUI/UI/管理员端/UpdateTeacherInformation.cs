@@ -9,11 +9,16 @@ using System.Windows.Forms;
 
 namespace GUI.UI
 {
-    public partial class Form33 : Form
+    public partial class UpdateTeacherInformation : Form
     {
-        public Form33()
+        public UpdateTeacherInformation()
         {
             InitializeComponent();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

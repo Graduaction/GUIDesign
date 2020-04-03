@@ -49,5 +49,23 @@ namespace GUI.UI
         {
 
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            UpdateStudentInformation frm = new UpdateStudentInformation();
+            if (frm.ShowDialog() == DialogResult.OK)//对话框返回值为ok时运行
+            {
+                button6_Click(sender, e); //这个是当前页面的重新加载的查询事件
+            }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AddStudentInformation frm = new AddStudentInformation();
+            if (frm.ShowDialog() == DialogResult.OK)//对话框返回值为ok时运行
+            {
+                button5_Click(sender, e); //这个是当前页面的重新加载的查询事件
+            }
+        }
     }
 }

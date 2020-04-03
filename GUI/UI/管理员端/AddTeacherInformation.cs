@@ -37,6 +37,11 @@ namespace GUI.UI
 
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         /// <summary>
         /// 解决闪烁问题
         /// </summary>

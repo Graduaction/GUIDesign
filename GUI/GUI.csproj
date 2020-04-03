@@ -194,17 +194,17 @@
     <Compile Include="UI\教师端\MyStudents.Designer.cs">
       <DependentUpon>MyStudents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form32.cs">
+    <Compile Include="UI\管理员端\UpdateStudentInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form32.Designer.cs">
-      <DependentUpon>Form32.cs</DependentUpon>
+    <Compile Include="UI\管理员端\UpdateStudentInformation.Designer.cs">
+      <DependentUpon>UpdateStudentInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form33.cs">
+    <Compile Include="UI\管理员端\UpdateTeacherInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form33.Designer.cs">
-      <DependentUpon>Form33.cs</DependentUpon>
+    <Compile Include="UI\管理员端\UpdateTeacherInformation.Designer.cs">
+      <DependentUpon>UpdateTeacherInformation.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form34.cs">
       <SubType>Form</SubType>
@@ -430,6 +430,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\管理员端\UpdateStudentInformation.resx">
+      <DependentUpon>UpdateStudentInformation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\UpdateTeacherInformation.resx">
+      <DependentUpon>UpdateTeacherInformation.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\管理员端\ViewResults.resx">
       <DependentUpon>ViewResults.cs</DependentUpon>
     </EmbeddedResource>
