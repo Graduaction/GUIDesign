@@ -9,6 +9,9 @@ namespace Model
     [Serializable]
    public class StudentData
     {
+        private int _stuID = 0;
+        private int _stuClass = 1;
+        private string _stuNianji = string.Empty;
         private string _stuNo = string.Empty;
         private string _stuPwd = string.Empty;
         private string _stuName = string.Empty;
@@ -75,5 +78,17 @@ namespace Model
         /// 志愿三老师id
         /// </summary>
         public string VoluntaryThird { get => _voluntaryThird; set => _voluntaryThird = value; }
+        /// <summary>
+        /// 学生年级
+        /// </summary>
+        public string StuNianji { get => _stuNianji; set => _stuNianji = value; }
+        /// <summary>
+        /// 学生班级
+        /// </summary>
+        public int StuClass { get => _stuClass; set => _stuClass = value; }
+        /// <summary>
+        /// 学生id
+        /// </summary>
+        public int StuID { get => _stuID; set => _stuID = value; }
     }
 }
