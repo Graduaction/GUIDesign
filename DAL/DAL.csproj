@@ -31,9 +31,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.Office">
+      <HintPath>E:\毕业设计\项目\第三组实习分配系统2\第三组实习分配系统2.1\WindowsFormsApplication1\obj\Debug\Interop.Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>E:\毕业设计\项目\第三组实习分配系统2\第三组实习分配系统2.1\WindowsFormsApplication1\bin\Debug\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>E:\毕业设计\项目\第三组实习分配系统2\第三组实习分配系统2.1\WindowsFormsApplication1\bin\Debug\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>E:\毕业设计\项目\第三组实习分配系统2\第三组实习分配系统2.1\WindowsFormsApplication1\bin\Debug\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>E:\毕业设计\项目\第三组实习分配系统2\第三组实习分配系统2.1\WindowsFormsApplication1\bin\Debug\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,10 +59,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ad_StudentDAL.cs" />
+    <Compile Include="ExcelHelper.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StudentService.cs" />
     <Compile Include="TeacherService.cs" />
+    <Compile Include="Transferfile.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Model\Model.csproj">
