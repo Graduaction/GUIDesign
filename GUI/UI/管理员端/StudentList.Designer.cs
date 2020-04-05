@@ -59,6 +59,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -123,6 +124,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
@@ -233,56 +235,56 @@
             // 
             // textBox9
             // 
-            this.textBox9.Location = new System.Drawing.Point(313, 149);
+            this.textBox9.Location = new System.Drawing.Point(304, 150);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(100, 21);
             this.textBox9.TabIndex = 7;
             // 
             // textBox8
             // 
-            this.textBox8.Location = new System.Drawing.Point(313, 107);
+            this.textBox8.Location = new System.Drawing.Point(304, 108);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 21);
             this.textBox8.TabIndex = 6;
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(313, 64);
+            this.textBox7.Location = new System.Drawing.Point(304, 65);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 21);
             this.textBox7.TabIndex = 5;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(313, 22);
+            this.textBox6.Location = new System.Drawing.Point(304, 23);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 21);
             this.textBox6.TabIndex = 4;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(72, 149);
+            this.textBox5.Location = new System.Drawing.Point(54, 149);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 21);
             this.textBox5.TabIndex = 3;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(72, 107);
+            this.textBox4.Location = new System.Drawing.Point(54, 107);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 21);
             this.textBox4.TabIndex = 2;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(72, 64);
+            this.textBox3.Location = new System.Drawing.Point(54, 64);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 21);
             this.textBox3.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 22);
+            this.textBox2.Location = new System.Drawing.Point(54, 22);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 21);
             this.textBox2.TabIndex = 0;
@@ -385,6 +387,16 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(157, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 12);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "*不可重复/修改";
+            // 
             // StudentList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -440,5 +452,6 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label11;
     }
 }
