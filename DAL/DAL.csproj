@@ -69,7 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ad_StudentDAL.cs" />
+    <Compile Include="ad_Services.cs" />
     <Compile Include="ExcelHelper.cs" />
     <Compile Include="SQLHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
