@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Model
 {
     [Serializable]
-   public class TeacherData
+    public class TeacherData
     {
         private string _teaNo = string.Empty;
         private string _teaPwd = string.Empty;
@@ -17,8 +17,9 @@ namespace Model
         private string profile = string.Empty;
         private int _groupNumber = 0;
         private string contaction = string.Empty;
-       
-     
+        private string _academy = string.Empty;
+
+
 
         /// <summary>
         /// 工号 更改
@@ -59,7 +60,9 @@ namespace Model
         /// 联系方式
         /// </summary>
         public string Contaction { get => contaction; set => contaction = value; }
-
-       
+        /// <summary>
+        /// 所属学院
+        /// </summary>
+        public string Academy { get => _academy; set => _academy = value; }
     }
 }
