@@ -6,6 +6,7 @@ using DAL;
 using Model;
 using System.Data;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace BLL
 {
@@ -152,7 +153,29 @@ namespace BLL
         {
             sDAL.DataTableToTeaSQLServer(dt);
         }
-      
+
+        #endregion
+
+
+        #region 登录
+        
+        public int CheckAdminLogin(AdminData adminData)
+        {
+            return sDAL.Login(adminData);
+        }
+        #endregion
+
+        #region 个人信息页
+        public int Updataadmbll(AdminData adminData)
+        {
+            if(sDAL.UpdataAdmdata(adminData)==1)
+            {
+                Keepinformation.AdminEmail = adminData.AdminEmail;
+                Keepinformation.AdminTitle = adminData.AdminTitle;
+                Keepinformation.AdminPwd = adminData.AdminPwd;
+            }
+            return sDAL.UpdataAdmdata(adminData);
+        }
         #endregion
     }
 }
