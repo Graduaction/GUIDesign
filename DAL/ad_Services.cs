@@ -165,27 +165,30 @@ namespace DAL
         }
         #endregion
 
-        //未完成：
-        #region 判断表中是否有该学号的存在 ExecutScale
+        #region UpdateAdmdata修改管理员数据
         /// <summary>
-        /// 判断表中是否有该主键的存在
+        /// UpdateAdmdata修改管理员数据
         /// </summary>
-        /// <param name="id">主键</param>
-        /// <returns>false:数据库中没有该值，true：数据库中有该值</returns>
-        public bool CheckNo(string id)
-        {
-            bool res;
-            string sql = @"select * from StuNo=@StuNo";
-            SqlParameter sqlParameter = new SqlParameter("@StuNo", SqlDbType.NVarChar);
-            sqlParameter.Value = id;
-            SqlDataReader sqlDataReader = SQLHelper.ExecuteReader(sql, CommandType.Text, sqlParameter);
-            if (sqlDataReader.HasRows)
+        /// <param name="adminData">传参：管理员对象</param>
+        /// <returns></returns>
+        public int UpdataAdmdata(AdminData adminData)
+        {         
+            string sql = @"update  Admin set AdminPwd=@AdminPwd,AdminTitle=@AdminTitle,AdminEmail=@AdminEmail where AdminNo=@AdminNo";
+            SqlParameter[] sqlParameter = new SqlParameter[]
             {
-                res = true;
-            }
-            else
-                res = false;
-            return res;
+                new SqlParameter("@AdminPwd",SqlDbType.NVarChar),               
+                new SqlParameter("@AdminName",SqlDbType.NVarChar),
+                new SqlParameter("@AdminTitle",SqlDbType.NVarChar),
+                new SqlParameter("@AdminEmail",SqlDbType.NVarChar),
+                new SqlParameter("@AdminNo",SqlDbType.NVarChar),
+            };
+            sqlParameter[0].Value = adminData.AdminPwd;
+            sqlParameter[1].Value = adminData.AdminName;
+            sqlParameter[2].Value = adminData.AdminTitle;
+            sqlParameter[3].Value = adminData.AdminEmail;
+            sqlParameter[4].Value = adminData.AdminNo;
+            int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
+            return result;
         }
         #endregion
 
@@ -215,8 +218,6 @@ namespace DAL
                 }
 
             }
-
-
         }
         #endregion
 
@@ -293,6 +294,88 @@ namespace DAL
             }
         }
         #endregion
+
+        #region 个人中心页
+        /// <summary>
+        /// 查看管理员个人中心
+        /// </summary>
+        /// <returns>返回datatable</returns>
+        //public DataTable SelectAdm()
+        //{
+        //    string sql = @"select AdminNo ,AdminName ,AdminTitle, AdminEmail from Student";
+
+        //    DataTable admintable = SQLHelper.ExecuteReader(sql);
+
+        //    return admintable;
+        //}
+        #endregion
+
+        #region 登录
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="adminData">admindata对象</param>
+        /// <returns>result=0:登录失败，result=1：账号或密码不正确，result=2:登陆成功</returns>   
+        public int Login(AdminData adminData)
+        {
+            int result = 0;
+            string sql = @"select * from Admin where AdminNo=@AdminNo";
+            SqlParameter[] sqlParameter = new SqlParameter[]
+            {
+                new SqlParameter("@AdminNo",SqlDbType.NVarChar)
+            };
+            sqlParameter[0].Value = adminData.AdminNo;
+            SqlDataReader reader = SQLHelper.ExecuteReader(sql,CommandType.Text,sqlParameter);
+            if(reader.HasRows)
+            {
+                while(reader.Read())
+                {
+                    if (reader[1].ToString() == adminData.AdminPwd)
+                    {
+                        result = 2;
+                        Keepinformation.AdminNo = adminData.AdminNo;
+                        Keepinformation.AdminPwd = adminData.AdminPwd;
+                        Keepinformation.AdminName= reader[2].ToString();
+                        Keepinformation.AdminTitle = reader[3].ToString();
+                        Keepinformation.AdminEmail = reader[4].ToString();
+                    }
+                    else result = 1;
+                    
+                }
+            }
+            else
+            {
+                result = 0;
+            }
+            return result;
+        }
+        #endregion
+
+        //未完成：
+        #region 判断表中是否有该学号的存在 ExecutScale
+        /// <summary>
+        /// 判断表中是否有该主键的存在
+        /// </summary>
+        /// <param name="id">主键</param>
+        /// <returns>false:数据库中没有该值，true：数据库中有该值</returns>
+        public bool CheckNo(string id)
+        {
+            bool res;
+            string sql = @"select * from StuNo=@StuNo";
+            SqlParameter sqlParameter = new SqlParameter("@StuNo", SqlDbType.NVarChar);
+            sqlParameter.Value = id;
+            SqlDataReader sqlDataReader = SQLHelper.ExecuteReader(sql, CommandType.Text, sqlParameter);
+            if (sqlDataReader.HasRows)
+            {
+                res = true;
+            }
+            else
+                res = false;
+            return res;
+        }
+        #endregion
+
+        
     }
 }
 
