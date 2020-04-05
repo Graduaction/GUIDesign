@@ -35,5 +35,17 @@ namespace BLL
             }
         }
         #endregion
+        public bool ChangeTeaPwd(string loginId, string loginOPwd, string loginNPwd)
+        {
+            try
+            {
+                return ts.ChangeTeaPwd(loginId, loginOPwd, loginNPwd);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
 }

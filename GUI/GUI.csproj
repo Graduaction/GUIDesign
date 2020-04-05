@@ -70,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\ChangePwd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ChangePwd.Designer.cs">
+      <DependentUpon>ChangePwd.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\管理员端\GTeachersList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +366,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="UI\ChangePwd.resx">
+      <DependentUpon>ChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\NoticeDetails.resx">
       <DependentUpon>NoticeDetails.cs</DependentUpon>
     </EmbeddedResource>
