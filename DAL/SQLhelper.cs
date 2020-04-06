@@ -14,15 +14,6 @@ namespace DAL
     {
         //数据库连接字符串
         public static string connStr = ConfigurationManager.ConnectionStrings["SQLSERVER"].ConnectionString;
-        //新建DataSet
-        //  public static DataSet DataSet = new DataSet();
-        //创建DataTable对象的实例，指定名称为studentTable，并将其添加到DataSet的Tables集合中
-        //   public static DataTable studentTable = DataSet.Tables.Add("studentTable");
-        //   DataColumn dataColumn = studentTable.Columns.Add("StuID",typeof(int));       
-
-        //新建SqlDataAdapter对象的实例
-
-
         public static SqlConnection createConnection()
         {
             SqlConnection conn = new SqlConnection(connStr);
@@ -230,10 +221,6 @@ namespace DAL
             }
         }
         #endregion
-
-
-
-
 
         #region  md5加密
         /// <summary>
