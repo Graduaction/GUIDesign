@@ -57,8 +57,8 @@ namespace GUI.UI
 
         private void StudentList_Load(object sender, EventArgs e)
         {
-            ad_StudentBLL BLL = new ad_StudentBLL();
-            DataTable studentTable = BLL.Select();
+            ad_ServicesBLL BLL = new ad_ServicesBLL();
+            DataTable studentTable = BLL.SelectStubll();
             dataGridView1.DataSource = studentTable;
             textBox5.Text = "2016";
         }
@@ -70,7 +70,7 @@ namespace GUI.UI
 
         private void button5_Click(object sender, EventArgs e)//添加单个信息
         {
-            ad_StudentBLL BLL = new ad_StudentBLL();
+            ad_ServicesBLL BLL = new ad_ServicesBLL();
             StudentData studentData = new StudentData();
             studentData.StuNo = textBox2.Text;
             studentData.StuPwd = textBox3.Text;
@@ -86,7 +86,7 @@ namespace GUI.UI
             //}
             //else
             //{
-                if (BLL.Insert(studentData))
+                if (BLL.InsertStubll(studentData))
                 {
                     MessageBox.Show("导入成功", "提示", MessageBoxButtons.OK);
                     textBox2.Text = "";
@@ -97,7 +97,7 @@ namespace GUI.UI
                     textBox7.Text = "";
                     textBox8.Text = "";
                     textBox9.Text = "";
-                    DataTable table = BLL.Select();
+                    DataTable table = BLL.SelectStubll();
                     dataGridView1.DataSource = table;
                 }
                 else
@@ -112,6 +112,7 @@ namespace GUI.UI
         private void button8_Click(object sender, EventArgs e)//修改
         {
             textBox2.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
+            textBox3.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[7].Value.ToString();
             textBox4.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[1].Value.ToString();
             textBox5.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[2].Value.ToString();
             textBox6.Text = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[3].Value.ToString();
@@ -132,8 +133,8 @@ namespace GUI.UI
             studentData.StuClass = Convert.ToInt32(textBox8.Text);
             studentData.Grade = Convert.ToInt32(textBox9.Text);
             
-            ad_StudentBLL BLL = new ad_StudentBLL();
-            if (BLL.Update(studentData) > 0)
+            ad_ServicesBLL BLL = new ad_ServicesBLL();
+            if (BLL.UpdateStudatabll(studentData) > 0)
             {
                 MessageBox.Show("修改成功", "提示", MessageBoxButtons.OK);
                 textBox2.Text = "";
@@ -144,7 +145,7 @@ namespace GUI.UI
                 textBox7.Text = "";
                 textBox8.Text = "";
                 textBox9.Text = "";
-                DataTable table = BLL.Select();
+                DataTable table = BLL.SelectStubll();
                 dataGridView1.DataSource = table;
             }
             else
@@ -156,12 +157,12 @@ namespace GUI.UI
         private void button7_Click_1(object sender, EventArgs e)//删除
         {
             string id = dataGridView1.Rows[dataGridView1.CurrentRow.Index].Cells[0].Value.ToString();
-            ad_StudentBLL bLL = new ad_StudentBLL();
-            if (bLL.Remove(id))
+            ad_ServicesBLL bLL = new ad_ServicesBLL();
+            if (bLL.RemoveStudata(id))
             {
                 MessageBox.Show("删除成功", "提示", MessageBoxButtons.OK);
-                ad_StudentBLL BLL = new ad_StudentBLL();
-                DataTable table = BLL.Select();
+                ad_ServicesBLL BLL = new ad_ServicesBLL();
+                DataTable table = BLL.SelectStubll();
                 dataGridView1.DataSource = table;
             }
             else
@@ -230,10 +231,10 @@ namespace GUI.UI
             {
                 string fileName = open.FileName;
                 textBox1.Text = fileName;
-                ad_StudentBLL bLL = new ad_StudentBLL();
+                ad_ServicesBLL bLL = new ad_ServicesBLL();
                 //  string sql = "select * from Student";
                 DataTable dataTable = bLL.importToExcel(fileName);
-                bLL.DataTableToSQLServer(dataTable);
+                bLL.DataTableToStuSQLServerbll(dataTable);
                 dataGridView1.DataSource = bLL.importToExcel(fileName);
             }
         }
