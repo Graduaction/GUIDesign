@@ -36,6 +36,7 @@ namespace BLL
             }
         }
         #endregion
+
         #region 修改密码
         public bool ChangeTeaPwd(string loginId, string loginOPwd, string loginNPwd)
         {
@@ -50,6 +51,8 @@ namespace BLL
             }
         }
         #endregion
+
+        #region 获取教师个人信息
         public DataTable Getperson(string teaNo)
         {
             try
@@ -62,6 +65,24 @@ namespace BLL
                 throw ex;
             }
         }
+
+        #endregion
+
+        #region 修改教师个人信息
+        public bool UpdateTea(string teaNo, string teaName, string teaTitle, string teaPhone, string teaProfile,string email)
+        {
+            try
+            {
+                return ts.UpdateTea(teaNo, teaName, teaTitle, teaPhone, teaProfile,email);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
 
     }
 }

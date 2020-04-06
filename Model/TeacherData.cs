@@ -18,6 +18,7 @@ namespace Model
         private int _groupNumber = 0;
         private string contaction = string.Empty;
         private string _academy = string.Empty;
+        private string _email = string.Empty;
 
 
 
@@ -64,5 +65,6 @@ namespace Model
         /// 所属学院
         /// </summary>
         public string Academy { get => _academy; set => _academy = value; }
+        public string Email { get => _email; set => _email = value; }
     }
 }

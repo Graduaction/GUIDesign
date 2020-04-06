@@ -112,13 +112,13 @@ namespace GUI.UI
 
                     adminData.AdminPwd = TxtPwd.Text.Trim();                  
                     if(ad_ServicesBLL.CheckAdminLogin(adminData)==2)
-
                     {
                         this.Visible = false;
                         MainForm f3 = new MainForm();
                         f3.ShowDialog();
                         this.Visible = true;
                     }
+<<<<<<<<< Temporary merge branch 1
                     else
                     {
                         MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
