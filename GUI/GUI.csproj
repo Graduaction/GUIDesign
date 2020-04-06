@@ -130,11 +130,11 @@
     <Compile Include="UI\学生端\Student.Designer.cs">
       <DependentUpon>Student.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\学生端\XTeacherLise.cs">
+    <Compile Include="UI\学生端\XTeacherList.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\学生端\XTeacherLise.Designer.cs">
-      <DependentUpon>XTeacherLise.cs</DependentUpon>
+    <Compile Include="UI\学生端\XTeacherList.Designer.cs">
+      <DependentUpon>XTeacherList.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\学生端\MyVolunteer.cs">
       <SubType>Form</SubType>
@@ -393,8 +393,8 @@
     <EmbeddedResource Include="UI\学生端\XPersonalCenter.resx">
       <DependentUpon>XPersonalCenter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\学生端\XTeacherLise.resx">
-      <DependentUpon>XTeacherLise.cs</DependentUpon>
+    <EmbeddedResource Include="UI\学生端\XTeacherList.resx">
+      <DependentUpon>XTeacherList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\教师端\CheckStudentsVolunteer.resx">
       <DependentUpon>CheckStudentsVolunteer.cs</DependentUpon>
