@@ -21,6 +21,7 @@ namespace GUI.UI
         public const string INPUTNOEXIST = "用户名或密码不存在";
         readonly StudentManager sm = new StudentManager();//实例化对象
         readonly TeacherManager tm = new TeacherManager();
+        readonly ad_ServicesBLL ad_ServicesBLL = new ad_ServicesBLL();
         #endregion
 
  
@@ -103,10 +104,21 @@ namespace GUI.UI
                 }
                 else
                 {
-                    this.Visible = false;
-                    MainForm f3 = new MainForm();
-                    f3.ShowDialog();
-                    this.Visible = true;
+                    AdminData adminData = new AdminData();
+                    adminData.AdminNo = TxtName.Text.Trim();
+                    adminData.AdminPwd = TxtPwd.Text.Trim();                  
+                    if(ad_ServicesBLL.CheckAdminLogin(adminData)==2)
+                    {
+                        this.Visible = false;
+                        MainForm f3 = new MainForm();
+                        f3.ShowDialog();
+                        this.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    
                 }
             }
             catch (Exception ex )

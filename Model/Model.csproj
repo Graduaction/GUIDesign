@@ -68,6 +68,7 @@
     <Compile Include="GroupTableData.cs" />
     <Compile Include="GroupVolData.cs" />
     <Compile Include="InformationData.cs" />
+    <Compile Include="Keepinformation.cs" />
     <Compile Include="ManageData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultData.cs" />
