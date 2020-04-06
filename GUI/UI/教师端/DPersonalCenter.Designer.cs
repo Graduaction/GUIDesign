@@ -33,11 +33,13 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbemail = new System.Windows.Forms.TextBox();
             this.tbtitle = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btchangepwd = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbname = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,14 +49,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tbemail = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -112,6 +110,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label13);
@@ -119,8 +118,6 @@
             this.panel1.Controls.Add(this.tbtitle);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.btchangepwd);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.tbname);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label2);
@@ -133,6 +130,47 @@
             this.panel1.Size = new System.Drawing.Size(934, 154);
             this.panel1.TabIndex = 56;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("宋体", 14F);
+            this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label4.Location = new System.Drawing.Point(308, 61);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(114, 19);
+            this.label4.TabIndex = 67;
+            this.label4.Text = "*所带组数：";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(420, 60);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 66;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("宋体", 14F);
+            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label13.Location = new System.Drawing.Point(69, 100);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(66, 19);
+            this.label13.TabIndex = 64;
+            this.label13.Text = "邮箱：";
+            // 
+            // tbemail
+            // 
+            this.tbemail.Location = new System.Drawing.Point(149, 100);
+            this.tbemail.Margin = new System.Windows.Forms.Padding(2);
+            this.tbemail.Multiline = true;
+            this.tbemail.Name = "tbemail";
+            this.tbemail.ReadOnly = true;
+            this.tbemail.Size = new System.Drawing.Size(211, 22);
+            this.tbemail.TabIndex = 65;
             // 
             // tbtitle
             // 
@@ -157,35 +195,13 @@
             // 
             this.btchangepwd.Font = new System.Drawing.Font("宋体", 14F);
             this.btchangepwd.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.btchangepwd.Location = new System.Drawing.Point(583, 89);
+            this.btchangepwd.Location = new System.Drawing.Point(583, 62);
             this.btchangepwd.Name = "btchangepwd";
             this.btchangepwd.Size = new System.Drawing.Size(168, 41);
             this.btchangepwd.TabIndex = 61;
             this.btchangepwd.Text = "修改个人密码";
             this.btchangepwd.UseVisualStyleBackColor = true;
             this.btchangepwd.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("宋体", 14F);
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(824, 62);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 19);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "照片";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBox1.Location = new System.Drawing.Point(780, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(134, 146);
-            this.pictureBox1.TabIndex = 54;
-            this.pictureBox1.TabStop = false;
             // 
             // tbname
             // 
@@ -291,46 +307,15 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "个人中心";
             // 
-            // label13
+            // label6
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 14F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(69, 100);
-            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(66, 19);
-            this.label13.TabIndex = 64;
-            this.label13.Text = "邮箱：";
-            // 
-            // tbemail
-            // 
-            this.tbemail.Location = new System.Drawing.Point(149, 100);
-            this.tbemail.Margin = new System.Windows.Forms.Padding(2);
-            this.tbemail.Multiline = true;
-            this.tbemail.Name = "tbemail";
-            this.tbemail.ReadOnly = true;
-            this.tbemail.Size = new System.Drawing.Size(211, 22);
-            this.tbemail.TabIndex = 65;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(420, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
-            this.textBox1.TabIndex = 66;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("宋体", 14F);
-            this.label4.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label4.Location = new System.Drawing.Point(308, 61);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 19);
-            this.label4.TabIndex = 67;
-            this.label4.Text = "*所带组数：";
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.label6.Location = new System.Drawing.Point(388, 121);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(245, 12);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "备注：带星号内容如需更改，需与管理员联系";
             // 
             // DPersonalCenter
             // 
@@ -350,7 +335,6 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,8 +346,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbname;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -380,5 +362,6 @@
         private System.Windows.Forms.TextBox tbemail;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }
