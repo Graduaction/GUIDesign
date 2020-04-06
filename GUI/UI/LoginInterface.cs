@@ -118,7 +118,6 @@ namespace GUI.UI
                         f3.ShowDialog();
                         this.Visible = true;
                     }
-<<<<<<<<< Temporary merge branch 1
                     else
                     {
                         MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);

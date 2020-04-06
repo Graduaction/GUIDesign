@@ -10,7 +10,7 @@ namespace Model
    public class ManageData
     {
         private int _manageId = 0;
-        private string _adminNo = string.Empty;
+        private string _adminNo1 = string.Empty;
         private DateTime _startTime;
         private DateTime _endTime;
         private double grade;
@@ -27,7 +27,7 @@ namespace Model
         /// <summary>
         /// 管理员ID
         /// </summary>
-        public string AdminNo { get => _adminNo; set => _adminNo = value; }
+        public string AdminNo1 { get => _adminNo1; set => _adminNo1 = value; }
 
         /// <summary>
         /// 开放时间
