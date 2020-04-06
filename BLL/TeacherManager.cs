@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL;
 using Model;
+using System.Data;
 
 namespace BLL
 {
@@ -35,6 +36,7 @@ namespace BLL
             }
         }
         #endregion
+        #region 修改密码
         public bool ChangeTeaPwd(string loginId, string loginOPwd, string loginNPwd)
         {
             try
@@ -47,5 +49,19 @@ namespace BLL
                 throw ex;
             }
         }
+        #endregion
+        public DataTable Getperson(string teaNo)
+        {
+            try
+            {
+                return ts.Getperson(teaNo);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
     }
 }
