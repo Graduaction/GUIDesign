@@ -21,13 +21,14 @@ namespace GUI.UI
         public const string INPUTNOEXIST = "用户名或密码不存在";
         readonly StudentManager sm = new StudentManager();//实例化对象
         readonly TeacherManager tm = new TeacherManager();
+        public static string loginid;//登入账号
         #endregion
-
- 
+       
         // 构造函数
         public LoginInterface()
         {
             InitializeComponent();
+           
         }
 
         // 窗体加载事件
@@ -120,6 +121,10 @@ namespace GUI.UI
         {   
             this.Close();
         }
-        
+
+        private void TxtName_TextChanged(object sender, EventArgs e)
+        {
+            loginid = this.TxtName.Text;
+        }
     }
 }
