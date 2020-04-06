@@ -34,6 +34,39 @@ namespace DAL
         }
         #endregion
 
+        #region SelectManage查询双选参数信息
+        public int SelectManage(string adminno1)
+        {
+            int result = 0;
+            string sql = @"select * from Manage where AdminNo1=@AdminNo1";
+            SqlParameter[] sqlParameter = new SqlParameter[]
+            {
+                new SqlParameter("@AdminNo1",SqlDbType.NVarChar)
+            };
+            sqlParameter[0].Value = adminno1;
+            SqlDataReader reader = SQLHelper.ExecuteReader(sql, CommandType.Text, sqlParameter);
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {                    
+                    Keepinformation.AdminNo =reader[1].ToString();
+                    Keepinformation.StartTime =Convert.ToDateTime(reader[2].ToString());
+                    Keepinformation.EndTime = Convert.ToDateTime(reader[3].ToString());
+                    Keepinformation.VolunteerFirstShare =reader[4].ToString();
+                    Keepinformation.VolunteerSecondShare = reader[5].ToString();
+                    Keepinformation.VolunteerThirdShare = reader[6].ToString();
+                    Keepinformation.Grade = reader[7].ToString();
+                    result = 1;
+                }
+            }
+            else
+            {
+                result = 0;
+            }
+            return result;
+        }
+        #endregion
+
         #region InsertStu插入学生数据
         /// <summary>
         /// 插入数据
@@ -85,6 +118,32 @@ namespace DAL
             sqlParameter[3].Value = teacherData.Academy;
             sqlParameter[4].Value = teacherData.GroupNumber;
             int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
+            return result;
+        }
+        #endregion
+
+        #region Manage表插入双选参数信息
+        public int InsertManage(ManageData manageData)
+        {
+            string sql = @"insert into Manage (AdminNo1,StartTime,EndTime,VolunteerFirstShare,VolunteerSecondShare,VolunteerThirdShare,Grade) values(@AdminNo1,@StartTime,@EndTime,@VolunteerFirstShare,@VolunteerSencondShare,@VolunteerThirdShare,@Grade)";
+            SqlParameter[] sqlParameter = new SqlParameter[]
+            {
+                new SqlParameter("@AdminNo1",SqlDbType.NVarChar),
+                new SqlParameter("@StartTime",SqlDbType.DateTime),
+                new SqlParameter("@EndTime",SqlDbType.DateTime),
+                new SqlParameter("@VolunteerFirstShare",SqlDbType.Float),
+                new SqlParameter("@VolunteerSencondShare",SqlDbType.Float),
+                new SqlParameter("@VolunteerThirdShare",SqlDbType.Float),
+                new SqlParameter("@Grade",SqlDbType.Float),
+            };
+            sqlParameter[0].Value = manageData.AdminNo1;
+            sqlParameter[1].Value = manageData.StartTime;
+            sqlParameter[2].Value = manageData.EndTime;
+            sqlParameter[3].Value = manageData.VolunteerFirstShare;
+            sqlParameter[4].Value = manageData.VolunteerSecondShare;
+            sqlParameter[5].Value = manageData.VolunteerThirdShare;
+            sqlParameter[6].Value = manageData.Grade;
+            int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数                       
             return result;
         }
         #endregion

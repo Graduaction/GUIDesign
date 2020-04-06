@@ -118,8 +118,6 @@ namespace GUI.UI
                         f3.ShowDialog();
                         this.Visible = true;
                     }
-
-
                     else
                     {
                         MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
