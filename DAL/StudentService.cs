@@ -19,56 +19,6 @@ namespace DAL
         public static string connStr = ConfigurationManager.ConnectionStrings["SQLSERVER"].ConnectionString;
         #endregion
 
-        #region 检查学号是否存在
-        /// <summary>
-        /// 检查学号是否存在
-        /// </summary>
-        /// <param name="StuNo">学号</param>
-        /// <returns>true:存在 false:不存在</returns>
-        public bool CheckStudentIsExists(string StuNo) 
-        {
-            bool flag = false;//学号是否存在的标志，初始值为false，不存在
-            //sql语句
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("select COUNT(*)");
-            sb.AppendLine("from Student");
-            sb.AppendLine("where StuNo=@StuNo");
-            //参数
-            SqlParameter[] paras =
-            {
-                new SqlParameter("@StuNo",StuNo)
-            };
-            //连接对象
-            SqlConnection conn = new SqlConnection(connStr);
-            try
-            {
-                //执行工具（sql语句，连接对象）
-                SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-                //添加参数
-                cmd.Parameters.AddRange(paras);
-                //打开连接
-                conn.Open();
-                //执行
-                int result = Convert.ToInt32(cmd.ExecuteScalar());
-                //判断
-                if (result > 0)
-                {
-                    flag = true;//学号存在
-                }
-            }
-            catch(Exception ex)
-            {
-
-                throw ex;//发生异常时抛出
-            } 
-            finally
-            {
-                conn.Close();//最后关闭数据库
-            }
-            return flag;//学号不存在
-        }
-        #endregion
-
         #region 登录
         /// <summary>
         /// 登录
@@ -122,133 +72,50 @@ namespace DAL
 
         #region 根据学号获取学生对象
         /// <summary>
-        /// 根据学号获取学生对象
+        /// 根据学号获取学生信息
         /// </summary>
-        /// <param name="StuNo"></param>
-        /// <returns></returns>
-        public StudentData GetStudentByNo(string StuNo)
+        /// <param name="StuNo">学号</param>
+        /// <returns>返回学生表</returns>
+        public DataTable GetStudentByNo(string stuNo)
         {
-            StudentData stu = null;
-            //sql语句
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("select * from Student");
-            sb.AppendLine("where StuNo = @StuNo");
-            //参数
+            string sql = @"select * from Student where StuNo = @StuNo";
             SqlParameter[] paras =
             {
-                new SqlParameter("@StuNo",StuNo)
+                new SqlParameter("@StuNo",stuNo)
             };
-            //连接对象
-            SqlConnection conn = new SqlConnection(connStr);
-            try
-            {
-                //执行工具
-                SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-                //添加参数
-                cmd.Parameters.AddRange(paras);
-                //打开连接
-                conn.Open();
-                //执行
-                SqlDataReader reader = cmd.ExecuteReader();
-                //判断
-                if (reader.Read())
-                {
-                    stu = new StudentData
-                    {
-                        StuNo = Convert.ToString(reader["StuNo"]),
-                        StuPwd = Convert.ToString(reader["StuPwd"]),
-                        StuName = Convert.ToString(reader["StuName"]),
-                        StuSex = Convert.ToString(reader["StuSex"]),
-                        Academy = Convert.ToString(reader["Academy"]),
-                        Profession = Convert.ToString(reader["Profession"]),
-                        Grade = Convert.ToInt32(reader["Grade"]),
-                        GroupID = Convert.ToInt32(reader["GroupID"]),
-                        VoluntaryFirst = Convert.ToString(reader["VoluntaryFirst"]),
-                        VoluntarySecond = Convert.ToString(reader["VoluntarySecond"]),
-                        VoluntaryThird = Convert.ToString(reader["VoluntaryThird"])
-                    };
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return stu;
+            DataTable dataTable = SQLHelper.ExecuteQuery(sql,paras);
+            return dataTable;
         }
         #endregion
 
-        #region !! 新增学生
-
-        #endregion
-
-        #region !! 更改学生信息
-
-        #endregion
-
-        #region !! 根据学号删除学生信息
-        #endregion
-
-        #region 获取学生全部信息
+        #region 个人中心插入学生信息
         /// <summary>
-        /// 获取学生全部信息
+        /// 插入数据
         /// </summary>
-        /// <returns>学生集合</returns>
-        public List<StudentData> GetStudentDatas()
+        /// <param name="studentData"></param>
+        /// <returns>返回受影响行数</returns>
+        public int UpdateStu(StudentData studentData)
         {
-            List<StudentData> students = new List<StudentData>();
-            //sql语句
-            StringBuilder sb = new StringBuilder();
-            sb.Append("select * from Student");
-            //连接对象
-            SqlConnection conn = new SqlConnection(connStr);
-            try
+            string sql = @"update  Student set  StuPhone=@StuPhone,StuQQ=@StuQQ,StuEmail=@StuEmail,StuPerIntro=@StuPerIntro,StuHonors=@StuHonors,StuPwd=@StuPwd where StuNo=@StuNo";
+            SqlParameter[] sqlParameter = new SqlParameter[]
             {
-                //执行工具
-                SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-                //打开连接
-                conn.Open();
-                //执行
-                SqlDataReader reader = cmd.ExecuteReader();
-                //判断
-                while (reader.Read())
-                {
-                    StudentData student = new StudentData
-                    {
-                        StuNo = Convert.ToString(reader["StuNo"]),
-                        StuPwd = Convert.ToString(reader["StuPwd"]),
-                        StuName = Convert.ToString(reader["StuName"]),
-                        StuSex = Convert.ToString(reader["StuSex"]),
-                        Academy = Convert.ToString(reader["Academy"]),
-                        Profession = Convert.ToString(reader["Profession"]),
-                        Grade = Convert.ToInt32(reader["Grade"]),
-                        GroupID = Convert.ToInt32(reader["GroupID"]),
-                        VoluntaryFirst = Convert.ToString(reader["VoluntaryFirst"]),
-                        VoluntarySecond = Convert.ToString(reader["VoluntarySecond"]),
-                        VoluntaryThird = Convert.ToString(reader["VoluntaryThird"])
-                    };
-                    students.Add(student);
-                }
-                reader.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return students;
+                new SqlParameter("@StuPhone",SqlDbType.NVarChar),
+                new SqlParameter("@StuQQ",SqlDbType.NVarChar),
+                new SqlParameter("@StuEmail",SqlDbType.NVarChar),
+                new SqlParameter("@StuPerIntro",SqlDbType.NVarChar),
+                new SqlParameter("@StuHonors",SqlDbType.NVarChar),
+                new SqlParameter("@StuPwd",SqlDbType.NVarChar),
+                new SqlParameter("@StuNo",studentData.StuNo)
+            };
+            sqlParameter[0].Value = studentData.StuPhone;
+            sqlParameter[1].Value = studentData.StuQQ;
+            sqlParameter[2].Value = studentData.StuEmail;
+            sqlParameter[3].Value = studentData.StuPerIntro;
+            sqlParameter[4].Value = studentData.StuHonors;
+            sqlParameter[5].Value = studentData.StuPwd;
+            int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
+            return result;
         }
         #endregion
-
-        #region !! 根据姓名和年级条件查询学生信息
-        #endregion
-
     }
 }

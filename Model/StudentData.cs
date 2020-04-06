@@ -15,14 +15,19 @@ namespace Model
         private string _stuNo = string.Empty;
         private string _stuPwd = string.Empty;
         private string _stuName = string.Empty;
-        private string _stuSex = string.Empty;
+        private int _gender ;
         private string academy = string.Empty;
         private string profession = string.Empty;
         private int grade = 0;
         private int _groupID = 0;
-        private string _voluntaryFirst = string.Empty;
-        private string _voluntarySecond = string.Empty;
-        private string _voluntaryThird = string.Empty;
+        private int _voluntaryFirst ;
+        private int _voluntarySecond ;
+        private int _voluntaryThird ;
+        private string _stuPhone = string.Empty;
+        private string _stuQQ = string.Empty;
+        private string _stuEmail = string.Empty;
+        private string _stuPerIntro = string.Empty;
+        private string _stuHonors = string.Empty;
 
         /// <summary>
         /// 学号
@@ -42,7 +47,7 @@ namespace Model
         /// <summary>
         /// 性别
         /// </summary>
-        public string StuSex { get => _stuSex; set => _stuSex = value; }
+        public int StuSex { get => _gender; set => _gender = value; }
 
         /// <summary>
         /// 学院
@@ -67,17 +72,17 @@ namespace Model
         /// <summary>
         /// 志愿一老师id
         /// </summary>
-        public string VoluntaryFirst { get => _voluntaryFirst; set => _voluntaryFirst = value; }
+        public int VoluntaryFirst { get => _voluntaryFirst; set => _voluntaryFirst = value; }
 
         /// <summary>
         /// 志愿二老师id
         /// </summary>
-        public string VoluntarySecond { get => _voluntarySecond; set => _voluntarySecond = value; }
+        public int VoluntarySecond { get => _voluntarySecond; set => _voluntarySecond = value; }
 
         /// <summary>
         /// 志愿三老师id
         /// </summary>
-        public string VoluntaryThird { get => _voluntaryThird; set => _voluntaryThird = value; }
+        public int VoluntaryThird { get => _voluntaryThird; set => _voluntaryThird = value; }
         /// <summary>
         /// 学生年级
         /// </summary>
@@ -90,5 +95,25 @@ namespace Model
         /// 学生id
         /// </summary>
         public int StuID { get => _stuID; set => _stuID = value; }
+        /// <summary>
+        /// 手机
+        /// </summary>
+        public string StuPhone { get => _stuPhone; set => _stuPhone = value; }
+        /// <summary>
+        /// QQ
+        /// </summary>
+        public string StuQQ { get => _stuQQ; set => _stuQQ = value; }
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        public string StuEmail { get => _stuEmail; set => _stuEmail = value; }
+        /// <summary>
+        /// 个人简介
+        /// </summary>
+        public string StuPerIntro { get => _stuPerIntro; set => _stuPerIntro = value; }
+        /// <summary>
+        /// 在校期间获得的荣誉
+        /// </summary>
+        public string StuHonors { get => _stuHonors; set => _stuHonors = value; }
     }
 }
