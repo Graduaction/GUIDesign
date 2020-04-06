@@ -15,6 +15,7 @@ namespace DAL
         #region 数据库连接字符串
         public static string connStr = ConfigurationManager.ConnectionStrings["SQLSERVER"].ConnectionString;
         #endregion
+
         #region 执行教师登入检查--检查输入的账号密码有没有在数据库对应
         /// <summary>
         /// 执行教师登入检查
@@ -127,6 +128,7 @@ namespace DAL
         }
 
         #endregion
+
         #region 显示教师的个人信息
         /// <summary>
         /// 
@@ -136,7 +138,7 @@ namespace DAL
        public DataTable Getperson(string teaNo)
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("select TeaNo,TeaName,Title,Contaction,Gender,Profile from Teacher");
+            sb.AppendLine("select TeaNo,TeaName,Title,Contaction,Gender,Profile ,groupnumber ,email from Teacher");
             sb.AppendLine("where TeaNo =@teaNo");
             SqlParameter[] paras ={ new SqlParameter("@teaNo",teaNo) };
             SqlConnection conn = new SqlConnection(connStr);
@@ -158,6 +160,66 @@ namespace DAL
             }
            
         }
+        #endregion
+
+        #region 执行教师修改个人信息
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="teaNo"></param>
+        /// <param name="teaName"></param>
+        /// <param name="teaTitle"></param>
+        /// <param name="teaPhone"></param>
+        /// <param name="teaProfile"></param>
+        /// <returns>返回flag=true说明re受影响的行数=1，说明更新一条记录</returns>
+        public bool UpdateTea(string teaNo,string teaName,string teaTitle,string teaPhone,string teaProfile,string email)
+        {
+            bool flag = false;
+            //创建sql语句
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("update Teacher set TeaName=@teaname,Title=@teatitle,Contaction=@phone,Profile=@jxuk,Email=@teaemail");
+            sb.AppendLine("where TeaNo=@loginId");
+            //设置参数
+            SqlParameter[] paras =
+            {
+                new SqlParameter("@loginId",teaNo),
+                new SqlParameter("@teaname",teaName),
+                new SqlParameter("@teatitle",teaTitle),
+                new SqlParameter("@phone",teaPhone),
+                new SqlParameter("@jxuk",teaProfile),
+                new SqlParameter("@teaemail",email)
+            };
+            //创建链接对象
+            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                //创建执行工具
+                SqlCommand cmdd = new SqlCommand(sb.ToString(), conn);
+                //设置执行工具的参数
+                cmdd.Parameters.AddRange(paras);
+                //打开链接
+                conn.Open();
+                //执行
+                int syxhss = cmdd.ExecuteNonQuery();///executenonquery 函数返回受影响的行数
+                //判断
+                if (syxhss > 0)
+                {
+                    flag = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return flag;
+        }
+        #endregion
 
         public bool ChangeTeaPwd1(string loginId, string loginOPwd, string loginNPwd)
         {
@@ -206,7 +268,5 @@ namespace DAL
             return flag;
             //flag=true 代表受影响行数大于1，表示有一个或一个以上的记录更改
         }
-        #endregion
-
     }
 }
