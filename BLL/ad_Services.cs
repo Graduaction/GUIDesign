@@ -177,5 +177,20 @@ namespace BLL
             return sDAL.UpdataAdmdata(adminData);
         }
         #endregion
+
+        #region 设置双选参数
+        public int Setparambll(ManageData manageData)
+        {
+            int result =sDAL.InsertManage(manageData);
+            return result;
+        }
+        #endregion
+
+        #region 查询双选参数信息
+        public int SelectManagebll(string adminno1)
+        {
+            return sDAL.SelectManage(adminno1);
+        }
+        #endregion
     }
 }
