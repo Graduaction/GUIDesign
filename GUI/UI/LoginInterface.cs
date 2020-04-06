@@ -21,14 +21,17 @@ namespace GUI.UI
         public const string INPUTNOEXIST = "用户名或密码不存在";
         readonly StudentManager sm = new StudentManager();//实例化对象
         readonly TeacherManager tm = new TeacherManager();
-        readonly ad_ServicesBLL ad_ServicesBLL = new ad_ServicesBLL();
-        #endregion
 
- 
+        readonly ad_ServicesBLL ad_ServicesBLL = new ad_ServicesBLL();
+        public static string loginid;//登入账号
+
+        #endregion
+       
         // 构造函数
         public LoginInterface()
         {
             InitializeComponent();
+           
         }
 
         // 窗体加载事件
@@ -106,6 +109,7 @@ namespace GUI.UI
                 {
                     AdminData adminData = new AdminData();
                     adminData.AdminNo = TxtName.Text.Trim();
+
                     adminData.AdminPwd = TxtPwd.Text.Trim();                  
                     if(ad_ServicesBLL.CheckAdminLogin(adminData)==2)
                     {
@@ -114,11 +118,13 @@ namespace GUI.UI
                         f3.ShowDialog();
                         this.Visible = true;
                     }
+<<<<<<<<< Temporary merge branch 1
                     else
                     {
                         MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     
+
                 }
             }
             catch (Exception ex )
@@ -132,6 +138,10 @@ namespace GUI.UI
         {   
             this.Close();
         }
-        
+
+        private void TxtName_TextChanged(object sender, EventArgs e)
+        {
+            loginid = this.TxtName.Text;
+        }
     }
 }
