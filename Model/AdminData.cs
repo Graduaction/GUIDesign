@@ -13,10 +13,11 @@ namespace Model
         /// <summary>
         /// Admin表
         /// </summary>
-        private string _adminNo = string.Empty;
-        private string _adminPwd = string.Empty;
+        private  string _adminNo = string.Empty;
+        private  string _adminPwd = string.Empty;
         private string _adminName = string.Empty;
         private string _adminTitle = string.Empty;
+        private string _adminEmail = string.Empty;
 
         /// <summary>
         /// 管理员ID
@@ -37,5 +38,9 @@ namespace Model
         /// 职称
         /// </summary>
         public string AdminTitle { get => _adminTitle; set => _adminTitle = value; }
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        public string AdminEmail { get => _adminEmail; set => _adminEmail = value; }
     }
 }
