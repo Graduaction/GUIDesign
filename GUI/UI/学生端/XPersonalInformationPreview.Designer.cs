@@ -36,6 +36,7 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LbStuGender = new System.Windows.Forms.Label();
             this.LbStuEmail = new System.Windows.Forms.Label();
             this.LbStuQQ = new System.Windows.Forms.Label();
             this.LbStuPhone = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.LbStuClass = new System.Windows.Forms.Label();
             this.LbStuProfession = new System.Windows.Forms.Label();
-            this.LbStuGender = new System.Windows.Forms.Label();
             this.LbStuName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -149,6 +149,17 @@
             this.panel1.Size = new System.Drawing.Size(1128, 127);
             this.panel1.TabIndex = 4;
             // 
+            // LbStuGender
+            // 
+            this.LbStuGender.AutoSize = true;
+            this.LbStuGender.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbStuGender.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbStuGender.Location = new System.Drawing.Point(391, 30);
+            this.LbStuGender.Name = "LbStuGender";
+            this.LbStuGender.Size = new System.Drawing.Size(29, 20);
+            this.LbStuGender.TabIndex = 1;
+            this.LbStuGender.Text = "男";
+            // 
             // LbStuEmail
             // 
             this.LbStuEmail.AutoSize = true;
@@ -242,17 +253,6 @@
             this.LbStuProfession.TabIndex = 2;
             this.LbStuProfession.Text = "信息系统与信息管理";
             // 
-            // LbStuGender
-            // 
-            this.LbStuGender.AutoSize = true;
-            this.LbStuGender.Font = new System.Drawing.Font("宋体", 12F);
-            this.LbStuGender.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.LbStuGender.Location = new System.Drawing.Point(391, 30);
-            this.LbStuGender.Name = "LbStuGender";
-            this.LbStuGender.Size = new System.Drawing.Size(29, 20);
-            this.LbStuGender.TabIndex = 1;
-            this.LbStuGender.Text = "男";
-            // 
             // LbStuName
             // 
             this.LbStuName.AutoEllipsis = true;
@@ -280,6 +280,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1354, 551);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
