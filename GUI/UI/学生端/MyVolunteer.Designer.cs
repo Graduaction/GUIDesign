@@ -109,6 +109,7 @@
             this.志愿序号.HeaderText = "志愿序号";
             this.志愿序号.MinimumWidth = 6;
             this.志愿序号.Name = "志愿序号";
+            this.志愿序号.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.志愿序号.Width = 125;
             // 
             // 志愿状态
@@ -131,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1363, 535);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
