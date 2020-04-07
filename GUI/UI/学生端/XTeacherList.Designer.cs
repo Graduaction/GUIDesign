@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.导师姓名 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.可带学生数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.第一志愿填报人数 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.志愿序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.志愿序号 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.操作 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,6 +53,22 @@
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看教师列表";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.导师姓名,
+            this.可带学生数,
+            this.第一志愿填报人数,
+            this.志愿序号,
+            this.操作});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 57);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 27;
+            this.dataGridView1.Size = new System.Drawing.Size(1257, 378);
+            this.dataGridView1.TabIndex = 4;
             // 
             // label2
             // 
@@ -74,22 +90,6 @@
             this.label3.Size = new System.Drawing.Size(143, 33);
             this.label3.TabIndex = 1;
             this.label3.Text = "教师列表";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.导师姓名,
-            this.可带学生数,
-            this.第一志愿填报人数,
-            this.志愿序号,
-            this.操作});
-            this.dataGridView1.Location = new System.Drawing.Point(29, 57);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1257, 378);
-            this.dataGridView1.TabIndex = 4;
             // 
             // 导师姓名
             // 
@@ -119,6 +119,8 @@
             this.志愿序号.HeaderText = "志愿序号";
             this.志愿序号.MinimumWidth = 6;
             this.志愿序号.Name = "志愿序号";
+            this.志愿序号.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.志愿序号.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.志愿序号.Width = 125;
             // 
             // 操作
@@ -134,6 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1388, 557);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -156,7 +159,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn 导师姓名;
         private System.Windows.Forms.DataGridViewTextBoxColumn 可带学生数;
         private System.Windows.Forms.DataGridViewTextBoxColumn 第一志愿填报人数;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 志愿序号;
+        private System.Windows.Forms.DataGridViewComboBoxColumn 志愿序号;
         private System.Windows.Forms.DataGridViewButtonColumn 操作;
     }
 }

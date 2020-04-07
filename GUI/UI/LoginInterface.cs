@@ -80,7 +80,6 @@ namespace GUI.UI
                 {
                     if (sm.CheckStudentLogin(TxtName.Text.Trim(), TxtPwd.Text.Trim()))
                     {
-                        //MessageBox.Show("登录成功");
                         this.Visible = false;
                         StudentForm f1 = new StudentForm();
                         f1.ShowDialog();

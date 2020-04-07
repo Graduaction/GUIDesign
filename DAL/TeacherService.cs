@@ -221,6 +221,24 @@ namespace DAL
         }
         #endregion
 
+        #region 查询显示通知表 通知标题等 
+        public DataTable selectNote()
+        {
+            string sql = "select infono as 序号,infotitle as 标题,(select Adminname from Admin b where  a.Adminno =b.AdminNo)as 发布人,infotime as 发布时间 from information a";
+            DataTable notetable = SQLHelper.ExecuteQuery(sql);
+            return notetable;
+        }
+        #endregion
+
+        #region 获取通知详情
+        public DataTable GetInfoDetail(string infono)
+        {
+            string sql = "select InfoTitle,InfoContent,InfoTime from Information where InfoNo=@infono";
+            SqlParameter[] paras = { new SqlParameter("@infono", infono) };
+            DataTable infode = SQLHelper.ExecuteQuery(sql, paras);
+            return infode;
+        } 
+        #endregion
         public bool ChangeTeaPwd1(string loginId, string loginOPwd, string loginNPwd)
         {
             bool flag = false;
