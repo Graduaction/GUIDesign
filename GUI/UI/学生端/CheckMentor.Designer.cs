@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label18 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -66,6 +66,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.AliceBlue;
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
@@ -75,17 +76,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看我的导师";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 19F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(566, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 33);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "我的导师";
             // 
             // panel2
             // 
@@ -391,6 +381,17 @@
             this.label1.Size = new System.Drawing.Size(79, 33);
             this.label1.TabIndex = 0;
             this.label1.Text = "向函";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 19F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(566, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 33);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "我的导师";
             // 
             // CheckMentor
             // 

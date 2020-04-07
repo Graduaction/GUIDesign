@@ -253,5 +253,10 @@ namespace GUI.UI
             //}
            
         }
+
+        private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
