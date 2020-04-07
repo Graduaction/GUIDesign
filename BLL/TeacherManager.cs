@@ -83,6 +83,20 @@ namespace BLL
         }
         #endregion
 
+        #region 查询通知表 通知标题等
+        public DataTable selectNote()
+        {
+            return ts.selectNote();
+        }
+        #endregion
+
+        #region 显示通知详细内容
+        public DataTable GetInfoDetail(string infono)
+        {
+            return ts.GetInfoDetail(infono);
+        }
+        #endregion
+
 
     }
 }
