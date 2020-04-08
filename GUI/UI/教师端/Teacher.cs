@@ -325,7 +325,7 @@ namespace GUI.UI
 
         private void label10_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            //this.Visible = false;
             //Teacher f2 = new Teacher();
             //f2.ShowDialog();
             ChangePwd cp = new ChangePwd();
