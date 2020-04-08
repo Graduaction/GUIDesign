@@ -40,11 +40,12 @@ namespace GUI.UI
         public static HomePage form1 = null;
         public static XTeacherLise form2 = null;
         public static MyVolunteer form3 = null;
-        public static PersonalInformationPreview form4 = null;
+        public static XPersonalInformationPreview form4 = null;
         public static CheckMentor form5 = null;
         public static XCheckNotification form6 = null;
         public static XPersonalCenter form7 = null;
-        
+        public static MyTeam form8 = null;
+
         /// <summary>
         /// 当前显示窗体
         /// </summary>
@@ -69,7 +70,7 @@ namespace GUI.UI
                 this.button6.BackColor = Color.FromArgb(53, 66, 83);
                 this.button7.BackColor = Color.FromArgb(53, 66, 83);
                 this.button8.BackColor = Color.FromArgb(53, 66, 83);
-                
+                this.button9.BackColor = Color.FromArgb(53, 66, 83);
                 this.button10.BackColor = Color.FromArgb(53, 66, 83);
                 this.button11.BackColor = Color.FromArgb(53, 66, 83);
                 
@@ -93,11 +94,12 @@ namespace GUI.UI
             form1 = HomePage.GetIntance;
             form2 = XTeacherLise.GetIntance;
             form3 = MyVolunteer.GetIntance;
-            form4 = PersonalInformationPreview.GetIntance;
+            form4 = XPersonalInformationPreview.GetIntance;
             form5 = CheckMentor.GetIntance;
             form6 = XCheckNotification.GetIntance;
             form7 = XPersonalCenter.GetIntance;
-            
+            form8 = MyTeam.GetIntance;
+
 
             //初始化按钮
             this.initButton();
@@ -373,6 +375,36 @@ namespace GUI.UI
             ChangePwd cp = new ChangePwd();
             cp.ShowDialog();
             this.Visible = true;
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.initButton();
+                this.button9.BackColor = Color.FromArgb(95, 129, 174);
+                Monitor.Enter(this.lockObj);
+                if (!formSwitchFlag)
+                {
+                    formSwitchFlag = true;
+                    this.ShowForm(pnlCenter, form8);
+                    formSwitchFlag = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+            catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+            {
+                //
+            }
+            finally
+            {
+                Monitor.Exit(this.lockObj);
+            }
         }
     }
 

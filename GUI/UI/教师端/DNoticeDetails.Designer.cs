@@ -1,6 +1,6 @@
 ﻿namespace GUI.UI
 {
-    partial class NoticeDetails
+    partial class DNoticeDetails
     {
         /// <summary>
         /// Required designer variable.

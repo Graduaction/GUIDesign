@@ -8,6 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 using Model;
 using BLL;
+using System.Threading;
+
 namespace GUI.UI
 {
     public partial class MyStudents : Form
@@ -74,7 +76,7 @@ namespace GUI.UI
             //    PersonalInformationPreview formChild = new PersonalInformationPreview(restu);
             //    formChild.ShowDialog();
         }
-
+        
         private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -87,9 +89,7 @@ namespace GUI.UI
                     //获取单元格内容中的数字
                     restu = System.Text.RegularExpressions.Regex.Replace(restu, @"[^0-9]+", "");
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
-                    PersonalInformationPreview formChild = new PersonalInformationPreview(restu);
-                    formChild.ShowDialog();
-                    //
+                    
                 }
             }
             catch (Exception ex)

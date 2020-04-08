@@ -1,6 +1,6 @@
 ﻿namespace GUI.UI
 {
-    partial class PersonalInformationPreview
+    partial class XPersonalInformationPreview
     {
         /// <summary>
         /// Required designer variable.
@@ -276,7 +276,7 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "个人信息预览";
             // 
-            // PersonalInformationPreview
+            // XPersonalInformationPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -284,7 +284,7 @@
             this.ClientSize = new System.Drawing.Size(1354, 551);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "PersonalInformationPreview";
+            this.Name = "XPersonalInformationPreview";
             this.Text = "Form21";
             this.Load += new System.EventHandler(this.Form21_Load);
             this.groupBox1.ResumeLayout(false);
