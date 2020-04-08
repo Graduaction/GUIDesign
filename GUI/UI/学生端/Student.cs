@@ -1,4 +1,5 @@
 ﻿using BenNHControl;
+using static BenNHControl.FormEX;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -362,6 +363,16 @@ namespace GUI.UI
         private void label3_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            //Teacher f2 = new Teacher();
+            //f2.ShowDialog();
+            ChangePwd cp = new ChangePwd();
+            cp.ShowDialog();
+            this.Visible = true;
         }
     }
 
