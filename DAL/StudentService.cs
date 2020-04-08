@@ -78,13 +78,21 @@ namespace DAL
         /// <returns>返回学生表</returns>
         public DataTable GetStudentByNo(string stuNo)
         {
-            string sql = @"select * from Student where StuNo = @StuNo";
-            SqlParameter[] paras =
+            try
             {
+                string sql = @"select * from Student where StuNo = @StuNo";
+                SqlParameter[] paras =
+                {
                 new SqlParameter("@StuNo",stuNo)
             };
-            DataTable dataTable = SQLHelper.ExecuteQuery(sql,paras);
-            return dataTable;
+                DataTable dataTable = SQLHelper.ExecuteQuery(sql, paras);
+                return dataTable;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
         #endregion
 

@@ -249,9 +249,34 @@ namespace DAL
             paras[0].Value = info;
             sno = (string)SQLHelper.ExecuteScalar(sql, CommandType.Text, paras);
             return sno;
-        } 
+        }
         #endregion
 
-        
+        #region 显示当前教师账号的所带组员列表
+        public DataTable selectMyStu(string teano)
+        {
+            string sql = "exec getmystu_procedure @teano";
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("exec getmystu_procedure @teano");
+            SqlParameter[] paras = {new SqlParameter("@teano", teano) };
+            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
+                cmd.Parameters.AddRange(paras);
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
     }
 }
