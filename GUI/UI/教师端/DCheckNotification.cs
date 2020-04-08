@@ -61,22 +61,47 @@ namespace GUI.UI
            infono = this.dataGridView1.CurrentRow.Cells["序号"].Value.ToString();
             //MessageBox.Show(infono);//测试有没有获取到这个值
 
-            #region 跳转到通知详细页面  可能双击事件更好
-            this.Visible = false;
-            NoticeDetails nd = new NoticeDetails();
-            nd.ShowDialog();
-            this.Visible = true; 
-            #endregion
+            NoticeDetails cform = new NoticeDetails();//实例化一个子窗口
+            //设置子窗口不显示为顶级窗口
+            cform.TopLevel = false;
+            //设置子窗口的样式，没有上面的标题栏
+            cform.FormBorderStyle = FormBorderStyle.None;
+            //填充
+            cform.Dock = DockStyle.Fill;
+            //清空控件
+            this.Controls.Clear();
+            //加入控件
+            this.Controls.Add(cform);
+            //让窗体显示
+            cform.Show();
         }
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            #region 跳转到通知详细页面  
-            this.Visible = false;
-            NoticeDetails nd = new NoticeDetails();
-            nd.ShowDialog();
-            this.Visible = true;
-            #endregion
+            NoticeDetails cform = new NoticeDetails();//实例化一个子窗口
+            //设置子窗口不显示为顶级窗口
+            cform.TopLevel = false;
+            //设置子窗口的样式，没有上面的标题栏
+            cform.FormBorderStyle = FormBorderStyle.None;
+            //填充
+            cform.Dock = DockStyle.Fill;
+            //清空控件
+            this.Controls.Clear();
+            //加入控件
+            this.Controls.Add(cform);
+            //让窗体显示
+            cform.Show();
+            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

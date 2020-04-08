@@ -31,5 +31,22 @@ namespace GUI.UI
             tbc.Text = dt.Rows[0]["InfoContent"].ToString();
             #endregion
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DCheckNotification cform = new DCheckNotification();//实例化一个子窗口
+            //设置子窗口不显示为顶级窗口
+            cform.TopLevel = false;
+            //设置子窗口的样式，没有上面的标题栏
+            cform.FormBorderStyle = FormBorderStyle.None;
+            //填充
+            cform.Dock = DockStyle.Fill;
+            //清空控件
+            this.Controls.Clear();
+            //加入控件
+            this.Controls.Add(cform);
+            //让窗体显示
+            cform.Show();
+        }
     }
 }

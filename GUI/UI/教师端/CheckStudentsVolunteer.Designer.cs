@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.组别号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.组内成员 = new System.Windows.Forms.DataGridViewButtonColumn();
@@ -37,6 +36,7 @@
             this.综测平均分 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.操作 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.操作状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -52,17 +52,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看学生志愿";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("宋体", 19F);
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(473, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 33);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "学生列表";
             // 
             // dataGridView1
             // 
@@ -127,10 +116,22 @@
             this.操作状态.Name = "操作状态";
             this.操作状态.Width = 125;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("宋体", 19F);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(473, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 33);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "学生列表";
+            // 
             // CheckStudentsVolunteer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1351, 498);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -1,4 +1,5 @@
 ﻿using BenNHControl;
+using static BenNHControl.FormEX;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -104,8 +105,7 @@ namespace GUI.UI
             try
             {
                 this.button1.BackColor = Color.FromArgb(53, 66, 83);
-                this.button2.BackColor = Color.FromArgb(53, 66, 83);
-                this.button3.BackColor = Color.FromArgb(53, 66, 83);
+                
                 this.button4.BackColor = Color.FromArgb(53, 66, 83);
                 this.button5.BackColor = Color.FromArgb(53, 66, 83);
                 this.button6.BackColor = Color.FromArgb(53, 66, 83);
@@ -310,7 +310,7 @@ namespace GUI.UI
             try
             {
                 this.initButton();
-                this.button2.BackColor = Color.FromArgb(95, 129, 174);
+               
                 Monitor.Enter(this.lockObj);
                 if (!formSwitchFlag)
                 {
@@ -340,7 +340,7 @@ namespace GUI.UI
             try
             {
                 this.initButton();
-                this.button3.BackColor = Color.FromArgb(95, 129, 174);
+                
                 Monitor.Enter(this.lockObj);
                 if (!formSwitchFlag)
                 {

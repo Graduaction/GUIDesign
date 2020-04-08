@@ -92,12 +92,7 @@ namespace GUI.UI
         /// <param name="e"></param>
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            //Teacher f2 = new Teacher();
-            //f2.ShowDialog();
-            ChangePwd cp = new ChangePwd();
-            cp.ShowDialog();
-            this.Visible = true;
+            
         } 
         #endregion
 

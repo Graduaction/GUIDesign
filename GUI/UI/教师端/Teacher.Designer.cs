@@ -49,13 +49,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlCenter.SuspendLayout();
@@ -70,7 +71,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(1341, 170);
+            this.label1.Location = new System.Drawing.Point(1282, 170);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 15);
             this.label1.TabIndex = 17;
@@ -249,7 +250,7 @@
             // 
             // pnlCenter
             // 
-            this.pnlCenter.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pnlCenter.BackColor = System.Drawing.Color.AliceBlue;
             this.pnlCenter.Controls.Add(this.label5);
             this.pnlCenter.Controls.Add(this.groupBox1);
             this.pnlCenter.Controls.Add(this.tabControl1);
@@ -338,6 +339,18 @@
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label9.Location = new System.Drawing.Point(3, 7);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(327, 195);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "个人中心：可修改个人信息，首次登陆请完善\r\n个人信息并且更改密码\r\n\r\n个人信息浏览：个人中心修改个人信息后生成\r\n的界面，也是学生浏览教师信息的界面\r\n\r\n查看" +
+    "学生志愿：可查看目前有志愿选择您当导\r\n师的学生，可点击学生名字查看学生详细信息\r\n\r\n查看我的学生：最终确认的您带领的学生，可\r\n点击学生名字查看学生详细信息" +
+    "\r\n\r\n查看通知：查看通知，可下载附件";
+            // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
@@ -400,23 +413,24 @@
             this.label3.Text = "切换账号";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(3, 7);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(359, 195);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "个人中心：可修改个人信息，首次登陆请完善个人\r\n信息并且更改密码\r\n\r\n个人信息浏览：个人中心修改个人信息后生成的界\r\n面，也是学生浏览教师信息的界面\r\n\r\n查看" +
-    "学生志愿：可查看目前有志愿选择您当导师的\r\n学生，可点击学生名字查看学生详细信息\r\n\r\n查看我的学生：最终确认的您带领的学生，可点击\r\n学生名字查看学生详细信息" +
-    "\r\n\r\n查看通知：查看通知，可下载附件";
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.Transparent;
+            this.label10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label10.Location = new System.Drawing.Point(1355, 170);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(67, 15);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "修改密码";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1701, 767);
+            this.ClientSize = new System.Drawing.Size(1742, 767);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
@@ -432,6 +446,7 @@
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.pictureBox1, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label10, 0);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnlBottom.ResumeLayout(false);
@@ -478,5 +493,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
