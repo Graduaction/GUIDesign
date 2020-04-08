@@ -20,6 +20,11 @@ namespace GUI.UI
         {
             InitializeComponent();
         }
+        public PersonalInformationPreview(string re)
+        {
+            InitializeComponent();
+            stuNo = re;
+        }
         private static PersonalInformationPreview formInstance;
         public static PersonalInformationPreview GetIntance
         {

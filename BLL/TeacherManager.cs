@@ -97,6 +97,21 @@ namespace BLL
         }
         #endregion
 
+        #region 显示我的学生
+        public DataTable selectMyStu(string teano)
+        {
+            return ts.selectMyStu(teano);
+        }
+
+        #endregion
+
+        #region 从
+        public string getstuno(string info)
+        {
+            return ts.getstuno(info);
+        } 
+        #endregion
+
 
     }
 }
