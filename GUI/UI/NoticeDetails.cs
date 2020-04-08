@@ -23,7 +23,7 @@ namespace GUI.UI
         private void NoticeDetails_Load(object sender, EventArgs e)
         {
             #region 页面载入时显示这个序号的通知详细内容
-            MessageBox.Show(infono);//测试可以获取通知表页面的通知序号
+           // MessageBox.Show(infono);//测试可以获取通知表页面的通知序号
             DataTable dt = tm.GetInfoDetail(infono);
             //tbno.Text = dt.Rows[0]["TeaNo"].ToString();
             tbtitle.Text = dt.Rows[0]["InfoTitle"].ToString();
