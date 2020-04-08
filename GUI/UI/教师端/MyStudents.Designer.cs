@@ -31,10 +31,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.组别号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.组内成员 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.组长 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.组长联系电话 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -70,11 +66,6 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.组别号,
-            this.组内成员,
-            this.组长,
-            this.组长联系电话});
             this.dataGridView1.Location = new System.Drawing.Point(18, 43);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
@@ -84,34 +75,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
-            // 
-            // 组别号
-            // 
-            this.组别号.HeaderText = "组别号";
-            this.组别号.MinimumWidth = 6;
-            this.组别号.Name = "组别号";
-            this.组别号.Width = 125;
-            // 
-            // 组内成员
-            // 
-            this.组内成员.HeaderText = "组内成员";
-            this.组内成员.MinimumWidth = 6;
-            this.组内成员.Name = "组内成员";
-            this.组内成员.Width = 125;
-            // 
-            // 组长
-            // 
-            this.组长.HeaderText = "组长";
-            this.组长.MinimumWidth = 6;
-            this.组长.Name = "组长";
-            this.组长.Width = 125;
-            // 
-            // 组长联系电话
-            // 
-            this.组长联系电话.HeaderText = "组长联系电话";
-            this.组长联系电话.MinimumWidth = 6;
-            this.组长联系电话.Name = "组长联系电话";
-            this.组长联系电话.Width = 125;
             // 
             // label2
             // 
@@ -149,12 +112,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn 组别号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 组内成员;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 组长;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 组长联系电话;
-
-        private System.Windows.Forms.Label label1;
+        //private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
 }
