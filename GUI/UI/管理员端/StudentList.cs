@@ -77,7 +77,7 @@ namespace GUI.UI
             studentData.StuName = textBox4.Text;
             studentData.StuNianji = textBox5.Text;
             studentData.Academy = textBox6.Text;
-            studentData.Profession = textBox7.Text;
+            studentData.Profession = textBox6.Text;
             studentData.StuClass = Convert.ToInt32(textBox8.Text);
             studentData.Grade = Convert.ToInt32(textBox9.Text);
             //if (BLL.Check(studentData.StuNo))//true代表数据库中已有该值
@@ -257,6 +257,11 @@ namespace GUI.UI
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
         }
     }
 }

@@ -61,7 +61,7 @@ namespace GUI.UI
            infono = this.dataGridView1.CurrentRow.Cells["序号"].Value.ToString();
             //MessageBox.Show(infono);//测试有没有获取到这个值
 
-            NoticeDetails cform = new NoticeDetails();//实例化一个子窗口
+            DNoticeDetails cform = new DNoticeDetails();//实例化一个子窗口
             //设置子窗口不显示为顶级窗口
             cform.TopLevel = false;
             //设置子窗口的样式，没有上面的标题栏
@@ -78,7 +78,7 @@ namespace GUI.UI
 
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            NoticeDetails cform = new NoticeDetails();//实例化一个子窗口
+            DNoticeDetails cform = new DNoticeDetails();//实例化一个子窗口
             //设置子窗口不显示为顶级窗口
             cform.TopLevel = false;
             //设置子窗口的样式，没有上面的标题栏
@@ -100,6 +100,11 @@ namespace GUI.UI
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

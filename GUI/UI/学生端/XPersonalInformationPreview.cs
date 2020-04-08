@@ -11,22 +11,22 @@ using System.Windows.Forms;
 
 namespace GUI.UI
 {
-    public partial class PersonalInformationPreview : Form
+    public partial class XPersonalInformationPreview : Form
     {
         StudentManager sm = new StudentManager();
         StudentData student = new StudentData();
         public string stuNo = LoginInterface.loginid;
-        public PersonalInformationPreview()
+        public XPersonalInformationPreview()
         {
             InitializeComponent();
         }
-        public PersonalInformationPreview(string re)
+        public XPersonalInformationPreview(string re)
         {
             InitializeComponent();
             stuNo = re;
         }
-        private static PersonalInformationPreview formInstance;
-        public static PersonalInformationPreview GetIntance
+        private static XPersonalInformationPreview formInstance;
+        public static XPersonalInformationPreview GetIntance
         {
             get
             {
@@ -36,7 +36,7 @@ namespace GUI.UI
                 }
                 else
                 {
-                    formInstance = new PersonalInformationPreview();
+                    formInstance = new XPersonalInformationPreview();
                     return formInstance;
                 }
             }
