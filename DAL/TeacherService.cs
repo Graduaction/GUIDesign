@@ -237,54 +237,21 @@ namespace DAL
             SqlParameter[] paras = { new SqlParameter("@infono", infono) };
             DataTable infode = SQLHelper.ExecuteQuery(sql, paras);
             return infode;
+        }
+        #endregion
+
+        #region 从“小红1234”获取到1234
+        public string getstuno(string info)
+        {
+            string sno = null;
+            string sql = @"select dbo.f_GetNum(@info)";
+            SqlParameter[] paras = { new SqlParameter("@info", SqlDbType.NVarChar) };
+            paras[0].Value = info;
+            sno = (string)SQLHelper.ExecuteScalar(sql, CommandType.Text, paras);
+            return sno;
         } 
         #endregion
-        public bool ChangeTeaPwd1(string loginId, string loginOPwd, string loginNPwd)
-        {
-            bool flag = false;
-            //创建sql语句
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine("update Teacher set TeaPwd=@loginNPwd");
-            sb.AppendLine("where TeaNo=@loginId and TeaPwd=@loginOPwd");
-            //设置参数
-            SqlParameter[] paras =
-            {
-                new SqlParameter("@loginId",loginId),
-                new SqlParameter("@loginOPwd",loginOPwd),
-                new SqlParameter("@loginNPwd",loginNPwd)
-            };
-            //创建链接对象
-            SqlConnection conn = new SqlConnection(connStr);
-            try
-            {
-                //创建执行工具
-                SqlCommand cmd = new SqlCommand(sb.ToString(), conn);
-                //设置执行工具的参数
-                cmd.Parameters.AddRange(paras);
-                //打开链接
-                conn.Open();
-                //执行
-                ///SqlDataReader reader = cmd.ExecuteReader();
-                int syxhs = cmd.ExecuteNonQuery();///executenonquery 函数返回受影响的行数
-                //判断
-                if (syxhs > 0)
-                {
-                    flag = true;
-                }
-                //reader.Close();
 
-            }
-            catch (Exception ex)
-            {
-
-                throw ex;
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return flag;
-            //flag=true 代表受影响行数大于1，表示有一个或一个以上的记录更改
-        }
+        
     }
 }
