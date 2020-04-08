@@ -255,7 +255,7 @@ namespace DAL
         #region 显示当前教师账号的所带组员列表
         public DataTable selectMyStu(string teano)
         {
-            string sql = "exec getmystu_procedure @teano";
+            
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("exec getmystu_procedure @teano");
             SqlParameter[] paras = {new SqlParameter("@teano", teano) };
