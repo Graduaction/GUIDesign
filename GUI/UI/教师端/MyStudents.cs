@@ -89,6 +89,7 @@ namespace GUI.UI
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
                     PersonalInformationPreview formChild = new PersonalInformationPreview(restu);
                     formChild.ShowDialog();
+                    //
                 }
             }
             catch (Exception ex)
