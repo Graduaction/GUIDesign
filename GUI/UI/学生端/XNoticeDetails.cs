@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace GUI.UI
 {
-    public partial class Form33 : Form
+    public partial class XNoticeDetails : Form
     {
-        public Form33()
+        public XNoticeDetails()
         {
             InitializeComponent();
         }
