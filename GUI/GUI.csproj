@@ -172,11 +172,11 @@
     <Compile Include="UI\学生端\XCheckNotification.Designer.cs">
       <DependentUpon>XCheckNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\NoticeDetails.cs">
+    <Compile Include="UI\教师端\DNoticeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\NoticeDetails.Designer.cs">
-      <DependentUpon>NoticeDetails.cs</DependentUpon>
+    <Compile Include="UI\教师端\DNoticeDetails.Designer.cs">
+      <DependentUpon>DNoticeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\管理员端\Matching.cs">
       <SubType>Form</SubType>
@@ -226,23 +226,23 @@
     <Compile Include="UI\教师端\MyStudents.Designer.cs">
       <DependentUpon>MyStudents.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form32.cs">
+    <Compile Include="UI\管理员端\MatchingFailure.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form32.Designer.cs">
-      <DependentUpon>Form32.cs</DependentUpon>
+    <Compile Include="UI\管理员端\MatchingFailure.Designer.cs">
+      <DependentUpon>MatchingFailure.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form33.cs">
+    <Compile Include="UI\学生端\MyTeam.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form33.Designer.cs">
-      <DependentUpon>Form33.cs</DependentUpon>
+    <Compile Include="UI\学生端\MyTeam.Designer.cs">
+      <DependentUpon>MyTeam.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form34.cs">
+    <Compile Include="UI\学生端\XNoticeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form34.Designer.cs">
-      <DependentUpon>Form34.cs</DependentUpon>
+    <Compile Include="UI\学生端\XNoticeDetails.Designer.cs">
+      <DependentUpon>XNoticeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form35.cs">
       <SubType>Form</SubType>
@@ -250,11 +250,11 @@
     <Compile Include="UI\Form35.Designer.cs">
       <DependentUpon>Form35.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form36.cs">
+    <Compile Include="UI\管理员端\GNoticeDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form36.Designer.cs">
-      <DependentUpon>Form36.cs</DependentUpon>
+    <Compile Include="UI\管理员端\GNoticeDetails.Designer.cs">
+      <DependentUpon>GNoticeDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form37.cs">
       <SubType>Form</SubType>
@@ -369,14 +369,23 @@
     <EmbeddedResource Include="UI\ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\NoticeDetails.resx">
-      <DependentUpon>NoticeDetails.cs</DependentUpon>
+    <EmbeddedResource Include="UI\管理员端\GNoticeDetails.resx">
+      <DependentUpon>GNoticeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XNoticeDetails.resx">
+      <DependentUpon>XNoticeDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\DNoticeDetails.resx">
+      <DependentUpon>DNoticeDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\学生端\CheckMentor.resx">
       <DependentUpon>CheckMentor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MyMentor.resx">
       <DependentUpon>MyMentor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\MyTeam.resx">
+      <DependentUpon>MyTeam.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\学生端\MyVolunteer.resx">
       <DependentUpon>MyVolunteer.cs</DependentUpon>
@@ -419,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\管理员端\Matching.resx">
       <DependentUpon>Matching.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\管理员端\MatchingFailure.resx">
+      <DependentUpon>MatchingFailure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\管理员端\Notice.resx">
       <DependentUpon>Notice.cs</DependentUpon>

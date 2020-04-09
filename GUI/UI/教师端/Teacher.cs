@@ -136,6 +136,8 @@ namespace GUI.UI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
+          
             try
             {
                 this.initButton();
@@ -166,6 +168,8 @@ namespace GUI.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
+           
+           
             try
             {
                 this.initButton();
@@ -196,6 +200,8 @@ namespace GUI.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
+           
+            
             try
             {
                 this.initButton();
@@ -226,6 +232,8 @@ namespace GUI.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
+            
+            
             try
             {
                 this.initButton();
@@ -256,8 +264,11 @@ namespace GUI.UI
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
+               
                 this.initButton();
                 this.button5.BackColor = Color.FromArgb(95, 129, 174);
                 Monitor.Enter(this.lockObj);

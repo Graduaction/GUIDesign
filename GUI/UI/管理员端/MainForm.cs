@@ -1,5 +1,4 @@
 ﻿using BenNHControl;
-using static BenNHControl.FormEX;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+
 
 namespace GUI.UI
 {
@@ -50,6 +50,7 @@ namespace GUI.UI
         public static Setting form8 = null;
         public static PersonalCenter form10 = null;
         public static Matching form11 = null;
+        public static MatchingFailure form12 = null;
         /// <summary>
         /// 当前显示窗体
         /// </summary>
@@ -80,6 +81,7 @@ namespace GUI.UI
             form8 = Setting.GetIntance;
             form10 = PersonalCenter.GetIntance;
             form11 = Matching.GetIntance;
+            form12 = MatchingFailure.GetIntance;
 
             //初始化按钮
             this.initButton();
@@ -105,7 +107,7 @@ namespace GUI.UI
             try
             {
                 this.button1.BackColor = Color.FromArgb(53, 66, 83);
-                
+                this.button2.BackColor = Color.FromArgb(53, 66, 83);
                 this.button4.BackColor = Color.FromArgb(53, 66, 83);
                 this.button5.BackColor = Color.FromArgb(53, 66, 83);
                 this.button6.BackColor = Color.FromArgb(53, 66, 83);
@@ -565,6 +567,36 @@ namespace GUI.UI
                 {
                     formSwitchFlag = true;
                     this.ShowForm(pnlCenter, form11);
+                    formSwitchFlag = false;
+                }
+                else
+                {
+                    return;
+                }
+            }
+#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+            catch (System.Exception ex)
+#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+            {
+                //
+            }
+            finally
+            {
+                Monitor.Exit(this.lockObj);
+            }
+        }
+
+        private void button2_Click_2(object sender, EventArgs e)
+        {
+            try
+            {
+                this.initButton();
+                this.button2.BackColor = Color.FromArgb(95, 129, 174);
+                Monitor.Enter(this.lockObj);
+                if (!formSwitchFlag)
+                {
+                    formSwitchFlag = true;
+                    this.ShowForm(pnlCenter, form12);
                     formSwitchFlag = false;
                 }
                 else
