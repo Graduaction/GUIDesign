@@ -10,12 +10,12 @@ using BLL;
 using Model;
 namespace GUI.UI
 {
-    public partial class NoticeDetails : Form
+    public partial class DNoticeDetails : Form
     {
         //变量定义
         readonly TeacherManager tm = new TeacherManager();
         public string infono = DCheckNotification.infono;//通知表页面点击的行的通知序号，通过这个序号查找详细内容
-        public NoticeDetails()
+        public DNoticeDetails()
         {
             InitializeComponent();
         }
