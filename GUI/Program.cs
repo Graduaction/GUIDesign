@@ -15,8 +15,9 @@ namespace GUI.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new CheckStudentsVolunteer());
-            Application.Run(new StudentForm());//  LoginInterface  NoticeDetails  DCheckNotification
+          //  Application.Run(new CheckStudentsVolunteer());
+            //  Application.Run(new StudentForm());//  LoginInterface  NoticeDetails  DCheckNotification
+            Application.Run(new MainForm());
         }
     }
 }
