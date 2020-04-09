@@ -55,9 +55,11 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1325, 496);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(994, 397);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看双选结果";
@@ -65,19 +67,22 @@
             // button1
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(735, 82);
+            this.button1.Location = new System.Drawing.Point(551, 66);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(56, 18);
             this.button1.TabIndex = 6;
             this.button1.Text = "导出";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(570, 83);
+            this.comboBox2.Location = new System.Drawing.Point(428, 66);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
+            this.comboBox2.Size = new System.Drawing.Size(92, 20);
             this.comboBox2.TabIndex = 5;
             // 
             // label3
@@ -85,18 +90,20 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 14F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(455, 82);
+            this.label3.Location = new System.Drawing.Point(341, 66);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 24);
+            this.label3.Size = new System.Drawing.Size(104, 19);
             this.label3.TabIndex = 4;
             this.label3.Text = "选择导师：";
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(308, 83);
+            this.comboBox1.Location = new System.Drawing.Point(231, 66);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 23);
+            this.comboBox1.Size = new System.Drawing.Size(92, 20);
             this.comboBox1.TabIndex = 3;
             // 
             // label2
@@ -104,9 +111,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 14F);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(171, 83);
+            this.label2.Location = new System.Drawing.Point(128, 66);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 24);
+            this.label2.Size = new System.Drawing.Size(104, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "选择学院：";
             // 
@@ -119,11 +127,12 @@
             this.所带小组组别号,
             this.组长,
             this.组长联系电话});
-            this.dataGridView1.Location = new System.Drawing.Point(174, 144);
+            this.dataGridView1.Location = new System.Drawing.Point(130, 115);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(945, 334);
+            this.dataGridView1.Size = new System.Drawing.Size(709, 267);
             this.dataGridView1.TabIndex = 1;
             // 
             // 导师
@@ -166,20 +175,22 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 19F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(515, 21);
+            this.label1.Location = new System.Drawing.Point(386, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(207, 33);
+            this.label1.Size = new System.Drawing.Size(168, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "查看双选结果";
             // 
             // ViewResults
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1365, 520);
+            this.ClientSize = new System.Drawing.Size(1024, 416);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ViewResults";
             this.Text = "Form14";
             this.Load += new System.EventHandler(this.Form14_Load);
