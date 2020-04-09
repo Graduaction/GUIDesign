@@ -230,6 +230,15 @@ namespace DAL
         }
         #endregion
 
+        #region 查询显示所有学生组的志愿和组员姓名
+        public DataTable selectStuVol()
+        {
+            string sql = "select d.groupid,d.topic,c.avg_grade,(select teaname from teacher where teano = d.volfirstid) as vo1name,(select teaname from teacher where teano = d.volsecondid)as vo2name,(select teaname from teacher where teano = d.volthirdid)as vo3name,''选择取消,''操作状态,(select stuname from  student a where a.StuNo = b.stuno1)+b.stuno1  as stu1 ,(select stuname from student a where a.StuNo = b.stuno2)+b.stuno2  as stu2 ,(select stuname from student a where a.StuNo = b.stuno3)+b.stuno3  as stu3 ,(select stuname from student a where a.StuNo = b.stuno4)+b.stuno4  as stu4 ,(select stuname from student a where a.StuNo = b.stuno5)+b.stuno5 as stu5 from grouptable d left join getgroupstuno b on b.groupid = d.GroupId left join avg_groupgrade c on d.groupid = c.groupid order by d.leaderno desc";
+            DataTable dt = SQLHelper.ExecuteQuery(sql);
+            return dt;
+        } 
+        #endregion
+
         #region 获取通知详情
         public DataTable GetInfoDetail(string infono)
         {
@@ -278,5 +287,6 @@ namespace DAL
             }
         }
         #endregion
+
     }
 }
