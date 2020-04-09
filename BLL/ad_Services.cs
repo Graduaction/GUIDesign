@@ -192,5 +192,18 @@ namespace BLL
             return sDAL.SelectManage(adminno1);
         }
         #endregion
+
+        #region 双选匹配界面
+        //学生列表
+        public DataTable stuGetmatchdata()
+        {
+           return sDAL.GetStuMatchtable();
+        }
+        //教室列表
+        public DataTable teaGetmatchdata()
+        {
+            return sDAL.GetTeaMatchtable();
+        }
+        #endregion
     }
 }
