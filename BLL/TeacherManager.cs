@@ -109,9 +109,14 @@ namespace BLL
         public string getstuno(string info)
         {
             return ts.getstuno(info);
+        }
+        #endregion
+        #region 显示所有学生组的志愿跟组员
+        public DataTable selectStuVol()
+        {
+            return ts.selectStuVol();
         } 
         #endregion
-
 
     }
 }
