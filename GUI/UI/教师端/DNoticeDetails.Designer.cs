@@ -32,9 +32,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tbc = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tbtitle = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,7 +67,7 @@
             // tbc
             // 
             this.tbc.Location = new System.Drawing.Point(19, 4);
-            this.tbc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbc.Margin = new System.Windows.Forms.Padding(4);
             this.tbc.Multiline = true;
             this.tbc.Name = "tbc";
             this.tbc.ReadOnly = true;
@@ -84,6 +84,18 @@
             this.panel2.Size = new System.Drawing.Size(981, 78);
             this.panel2.TabIndex = 1;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(423, 26);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(126, 35);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "返回";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -97,24 +109,12 @@
             // tbtitle
             // 
             this.tbtitle.Location = new System.Drawing.Point(4, 4);
-            this.tbtitle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbtitle.Margin = new System.Windows.Forms.Padding(4);
             this.tbtitle.Multiline = true;
             this.tbtitle.Name = "tbtitle";
             this.tbtitle.ReadOnly = true;
             this.tbtitle.Size = new System.Drawing.Size(949, 55);
             this.tbtitle.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(423, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 35);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "返回";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 

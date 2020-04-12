@@ -55,7 +55,7 @@ namespace BLL
         }
         #endregion
 
-        #region 个人中心插入学生信息
+        #region 个人中心更新学生信息
         /// <summary>
         /// 插入数据
         /// </summary>
@@ -72,6 +72,96 @@ namespace BLL
             {
                 return false;//插入失败
             }
+        }
+        #endregion
+
+        #region 学生查看教师列表
+        /// <summary>
+        /// 学生查看教师列表
+        /// </summary>
+        /// <returns>教师表</returns>
+        public DataTable StuCheckTeaList()
+        {
+            return ss.StuCheckTeaList();
+        }
+        #endregion
+
+        #region 学生查看导师简介
+        /// <summary>
+        /// 学生查看导师简介
+        /// </summary>
+        /// <param name="teaNo">工号</param>
+        /// <returns>导师表</returns>
+        public DataTable CheckMentorByNo(string teaNo)
+        {
+            return ss.CheckMentorByNo(teaNo);
+        }
+        #endregion
+
+        #region 学生查看通知
+        /// <summary>
+        /// 学生查看查看通知
+        /// </summary>
+        /// <returns>通知表</returns>
+        public DataTable CheckNotification()
+        {
+            return ss.CheckNotification();
+        }
+        #endregion
+
+        #region 判断学生是否创建过队伍
+        /// <summary>
+        /// 判断学生是否创建过队伍
+        /// </summary>
+        /// <param name="stuno">入参：当前学生学号</param>
+        /// <returns>true:已组过队，false:未组过队</returns>
+        public bool IsCreateGroup(string stuno)
+        {
+            return ss.IsCreateGroup(stuno);
+        }
+        #endregion
+
+        #region 学生创建队伍
+        /// <summary>
+        /// 学生创建队伍
+        /// </summary>
+        /// <returns>组队表</returns>
+        public DataTable CreateGroup(string stuNo)
+        {
+            return ss.CreateGroup(stuNo);
+        }
+        #endregion
+
+        #region 学生查看学生列表
+        /// <summary>
+        /// 学生查看学生列表
+        /// </summary>
+        /// <returns>学生列表</returns>
+        public DataTable CheckStuList()
+        {
+            return ss.CheckStuList();
+        }
+        #endregion
+
+        #region 学生查看队伍列表
+        /// <summary>
+        /// 学生查看队伍列表
+        /// </summary>
+        /// <returns>队伍列表</returns>
+        public DataTable CheckGroupList(string stuno)
+        {
+            return ss.CheckGroupList(stuno);
+        }
+        #endregion
+
+        #region 选择组员
+        /// <summary>
+        /// 选择组员
+        /// </summary>
+        /// <returns>组员表</returns>
+        public DataTable SelectGroupStu(int groupid, string stuno)
+        {
+            return ss.SelectGroupStu(groupid,stuno);
         }
         #endregion
     }

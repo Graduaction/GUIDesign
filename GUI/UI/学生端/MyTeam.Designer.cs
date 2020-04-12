@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("卢宝琛");
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("陈银丽");
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("吴萍");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("邹惠茹");
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("卢宝琛");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("陈银丽");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("吴萍");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("邹惠茹");
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -57,44 +57,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "我的团队";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // treeView1
-            // 
-            this.treeView1.AllowDrop = true;
-            this.treeView1.Location = new System.Drawing.Point(6, 78);
-            this.treeView1.Name = "treeView1";
-            treeNode5.Name = "卢宝琛";
-            treeNode5.Text = "卢宝琛";
-            treeNode6.Name = "陈银丽";
-            treeNode6.Text = "陈银丽";
-            treeNode7.Name = "吴萍";
-            treeNode7.Text = "吴萍";
-            treeNode8.Name = "邹惠茹";
-            treeNode8.Text = "邹惠茹";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode5,
-            treeNode6,
-            treeNode7,
-            treeNode8});
-            this.treeView1.Size = new System.Drawing.Size(371, 326);
-            this.treeView1.TabIndex = 0;
-            this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
-            this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView1_DragDrop);
-            this.treeView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeView1_DragEnter);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.treeView1);
-            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(15, 41);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(383, 410);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "选择队员";
             // 
             // groupBox3
             // 
@@ -117,6 +79,19 @@
             this.dataGridView1.Size = new System.Drawing.Size(667, 379);
             this.dataGridView1.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.groupBox2.Location = new System.Drawing.Point(15, 41);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(383, 410);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "选择队员";
+            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -136,6 +111,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 23);
             this.comboBox1.TabIndex = 5;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -147,6 +123,31 @@
             this.label2.Size = new System.Drawing.Size(130, 24);
             this.label2.TabIndex = 4;
             this.label2.Text = "选择学院：";
+            // 
+            // treeView1
+            // 
+            this.treeView1.AllowDrop = true;
+            this.treeView1.Location = new System.Drawing.Point(6, 78);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "卢宝琛";
+            treeNode1.Text = "卢宝琛";
+            treeNode2.Name = "陈银丽";
+            treeNode2.Text = "陈银丽";
+            treeNode3.Name = "吴萍";
+            treeNode3.Text = "吴萍";
+            treeNode4.Name = "邹惠茹";
+            treeNode4.Text = "邹惠茹";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4});
+            this.treeView1.Size = new System.Drawing.Size(371, 326);
+            this.treeView1.TabIndex = 0;
+            this.treeView1.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.treeView1_ItemDrag);
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
+            this.treeView1.DragDrop += new System.Windows.Forms.DragEventHandler(this.treeView1_DragDrop);
+            this.treeView1.DragEnter += new System.Windows.Forms.DragEventHandler(this.treeView1_DragEnter);
             // 
             // MyTeam
             // 
@@ -161,10 +162,10 @@
             this.Text = "Form33";
             this.Load += new System.EventHandler(this.Form33_Load);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }

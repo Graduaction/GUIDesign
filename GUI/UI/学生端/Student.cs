@@ -38,7 +38,7 @@ namespace GUI.UI
         /// 子窗体界面单例元素
         /// </summary>
         public static HomePage form1 = null;
-        public static XTeacherLise form2 = null;
+        public static XTeacherList form2 = null;
         public static MyVolunteer form3 = null;
         public static XPersonalInformationPreview form4 = null;
         public static CheckMentor form5 = null;
@@ -92,7 +92,7 @@ namespace GUI.UI
             this.TitleText = "学生端";
 
             form1 = HomePage.GetIntance;
-            form2 = XTeacherLise.GetIntance;
+            form2 = XTeacherList.GetIntance;
             form3 = MyVolunteer.GetIntance;
             form4 = XPersonalInformationPreview.GetIntance;
             form5 = CheckMentor.GetIntance;
