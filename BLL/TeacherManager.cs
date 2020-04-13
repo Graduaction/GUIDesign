@@ -111,12 +111,33 @@ namespace BLL
             return ts.getstuno(info);
         }
         #endregion
-        #region 显示所有学生组的志愿跟组员
+        #region 显示教师查看所有学生组的志愿跟组员
         public DataTable selectStuVol()
         {
             return ts.selectStuVol();
-        } 
+        }
         #endregion
 
+        #region 向老师志愿表（teavol）中插入老师的志愿  
+        //public int insertTeaVol(string teano, int groupid)
+        //{
+        //    return ts.insertTeaVol(teano, groupid);
+        //} 
+        public DataTable dtTeaVol()
+        {
+            return ts.dtTeaVol();
+        }
+        #endregion
+        public int updateTV(DataTable dt)
+        {
+            return ts.updateTV(dt);
+        }
+
+        #region 查找当前登录的教师工号的可带人数
+        public int GetGroupNum(string teano)
+        {
+            return ts.GetGroupNum(teano);
+        }
+        #endregion
     }
 }
