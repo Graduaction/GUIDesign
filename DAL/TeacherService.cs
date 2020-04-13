@@ -230,15 +230,7 @@ namespace DAL
         }
         #endregion
 
-        #region 查询显示所有学生组的志愿和组员姓名
-        public DataTable selectStuVol()
-        {
-            string sql = "select d.groupid,d.topic,c.avg_grade,(select teaname from teacher where teano = d.volfirstid) as vo1name,(select teaname from teacher where teano = d.volsecondid)as vo2name,(select teaname from teacher where teano = d.volthirdid)as vo3name,''选择取消,''操作状态,(select stuname from  student a where a.StuNo = b.stuno1)+b.stuno1  as stu1 ,(select stuname from student a where a.StuNo = b.stuno2)+b.stuno2  as stu2 ,(select stuname from student a where a.StuNo = b.stuno3)+b.stuno3  as stu3 ,(select stuname from student a where a.StuNo = b.stuno4)+b.stuno4  as stu4 ,(select stuname from student a where a.StuNo = b.stuno5)+b.stuno5 as stu5 from grouptable d left join getgroupstuno b on b.groupid = d.GroupId left join avg_groupgrade c on d.groupid = c.groupid order by d.leaderno desc";
-            DataTable dt = SQLHelper.ExecuteQuery(sql);
-            return dt;
-        } 
-        #endregion
-
+       
         #region 获取通知详情
         public DataTable GetInfoDetail(string infono)
         {
@@ -261,13 +253,14 @@ namespace DAL
         }
         #endregion
 
-        #region 显示当前教师账号的所带组员列表
+
+        #region 显示当前教师账号的所带组员列表(我的学生
+
         public DataTable selectMyStu(string teano)
         {
-            
             StringBuilder sb = new StringBuilder();
             sb.AppendLine("exec getmystu_procedure @teano");
-            SqlParameter[] paras = {new SqlParameter("@teano", teano) };
+            SqlParameter[] paras = { new SqlParameter("@teano", teano) };
             SqlConnection conn = new SqlConnection(connStr);
             try
             {
@@ -285,6 +278,94 @@ namespace DAL
 
                 throw ex;
             }
+        }
+        #endregion
+
+        public static DataSet dsvol = new DataSet();
+        /*DataTable dtStuVol = dsvol.Tables.Add("StuVol");*///拉取数据库中的内容 放在这个datatable  显示在datagridview 中
+        //DataTable dtTeaVol = dsvol.Tables.Add("TeaVol");//把教师选择的志愿信息 放在这个datatable 中，连接到数据库，一次性提交到数据库
+       
+        #region 查询显示所有学生组的志愿和组员姓名
+        public DataTable selectStuVol()
+        {
+            string sql = "select d.groupid as 组号,d.topic as 论文选题,c.avg_grade as 平均综测,(select teaname from teacher where teano = d.volfirstid) as 第一志愿,(select teaname from teacher where teano = d.volsecondid)as 第二志愿,(select teaname from teacher where teano = d.volthirdid)as 第三志愿,'选择' 操作1,'取消'  操作2,(select stuname from  student a where a.StuNo = b.stuno1)+b.stuno1  as 组员1 ,(select stuname from student a where a.StuNo = b.stuno2)+b.stuno2  as 组员2 ,(select stuname from student a where a.StuNo = b.stuno3)+b.stuno3  as 组员3 ,(select stuname from student a where a.StuNo = b.stuno4)+b.stuno4  as 组员4 ,(select stuname from student a where a.StuNo = b.stuno5)+b.stuno5 as 组员5 from grouptable d left join getgroupstuno b on b.groupid = d.GroupId left join avg_groupgrade c on d.groupid = c.groupid order by d.leaderno desc";
+            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dtStuVol = dsvol.Tables.Add("StuVol");
+                sda.Fill(dtStuVol);
+                return dtStuVol;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            //DataTable dt = SQLHelper.ExecuteQuery(sql);
+            //return dt;
+        }
+        #endregion
+
+
+        #region 向datatable表（teavol）中插入所有老师的志愿作为存储 暂时的  
+        public DataTable dtTeaVol()
+        {
+            // string sql = "insert into TeaVol(teano,groupid) values(@teano,@groupid)";
+            // SqlParameter[] paras =
+            //{
+            //     new SqlParameter("@teano",teano),
+            //     new SqlParameter("@groupid",groupid)
+            // };
+            // int re = SQLHelper.ExecuteNonQuery(sql,CommandType.Text,paras);
+            // return re;
+            DataTable dtTeaVol = new DataTable();
+            string sql = "select * from TeaVol";
+            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                 SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                sda.Fill(dtTeaVol);
+                return dtTeaVol;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        //public void intoTeaVol(string teano,int groupid)
+        //{
+        //    //DataTable dtTV = dtTeaVol();
+        //    //string sql = "";
+        //    //SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(sda);
+
+        //}
+        #endregion
+
+        #region 向数据库提交datatable的更新
+        public int updateTV(DataTable dt)
+        {
+            string sql = "select * from teavol";
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+            SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(sda);
+            //sda.Update(dt);
+            return sda.Update(dt);
+        }
+        #endregion
+
+        #region 查找当前登录的教师工号的可带人数
+        public int GetGroupNum(string teano)
+        {
+            string sql = "select GroupNumber from Teacher where TeaNo=@teano";
+            SqlParameter[] paras = { new SqlParameter("@teano", teano) };
+            int re = (int)SQLHelper.ExecuteScalar(sql, CommandType.Text, paras);
+            return re;
+
         }
         #endregion
 
