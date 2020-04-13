@@ -13,8 +13,8 @@ namespace GUI.UI
 {
     public partial class XPersonalInformationPreview : Form
     {
-        StudentManager sm = new StudentManager();
-        StudentData student = new StudentData();
+        private readonly StudentManager sm = new StudentManager();
+        private readonly StudentData student = new StudentData();
         public string stuNo = LoginInterface.loginid;
         public XPersonalInformationPreview()
         {

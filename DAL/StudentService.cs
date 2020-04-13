@@ -84,7 +84,7 @@ namespace DAL
                 SqlParameter[] paras =
                 {
                 new SqlParameter("@StuNo",stuNo)
-            };
+                };
                 DataTable dataTable = SQLHelper.ExecuteQuery(sql, paras);
                 return dataTable;
             }
@@ -96,9 +96,9 @@ namespace DAL
         }
         #endregion
 
-        #region 个人中心插入学生信息
+        #region 个人中心更新学生信息
         /// <summary>
-        /// 插入数据
+        /// 更新数据
         /// </summary>
         /// <param name="studentData"></param>
         /// <returns>返回受影响行数</returns>
@@ -123,6 +123,147 @@ namespace DAL
             sqlParameter[5].Value = studentData.StuPwd;
             int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
             return result;
+        }
+        #endregion
+
+        #region 学生查看导师列表
+        /// <summary>
+        /// 学生查看导师列表
+        /// </summary>
+        /// <returns>导师表</returns>
+        public DataTable StuCheckTeaList()
+        {
+            string sql = @"select * from Teacher";
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql,CommandType.Text);
+            return dataTable;
+        }
+        #endregion
+
+        #region 学生查看导师简介
+        /// <summary>
+        /// 学生查看导师简介
+        /// </summary>
+        /// <param name="teaNo">工号</param>
+        /// <returns>导师表</returns>
+        public DataTable CheckMentorByNo(string teaNo)
+        {
+            string sql = @"select * from Teacher where TeaNo=@TeaNo";
+            SqlParameter[] sqlParameter =
+            {
+                new SqlParameter("@TeaNo", teaNo)
+            };
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql, CommandType.Text, sqlParameter);
+            return dataTable;
+        }
+        #endregion
+
+        #region 学生查看通知
+        /// <summary>
+        /// 学生查看查看通知
+        /// </summary>
+        /// <returns>通知表</returns>
+        public DataTable CheckNotification()
+        {
+            string sql = @"select * from Information";
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
+
+        #region 判断学生是否创建过队伍
+        /// <summary>
+        /// 判断学生是否创建过队伍
+        /// </summary>
+        /// <param name="stuno">入参：当前学生学号</param>
+        /// <returns>true:已组过队，false:未组过队</returns>
+        public bool IsCreateGroup(string stuno)
+        {
+            string sql = @"select GroupID ,StuNo  from GroupStu where StuNo = @StuNo";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+            new SqlParameter("@StuNo",SqlDbType.NVarChar)
+            };
+            sqlParameters[0].Value = stuno;
+            SqlDataReader reader = SQLHelper.ExecuteReader(sql, CommandType.Text, sqlParameters);
+            bool flag;
+            if (reader.Read())
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+            }
+            return flag;
+        }
+        #endregion
+
+        #region 学生创建队伍
+        /// <summary>
+        /// 学生创建队伍
+        /// </summary>
+        /// <returns>组队表</returns>
+        public DataTable CreateGroup(string leaderno)
+        {
+            string sql = @"insert into GroupTable (leaderno) values (@leaderno) select GroupID,leaderno from GroupTable where leaderno=@leaderno";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@leaderno",SqlDbType.NVarChar)
+            };
+            sqlParameters[0].Value = leaderno;
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql,CommandType.Text,sqlParameters);
+            return dataTable;
+        }
+        #endregion
+
+        #region 学生查看学生列表
+        /// <summary>
+        /// 学生查看学生列表
+        /// </summary>
+        /// <returns>学生列表</returns>
+        public DataTable CheckStuList()
+        {
+            string sql = @"select StuNo as 学号,StuName as 姓名 from Student";
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql, CommandType.Text);
+            return dataTable;
+        }
+        #endregion
+
+        #region 学生查看队伍列表
+        /// <summary>
+        /// 学生查看队伍列表
+        /// </summary>
+        /// <returns>队伍列表</returns>
+        public DataTable CheckGroupList(string stuno)
+        {
+            string sql = @"select GroupID as 组号, StuNo as 学号,StuName as 姓名 from Student where GroupID =(select GroupID from GroupStu where StuNo = @StuNo)";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+           {
+                new SqlParameter("@StuNo",SqlDbType.NVarChar)
+           };
+            sqlParameters[0].Value = stuno;
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql, CommandType.Text, sqlParameters);
+            return dataTable;
+        }
+        #endregion
+
+        #region 选择组员
+        /// <summary>
+        /// 选择组员
+        /// </summary>
+        /// <returns>组员表</returns>
+        public DataTable SelectGroupStu(int groupid,string stuno)
+        {
+            string sql = @"insert into GroupStu (GroupID,StuNo) values (@GroupID,@StuNo) select GroupID as 组号,StuNo as 学号,StuName as 姓名 from Student where GroupID=@GroupID";
+            SqlParameter[] sqlParameters = new SqlParameter[]
+            {
+                new SqlParameter("@GroupID",SqlDbType.Int),
+                new SqlParameter("@StuNo",SqlDbType.NVarChar)
+            };
+            sqlParameters[0].Value = groupid;
+            sqlParameters[1].Value = stuno;
+            DataTable dataTable = SQLHelper.ExecuteDataTable(sql, CommandType.Text,sqlParameters);
+            return dataTable;
         }
         #endregion
     }

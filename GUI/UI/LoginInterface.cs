@@ -31,7 +31,7 @@ namespace GUI.UI
         public LoginInterface()
         {
             InitializeComponent();
-           
+
         }
 
         // 窗体加载事件
