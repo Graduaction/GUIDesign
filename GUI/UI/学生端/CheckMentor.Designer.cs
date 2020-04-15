@@ -41,22 +41,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.LbTeaAcademy = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.LbTeaProfile = new System.Windows.Forms.Label();
+            this.LbTeaTitle = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.LbTeaEmail = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.LbTeaContaction = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LbTeaGender = new System.Windows.Forms.Label();
+            this.LbTeaName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.BtnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -67,6 +68,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.AliceBlue;
+            this.groupBox1.Controls.Add(this.BtnBack);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
@@ -180,21 +182,21 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label16);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.LbTeaAcademy);
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.label13);
-            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.LbTeaProfile);
+            this.panel1.Controls.Add(this.LbTeaTitle);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.LbTeaEmail);
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.LbTeaContaction);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.LbTeaGender);
+            this.panel1.Controls.Add(this.LbTeaName);
             this.panel1.Location = new System.Drawing.Point(27, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1128, 258);
@@ -220,16 +222,16 @@
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
             // 
-            // label15
+            // LbTeaAcademy
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("宋体", 12F);
-            this.label15.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label15.Location = new System.Drawing.Point(380, 177);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(329, 20);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "信息系统与信息管理、信息资源管理";
+            this.LbTeaAcademy.AutoSize = true;
+            this.LbTeaAcademy.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaAcademy.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaAcademy.Location = new System.Drawing.Point(380, 177);
+            this.LbTeaAcademy.Name = "LbTeaAcademy";
+            this.LbTeaAcademy.Size = new System.Drawing.Size(329, 20);
+            this.LbTeaAcademy.TabIndex = 16;
+            this.LbTeaAcademy.Text = "信息系统与信息管理、信息资源管理";
             // 
             // label14
             // 
@@ -242,27 +244,27 @@
             this.label14.TabIndex = 15;
             this.label14.Text = "承担专业：";
             // 
-            // label13
+            // LbTeaProfile
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("宋体", 12F);
-            this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(755, 80);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 20);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "博士";
+            this.LbTeaProfile.AutoSize = true;
+            this.LbTeaProfile.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaProfile.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaProfile.Location = new System.Drawing.Point(755, 80);
+            this.LbTeaProfile.Name = "LbTeaProfile";
+            this.LbTeaProfile.Size = new System.Drawing.Size(49, 20);
+            this.LbTeaProfile.TabIndex = 14;
+            this.LbTeaProfile.Text = "博士";
             // 
-            // label12
+            // LbTeaTitle
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 12F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(322, 80);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(49, 20);
-            this.label12.TabIndex = 13;
-            this.label12.Text = "讲师";
+            this.LbTeaTitle.AutoSize = true;
+            this.LbTeaTitle.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaTitle.Location = new System.Drawing.Point(322, 80);
+            this.LbTeaTitle.Name = "LbTeaTitle";
+            this.LbTeaTitle.Size = new System.Drawing.Size(49, 20);
+            this.LbTeaTitle.TabIndex = 13;
+            this.LbTeaTitle.Text = "讲师";
             // 
             // label5
             // 
@@ -286,16 +288,16 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "职称：";
             // 
-            // label11
+            // LbTeaEmail
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("宋体", 12F);
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(815, 131);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(169, 20);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "999999999@qq.com";
+            this.LbTeaEmail.AutoSize = true;
+            this.LbTeaEmail.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaEmail.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaEmail.Location = new System.Drawing.Point(815, 131);
+            this.LbTeaEmail.Name = "LbTeaEmail";
+            this.LbTeaEmail.Size = new System.Drawing.Size(169, 20);
+            this.LbTeaEmail.TabIndex = 10;
+            this.LbTeaEmail.Text = "999999999@qq.com";
             // 
             // label10
             // 
@@ -308,16 +310,16 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "999999999";
             // 
-            // label9
+            // LbTeaContaction
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 12F);
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(352, 131);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(119, 20);
-            this.label9.TabIndex = 8;
-            this.label9.Text = "88888888888";
+            this.LbTeaContaction.AutoSize = true;
+            this.LbTeaContaction.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaContaction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaContaction.Location = new System.Drawing.Point(352, 131);
+            this.LbTeaContaction.Name = "LbTeaContaction";
+            this.LbTeaContaction.Size = new System.Drawing.Size(119, 20);
+            this.LbTeaContaction.TabIndex = 8;
+            this.LbTeaContaction.Text = "88888888888";
             // 
             // label8
             // 
@@ -360,27 +362,27 @@
             this.panel3.Size = new System.Drawing.Size(1008, 10);
             this.panel3.TabIndex = 4;
             // 
-            // label2
+            // LbTeaGender
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("宋体", 12F);
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(221, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(29, 20);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "男";
+            this.LbTeaGender.AutoSize = true;
+            this.LbTeaGender.Font = new System.Drawing.Font("宋体", 12F);
+            this.LbTeaGender.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaGender.Location = new System.Drawing.Point(221, 29);
+            this.LbTeaGender.Name = "LbTeaGender";
+            this.LbTeaGender.Size = new System.Drawing.Size(29, 20);
+            this.LbTeaGender.TabIndex = 1;
+            this.LbTeaGender.Text = "男";
             // 
-            // label1
+            // LbTeaName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("宋体", 19F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(55, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "向函";
+            this.LbTeaName.AutoSize = true;
+            this.LbTeaName.Font = new System.Drawing.Font("宋体", 19F);
+            this.LbTeaName.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.LbTeaName.Location = new System.Drawing.Point(55, 18);
+            this.LbTeaName.Name = "LbTeaName";
+            this.LbTeaName.Size = new System.Drawing.Size(79, 33);
+            this.LbTeaName.TabIndex = 0;
+            this.LbTeaName.Text = "向函";
             // 
             // label3
             // 
@@ -392,6 +394,16 @@
             this.label3.Size = new System.Drawing.Size(143, 33);
             this.label3.TabIndex = 3;
             this.label3.Text = "我的导师";
+            // 
+            // BtnBack
+            // 
+            this.BtnBack.Location = new System.Drawing.Point(575, 938);
+            this.BtnBack.Name = "BtnBack";
+            this.BtnBack.Size = new System.Drawing.Size(75, 23);
+            this.BtnBack.TabIndex = 9;
+            this.BtnBack.Text = "返回";
+            this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // CheckMentor
             // 
@@ -433,20 +445,21 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label LbTeaAcademy;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label LbTeaProfile;
+        private System.Windows.Forms.Label LbTeaTitle;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label LbTeaEmail;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LbTeaContaction;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LbTeaGender;
+        private System.Windows.Forms.Label LbTeaName;
+        private System.Windows.Forms.Button BtnBack;
     }
 }

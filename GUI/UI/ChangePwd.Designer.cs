@@ -43,7 +43,7 @@
             // textBoxop
             // 
             this.textBoxop.Location = new System.Drawing.Point(260, 136);
-            this.textBoxop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxop.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxop.Name = "textBoxop";
             this.textBoxop.Size = new System.Drawing.Size(132, 25);
             this.textBoxop.TabIndex = 62;
@@ -51,7 +51,7 @@
             // textBoxid
             // 
             this.textBoxid.Location = new System.Drawing.Point(261, 74);
-            this.textBoxid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxid.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxid.Name = "textBoxid";
             this.textBoxid.Size = new System.Drawing.Size(132, 25);
             this.textBoxid.TabIndex = 61;
@@ -81,7 +81,7 @@
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(115, 291);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 67;
@@ -149,8 +149,9 @@
             this.ClientSize = new System.Drawing.Size(532, 426);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ChangePwd";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "修改密码";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

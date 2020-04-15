@@ -7,12 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using BLL;
-
+using Model;
 
 namespace GUI.UI
 {
     public partial class MyTeam : Form
     {
+        //string stuNo = "16209040087";
+        StudentData student =new StudentData() {
+            StuNo = LoginInterface.loginid
+        };
+        StudentManager sm = new StudentManager();
+        GroupTableData groupTable = new GroupTableData();
+        GroupStuData groupStu = new GroupStuData();
         public MyTeam()
         {
             InitializeComponent();
@@ -34,60 +41,21 @@ namespace GUI.UI
             }
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form33_Load(object sender, EventArgs e)
         {
-            ad_ServicesBLL BLL = new ad_ServicesBLL();
-            DataTable studentTable = BLL.SelectStubll();
-            dataGridView1.DataSource = studentTable;
-        }
-        private Point Position = new Point(0, 0);
-
-        private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
-        {
-            
-        }
-
-        private void treeView1_DragEnter(object sender, DragEventArgs e)
-        {
-            
-        }
-
-        private void treeView1_DragDrop(object sender, DragEventArgs e)
-        {
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        public static string[] a;
-        
-        private void dataGridView2_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
+            dataGridView2.DataSource = sm.CheckStuList();
+            dataGridView1.DataSource = sm.CheckGroupList(student.StuNo); //查看我的队伍
+            if (sm.IsCreateGroup(student.StuNo))
             {
-                int index = dataGridView1.CurrentRow.Index;
-                a = new string[dataGridView1.ColumnCount];
-                for (int i = 0; i < dataGridView1.ColumnCount; i++)
-                {
-                    a[i] = dataGridView1.Rows[index].Cells[i].Value.ToString();
-                }
-                
-
+                textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
+                groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
             }
-            catch { }
+            else
+            {
+                textBox1.Text = " ";
+            }
         }
-        private void showGridView()
+       /* private void showGridView()
         {
             DataGridTextBoxColumn tb = new DataGridTextBoxColumn();
             dataGridView2.Rows.Add(tb);
@@ -99,6 +67,57 @@ namespace GUI.UI
         private void button1_Click(object sender, EventArgs e)
         {
             showGridView();
+        }*/
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                MessageBox.Show("你已组队，不能重复组队");
+            }
+            else
+            {
+                MessageBox.Show("组队成功");
+                sm.CreateGroup(student.StuNo);
+                dataGridView1.DataSource = sm.CheckGroupList(student.StuNo); //查看我的队伍
+                textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
+                groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
+            }
         }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupStu.StuNo = dataGridView1.CurrentRow.Cells[1].Value.ToString();//获取当前行的学号
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupStu.StuNo = dataGridView2.CurrentRow.Cells[0].Value.ToString();//获取当前行的学号
+            button1.Text = groupStu.StuNo;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                dataGridView1.DataSource = sm.SelectGroupStu(groupTable.GroupID, groupStu.StuNo);//选择队员并查看我的队伍
+            }
+            else
+            {
+                MessageBox.Show("你还未组队，请组队后再操作");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                //groupStu.StuNo = dataGridView1["学号", 0].Value.ToString();
+               // MessageBox.Show(groupStu.StuNo);
+                dataGridView1.DataSource = sm.DelGroupStu(groupTable.GroupID, groupStu.StuNo);//删除队员并查看我的队伍
+            }
+            else
+            {
+                MessageBox.Show("你还未组队，请组队后再操作");
+            }
+        }
+
     }
 }
