@@ -21,7 +21,7 @@ namespace GUI.UI
 
           //  Application.Run(new CheckStudentsVolunteer());
             //  Application.Run(new StudentForm());//  LoginInterface  NoticeDetails  DCheckNotification
-            Application.Run(new LoginInterface());
+            Application.Run(new StudentForm());
 
         }
     }
