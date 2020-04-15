@@ -89,8 +89,18 @@ namespace GUI.UI
                     //获取单元格内容中的数字
                     restu = System.Text.RegularExpressions.Regex.Replace(restu, @"[^0-9]+", "");
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
-                     XPersonalInformationPreview formChild = new XPersonalInformationPreview(restu);
-                      formChild.ShowDialog();
+                    XPersonalInformationPreview cform = new XPersonalInformationPreview();//实例化一个子窗口
+                                                                                          //设置子窗口不显示为顶级窗口
+                    cform.TopLevel = false;
+                    //设置子窗口的样式，没有上面的标题栏
+                    cform.FormBorderStyle = FormBorderStyle.None;
+                    //填充
+                    cform.Dock = DockStyle.Fill;
+                    //清空控件
+                    this.Controls.Clear();
+                    //加入控件
+                    this.Controls.Add(cform);
+                    cform.Show();
                 }
             }
             catch (Exception ex)
