@@ -13,8 +13,17 @@ namespace GUI.UI
 {
     public partial class XTeacherList : Form
     {
-        private StudentManager sm = new StudentManager();
+        //string stuNo = "16209040087";
+        StudentData student = new StudentData()
+        {
+            StuNo = LoginInterface.loginid
+        };
+        StudentManager sm = new StudentManager();
         public static string teaNo;
+        GroupTableData groupTableData = new GroupTableData
+        {
+            GroupID = 28
+        };
         public XTeacherList()
         {
             InitializeComponent();
@@ -38,25 +47,60 @@ namespace GUI.UI
         }
         private void XTeacherList_Load(object sender, EventArgs e)
         {
-            DataTable dataTable = sm.StuCheckTeaList();
-            dataGridView1.DataSource = dataTable;
+            dataGridView1.DataSource = sm.StuCheckTeaList();
+            DataTable dataTable = sm.CheckGroupList(student.StuNo);
+            //groupTableData.GroupID =  
+            //button1.Text = dataTable.Rows[0][0].ToString();
         }
         private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.Columns[1].Name == "导师姓名")
+            teaNo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            if (e.ColumnIndex == dataGridView1.Columns["TeaName"].Index)
             {
-                //MessageBox.Show(dataGridView1.CurrentRow.Cells[0].Value.ToString());
-                teaNo = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                CheckMentor checkMentor = new CheckMentor
+                string i = dataGridView1["TeaName", e.RowIndex].Value.ToString();
+                MessageBox.Show(i);
+                DPersonalInformationPreview dPersonalInformation = new DPersonalInformationPreview()
                 {
                     TopLevel = false,
                     FormBorderStyle = FormBorderStyle.None,
                     Dock = DockStyle.Fill
-            };
-                checkMentor.teaNo = teaNo;
+                };
+                dPersonalInformation.teaNo = teaNo;
                 this.Controls.Clear();
-                this.Controls.Add(checkMentor);
-                checkMentor.Show();
+                this.Controls.Add(dPersonalInformation);
+                dPersonalInformation.Show();
+            }
+            else if (e.ColumnIndex == dataGridView1.Columns["Control"].Index)
+            {
+                string j = dataGridView1["VolSort", e.RowIndex].Value.ToString();
+                if (j == "第一志愿")
+                {
+                    groupTableData.VolFirstId = teaNo;
+                }
+                else if (j == "第二志愿")
+                {
+                    groupTableData.VolSecondeId = teaNo;
+                }
+                else if (j == "第三志愿")
+                {
+                    groupTableData.VolThirdId = teaNo;
+                }
+            }
+        }
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dataGridView1.Columns["Topic"].Index)
+            {
+                groupTableData.Topic = dataGridView1["Topic", e.RowIndex].Value.ToString();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (sm.SelectVol(groupTableData) > 0)
+            {
+                MessageBox.Show("提交志愿成功");
             }
         }
     }

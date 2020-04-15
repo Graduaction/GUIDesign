@@ -13,7 +13,7 @@ namespace BLL
     {
 
         #region 变量, 常量的定义
-        readonly StudentService ss = new StudentService();
+        StudentService ss = new StudentService();
         #endregion
 
         #region 登录
@@ -161,7 +161,40 @@ namespace BLL
         /// <returns>组员表</returns>
         public DataTable SelectGroupStu(int groupid, string stuno)
         {
-            return ss.SelectGroupStu(groupid,stuno);
+            return ss.SelectGroupStu(groupid, stuno);
+        }
+        #endregion
+
+        #region 删除组员
+        /// <summary>
+        /// 删除组员
+        /// </summary>
+        /// <returns>组员表</returns>
+        public DataTable DelGroupStu(int groupid, string stuno)
+        {
+            return ss.DelGroupStu(groupid, stuno);
+        }
+        #endregion
+
+        #region 选择志愿
+        /// <summary>
+        /// 选择志愿
+        /// </summary>
+        /// <returns>小组志愿列表更新所影响的行数</returns>
+        public int SelectVol(GroupTableData groupTableData)
+        {
+            return ss.SelectVol(groupTableData);
+        }
+        #endregion
+
+        #region 学生查看志愿列表
+        /// <summary>
+        /// 学生查看志愿列表
+        /// </summary>
+        /// <returns>志愿  列表</returns>
+        public DataTable CheckMyVol(string stuno)
+        {
+            return ss.CheckMyVol(stuno);
         }
         #endregion
     }
