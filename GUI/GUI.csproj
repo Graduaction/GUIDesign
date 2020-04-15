@@ -244,11 +244,11 @@
     <Compile Include="UI\学生端\XNoticeDetails.Designer.cs">
       <DependentUpon>XNoticeDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form35.cs">
+    <Compile Include="UI\教师端\CheckStudentsVolunteer2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form35.Designer.cs">
-      <DependentUpon>Form35.cs</DependentUpon>
+    <Compile Include="UI\教师端\CheckStudentsVolunteer2.Designer.cs">
+      <DependentUpon>CheckStudentsVolunteer2.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\管理员端\GNoticeDetails.cs">
       <SubType>Form</SubType>
@@ -368,6 +368,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UI\ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\CheckStudentsVolunteer2.resx">
+      <DependentUpon>CheckStudentsVolunteer2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\管理员端\GNoticeDetails.resx">
       <DependentUpon>GNoticeDetails.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace GUI.UI
 {
-    partial class CheckStudentsVolunteer
+    partial class Form35
     {
         /// <summary>
         /// Required designer variable.
@@ -33,12 +33,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtVol = new System.Data.DataSet();
-            this.dtStuvol = new System.Data.DataTable();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtVol)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtStuvol)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -48,12 +44,12 @@
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(13, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 11);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Size = new System.Drawing.Size(1309, 458);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看学生志愿";
             // 
@@ -61,13 +57,12 @@
             // 
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Location = new System.Drawing.Point(1015, 21);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 29);
             this.button1.TabIndex = 7;
             this.button1.Text = "提交志愿";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -90,12 +85,6 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1243, 369);
             this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.DataSourceChanged += new System.EventHandler(this.dataGridView1_DataSourceChanged);
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
-            this.dataGridView1.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dataGridView1_CellPainting);
-            this.dataGridView1.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.dataGridView1_RowPostPaint);
             // 
             // label3
             // 
@@ -108,33 +97,18 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "学生列表";
             // 
-            // dtVol
-            // 
-            this.dtVol.DataSetName = "NewDataSet";
-            this.dtVol.Tables.AddRange(new System.Data.DataTable[] {
-            this.dtStuvol});
-            // 
-            // dtStuvol
-            // 
-            this.dtStuvol.TableName = "dtStuvol";
-            // 
-            // CheckStudentsVolunteer
+            // Form35
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1351, 498);
+            this.ClientSize = new System.Drawing.Size(1345, 496);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "CheckStudentsVolunteer";
-            this.Text = "Form29";
-            this.Load += new System.EventHandler(this.Form29_Load);
+            this.Name = "Form35";
+            this.Text = "Form35";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtVol)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtStuvol)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -142,11 +116,9 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
-        private System.Data.DataSet dtVol;
-        private System.Data.DataTable dtStuvol;
-        private System.Windows.Forms.Button button1;
     }
 }
