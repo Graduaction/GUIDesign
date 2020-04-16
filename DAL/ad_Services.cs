@@ -472,6 +472,7 @@ on a.GroupID = c.groupid ";
             //初始化对象数组
             sx_student[] sx_Students = new sx_student[50];//50个地址值
             sx_teacher[] sx_Teachers = new sx_teacher[20];//20个地址值
+            MyLinkList<sx_student> myLinkList = new MyLinkList<sx_student>();
 
             DataTable stutable = GetStuMatchtable();
             int row_stucount = stutable.Rows.Count;
@@ -520,8 +521,7 @@ on a.GroupID = c.groupid ";
                     teacher.Yixuan = Convert.ToInt32(teatable.Rows[i][3]);
                 }                
                 if (teatable.Rows[i][4] != DBNull.Value)
-                {
-                    // teacher.Groupid1 = Convert.ToInt32(teatable.Rows[i][4]);
+                {                 
                     teacher.Groupid[0] = Convert.ToInt32(teatable.Rows[i][4]);
                 }              
                 if (teatable.Rows[i][5] != DBNull.Value)
@@ -681,6 +681,10 @@ on a.GroupID = c.groupid ";
             }
             weipipei += "]";
             Console.WriteLine(weipipei);
+
+
+
+
 
 
             //  return (sx_Students[j].Groupid + " 向 " + sx_Students[j].LoveTeacher[0] + ";" + sx_Students[j].LoveTeacher[1] + ";" + sx_Students[j].LoveTeacher[2] + "  表白了");
