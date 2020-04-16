@@ -31,12 +31,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.导师姓名 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.导师电话 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.导师邮箱 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.志愿序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.志愿状态 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.操作 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.工号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeaName = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Contaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VolSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VolStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Control = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -68,65 +69,81 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.导师姓名,
-            this.导师电话,
-            this.导师邮箱,
-            this.志愿序号,
-            this.志愿状态,
-            this.操作});
-            this.dataGridView1.Location = new System.Drawing.Point(44, 72);
+            this.工号,
+            this.TeaName,
+            this.Contaction,
+            this.Email,
+            this.VolSort,
+            this.VolStatus,
+            this.Control});
+            this.dataGridView1.Location = new System.Drawing.Point(29, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(1257, 406);
-            this.dataGridView1.TabIndex = 3;
+            this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
-            // 导师姓名
+            // 工号
             // 
-            this.导师姓名.HeaderText = "导师姓名";
-            this.导师姓名.MinimumWidth = 6;
-            this.导师姓名.Name = "导师姓名";
-            this.导师姓名.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.导师姓名.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.导师姓名.Width = 125;
+            this.工号.DataPropertyName = "TeaNo";
+            this.工号.HeaderText = "工号";
+            this.工号.MinimumWidth = 6;
+            this.工号.Name = "工号";
+            this.工号.Width = 125;
             // 
-            // 导师电话
+            // TeaName
             // 
-            this.导师电话.HeaderText = "导师电话";
-            this.导师电话.MinimumWidth = 6;
-            this.导师电话.Name = "导师电话";
-            this.导师电话.Width = 125;
+            this.TeaName.DataPropertyName = "TeaName";
+            this.TeaName.HeaderText = "导师姓名";
+            this.TeaName.MinimumWidth = 6;
+            this.TeaName.Name = "TeaName";
+            this.TeaName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.TeaName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.TeaName.Width = 125;
             // 
-            // 导师邮箱
+            // Contaction
             // 
-            this.导师邮箱.HeaderText = "导师邮箱";
-            this.导师邮箱.MinimumWidth = 6;
-            this.导师邮箱.Name = "导师邮箱";
-            this.导师邮箱.Width = 125;
+            this.Contaction.DataPropertyName = "Contaction";
+            this.Contaction.HeaderText = "导师电话";
+            this.Contaction.MinimumWidth = 6;
+            this.Contaction.Name = "Contaction";
+            this.Contaction.Width = 125;
             // 
-            // 志愿序号
+            // Email
             // 
-            this.志愿序号.HeaderText = "志愿序号";
-            this.志愿序号.MinimumWidth = 6;
-            this.志愿序号.Name = "志愿序号";
-            this.志愿序号.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.志愿序号.Width = 125;
+            this.Email.DataPropertyName = "Email";
+            this.Email.HeaderText = "导师邮箱";
+            this.Email.MinimumWidth = 6;
+            this.Email.Name = "Email";
+            this.Email.Width = 125;
             // 
-            // 志愿状态
+            // VolSort
             // 
-            this.志愿状态.HeaderText = "志愿状态";
-            this.志愿状态.MinimumWidth = 6;
-            this.志愿状态.Name = "志愿状态";
-            this.志愿状态.Width = 125;
+            this.VolSort.DataPropertyName = "VolSort";
+            this.VolSort.HeaderText = "志愿序号";
+            this.VolSort.MinimumWidth = 6;
+            this.VolSort.Name = "VolSort";
+            this.VolSort.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.VolSort.Width = 125;
             // 
-            // 操作
+            // VolStatus
             // 
-            this.操作.HeaderText = "操作";
-            this.操作.MinimumWidth = 6;
-            this.操作.Name = "操作";
-            this.操作.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.操作.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.操作.Width = 125;
+            this.VolStatus.DataPropertyName = "VolStatus";
+            this.VolStatus.HeaderText = "志愿状态";
+            this.VolStatus.MinimumWidth = 6;
+            this.VolStatus.Name = "VolStatus";
+            this.VolStatus.Width = 125;
+            // 
+            // Control
+            // 
+            this.Control.DataPropertyName = "Control";
+            this.Control.HeaderText = "操作";
+            this.Control.MinimumWidth = 6;
+            this.Control.Name = "Control";
+            this.Control.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Control.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Control.Width = 125;
             // 
             // MyVolunteer
             // 
@@ -151,11 +168,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewButtonColumn 导师姓名;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 导师电话;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 导师邮箱;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 志愿序号;
-        private System.Windows.Forms.DataGridViewTextBoxColumn 志愿状态;
-        private System.Windows.Forms.DataGridViewButtonColumn 操作;
+        private System.Windows.Forms.DataGridViewTextBoxColumn 工号;
+        private System.Windows.Forms.DataGridViewButtonColumn TeaName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Contaction;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VolSort;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VolStatus;
+        private System.Windows.Forms.DataGridViewButtonColumn Control;
     }
 }

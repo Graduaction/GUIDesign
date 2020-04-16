@@ -6,16 +6,21 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BLL;
+using Model;
 
 namespace GUI.UI
 {
     public partial class CheckMentor : Form
     {
+        private readonly StudentManager sm = new StudentManager();
+        public string teaNo;
         public CheckMentor()
         {
             InitializeComponent();
         }
         private static CheckMentor formInstance;
+
         public static CheckMentor GetIntance
         {
             get
@@ -33,7 +38,28 @@ namespace GUI.UI
         }
         private void CheckMentor_Load(object sender, EventArgs e)
         {
+            //MessageBox.Show(this.TopLevel.ToString());
+            DataTable dataTable = sm.CheckMentorByNo(teaNo);
+            LbTeaName.Text = dataTable.Rows[0]["TeaName"].ToString();
+            LbTeaTitle.Text = dataTable.Rows[0]["Title"].ToString();
+            LbTeaProfile.Text = dataTable.Rows[0]["Profile"].ToString();
+            LbTeaContaction.Text = dataTable.Rows[0]["Contaction"].ToString();
+            LbTeaAcademy.Text = dataTable.Rows[0]["Academy"].ToString();
+            LbTeaEmail.Text = dataTable.Rows[0]["Email"].ToString(); 
+            string gender=dataTable.Rows[0]["Gender"].ToString();
+            if (gender == "1")
+            {
+                LbTeaGender.Text = "男";
+            }
+            else if (gender == "0")
+            {
+                LbTeaGender.Text = "女";
+            }
+        }
 
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
