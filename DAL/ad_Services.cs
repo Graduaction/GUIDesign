@@ -439,7 +439,7 @@ namespace DAL
         public DataTable GetStuMatchtable()
         {
             DataTable table = new DataTable();
-            string sql = @"select distinct(a.groupid) as 组号 ,a.membernum as 组内人数,a.leaderno as 组长学号,a.VolFirstId as 志愿一,a.VolSecondId as 志愿二,a.VolThirdId as 志愿三
+            string sql = @"select distinct(a.groupid) as 组号 ,a.membernum as 组内人数,a.leaderno as 组长学号,a.VolFirstId as 志愿一,a.VolSecondId as 志愿二,a.VolThirdId as 志愿三,
 (select stuname from student where student.stuno=a.leaderno) as 组长姓名,
 (select avg(grade) as avg_grade from Student e,GroupStu d where e.StuNo=d.StuNo) as 小组平均成绩
 from grouptable a left join groupstu c
