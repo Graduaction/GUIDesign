@@ -44,7 +44,7 @@ namespace GUI.UI
         }
         private void Form14_Load(object sender, EventArgs e)
         {
-
+            button2_Click(sender, e);
         }
 
         private void button1_Click(object sender, EventArgs e)//导出
@@ -96,6 +96,63 @@ namespace GUI.UI
             }
             xlApp.Quit();
             GC.Collect();//强行销毁 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)//加载页面
+        {
+            sx_student[] sx_Students = new sx_student[50];
+            sx_Students = Keepinformation.sx_Students;
+            sx_teacher[] sx_Teachers = new sx_teacher[20];
+            sx_Teachers = Keepinformation.sx_Teachers;
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("教师工号", typeof(string));
+            dataTable.Columns.Add("教师姓名", typeof(string));
+            dataTable.Columns.Add("学生组号", typeof(int));
+            dataTable.Columns.Add("组长姓名", typeof(string));
+            dataTable.Columns.Add("组长学号", typeof(string));
+            dataTable.Columns.Add("论文课题",typeof(string));
+            if (sx_Teachers != null)
+            {
+                foreach (sx_teacher sx in sx_Teachers)
+                {
+                    if (sx != null)
+                    {
+                        for (int i = 1; i <= sx.LovestuList.GetLength(); i++)
+                        {
+                            DataRow dataRow = dataTable.NewRow();
+                            dataRow["教师工号"] = sx.Teano;
+                            dataRow["教师姓名"] = sx.Teaname;
+                            dataRow["学生组号"] = sx.LovestuList.GetElem(i).Groupid;
+                            dataRow["组长姓名"] = sx.LovestuList.GetElem(i).Stuname;
+                            dataRow["组长学号"] = sx.LovestuList.GetElem(i).Leaderno;
+                            dataRow["论文课题"] = sx.LovestuList.GetElem(i).Topic;
+                            dataTable.Rows.Add(dataRow);
+                            //Console.WriteLine(dataRow["教师姓名"].ToString());
+                        }
+                        dataGridView1.DataSource = dataTable;
+                    }
+                }
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)//提交结果
+        {
+            DataTable dataTable = new DataTable();
+            dataTable = (DataTable)this.dataGridView1.DataSource;//获取datagridview的数据
+            ad_ServicesBLL bLL = new ad_ServicesBLL();
+            bLL.InsertToResult(dataTable);
+           
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Model
         private string stuname = string.Empty;//组长姓名
         private double grade = 0; //平均成绩
         private int beixuan = 0;//是否被选
+        private string topic = string.Empty;//课题
         
 
         public sx_student(int length)
@@ -39,5 +40,6 @@ namespace Model
         public string Stuname { get => stuname; set => stuname = value; }
         public string[] LoveTeacher { get => loveTeacher; set => loveTeacher = value; }
         public int Beixuan { get => beixuan; set => beixuan = value; }
+        public string Topic { get => topic; set => topic = value; }
     }
 }
