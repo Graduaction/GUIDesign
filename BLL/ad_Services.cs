@@ -106,12 +106,14 @@ namespace BLL
             return sDAL.DeleteBystuNo(StuNo);
         }
         #endregion
+
         #region 删除教师数据
         public bool RemoveTeadata(string TeaNo)
         {
             return sDAL.DaleteByteaNo(TeaNo);
         }
         #endregion
+
         #region check
         public bool Check(string id)
         {
@@ -155,7 +157,6 @@ namespace BLL
         }
 
         #endregion
-
 
         #region 登录
         
@@ -210,6 +211,12 @@ namespace BLL
         public string match()
         {
             return sDAL.Match();
+        }
+
+        //插入result的datatable数据到数据库
+        public void InsertToResult(DataTable dataTable)
+        {
+            sDAL.InsertToResult(dataTable);
         }
     }
 }
