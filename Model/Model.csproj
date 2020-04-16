@@ -64,15 +64,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminData.cs" />
+    <Compile Include="DoubleLinked.cs" />
+    <Compile Include="DoubleLinkedList.cs" />
     <Compile Include="GroupStuData.cs" />
     <Compile Include="GroupTableData.cs" />
     <Compile Include="GroupVolData.cs" />
     <Compile Include="InformationData.cs" />
     <Compile Include="Keepinformation.cs" />
     <Compile Include="ManageData.cs" />
+    <Compile Include="MyLinklist.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultData.cs" />
     <Compile Include="StudentData.cs" />
+    <Compile Include="sx_student.cs" />
+    <Compile Include="sx_teacher.cs" />
     <Compile Include="TeacherData.cs" />
   </ItemGroup>
   <ItemGroup>
