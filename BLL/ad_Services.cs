@@ -205,5 +205,11 @@ namespace BLL
             return sDAL.GetTeaMatchtable();
         }
         #endregion
+
+        //双选匹配
+        public string match()
+        {
+            return sDAL.Match();
+        }
     }
 }
