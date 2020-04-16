@@ -31,11 +31,11 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.来自 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.附件 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.时间 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.来自 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.标题 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.序号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -79,40 +79,45 @@
             this.dataGridView1.Size = new System.Drawing.Size(1223, 360);
             this.dataGridView1.TabIndex = 0;
             // 
-            // 序号
+            // 附件
             // 
-            this.序号.HeaderText = "序号";
-            this.序号.MinimumWidth = 6;
-            this.序号.Name = "序号";
-            this.序号.Width = 125;
-            // 
-            // 标题
-            // 
-            this.标题.HeaderText = "标题";
-            this.标题.MinimumWidth = 6;
-            this.标题.Name = "标题";
-            this.标题.Width = 125;
-            // 
-            // 来自
-            // 
-            this.来自.HeaderText = "来自";
-            this.来自.MinimumWidth = 6;
-            this.来自.Name = "来自";
-            this.来自.Width = 125;
+            this.附件.DataPropertyName = "InfoContent";
+            this.附件.HeaderText = "附件";
+            this.附件.MinimumWidth = 6;
+            this.附件.Name = "附件";
+            this.附件.Width = 125;
             // 
             // 时间
             // 
+            this.时间.DataPropertyName = "InfoTime";
             this.时间.HeaderText = "时间";
             this.时间.MinimumWidth = 6;
             this.时间.Name = "时间";
             this.时间.Width = 125;
             // 
-            // 附件
+            // 来自
             // 
-            this.附件.HeaderText = "附件";
-            this.附件.MinimumWidth = 6;
-            this.附件.Name = "附件";
-            this.附件.Width = 125;
+            this.来自.DataPropertyName = "AdminNo";
+            this.来自.HeaderText = "来自";
+            this.来自.MinimumWidth = 6;
+            this.来自.Name = "来自";
+            this.来自.Width = 125;
+            // 
+            // 标题
+            // 
+            this.标题.DataPropertyName = "InfoTitle";
+            this.标题.HeaderText = "标题";
+            this.标题.MinimumWidth = 6;
+            this.标题.Name = "标题";
+            this.标题.Width = 125;
+            // 
+            // 序号
+            // 
+            this.序号.DataPropertyName = "InfoNo";
+            this.序号.HeaderText = "序号";
+            this.序号.MinimumWidth = 6;
+            this.序号.Name = "序号";
+            this.序号.Width = 125;
             // 
             // XCheckNotification
             // 
