@@ -23,5 +23,9 @@ namespace Model
         public static string VolunteerSecondShare = "";
         public static string VolunteerThirdShare = "";
         public static string Grade;
+
+        //双选匹配页
+        public static sx_teacher[] sx_Teachers;
+        public static sx_student[] sx_Students;
     }
 }
