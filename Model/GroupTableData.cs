@@ -12,8 +12,10 @@ namespace Model
         private int _groupID = 0;
         private string topic = string.Empty;
         private int _memberNum = 0;
-
-
+        private string _leaderno = string.Empty;
+        private string _volFirstId = string.Empty;
+        private string _volSecondeId = string.Empty;
+        private string _volThirdId = string.Empty;
         /// <summary>
         /// 组别ID
         /// </summary>
@@ -27,5 +29,25 @@ namespace Model
         /// 该组总人数
         /// </summary>
         public int MemberNum { get => _memberNum; set => _memberNum = value; }
+
+        /// <summary>
+        /// 组长学号
+        /// </summary>
+        public string Leaderno { get => _leaderno; set => _leaderno = value; }
+
+        /// <summary>
+        /// 第一志愿老师id
+        /// </summary>
+        public string VolFirstId { get => _volFirstId; set => _volFirstId = value; }
+
+        /// <summary>
+        /// 第二志愿老师id
+        /// </summary>
+        public string VolSecondeId { get => _volSecondeId; set => _volSecondeId = value; }
+
+        /// <summary>
+        /// 第三志愿老师id
+        /// </summary>
+        public string VolThirdId { get => _volThirdId; set => _volThirdId = value; }
     }
 }
