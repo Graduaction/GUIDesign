@@ -505,6 +505,7 @@ on a.GroupID = c.groupid ";
                 {
                     student.Grade =Convert.ToDouble(stutable.Rows[i][7]);
                 }
+                student.Beixuan = 0;//初始化被选=0
                 sx_Students[i] = student;                
             }
             //将datatable中的值赋给sx_teacher对象数组
@@ -592,7 +593,7 @@ on a.GroupID = c.groupid ";
                                             //sx_Student.Membernum = sx_Students[i].Membernum;
                                             //sx_Student.Grade = sx_Students[i].Grade;
                                             //sx_Student.Stuname = sx_Students[i].Stuname;
-                                            
+                                            sx_Students[i].Beixuan = 1;
                                             sx_Teachers[k].LovestuList.Append(sx_Students[i]);//将该学生插入到链表中                                     
                                             Console.WriteLine("恭喜学生" + sx_Students[i].Groupid + "被老师" + sx_Teachers[k].Teaname + "录取了");
                                             string output = "该老师目前已匹配了" + sx_Teachers[k].LovestuList.GetLength() + "组" + "匹配学生有[";
@@ -614,11 +615,19 @@ on a.GroupID = c.groupid ";
                                         {
                                             if(sx_Teachers[k].LovestuList.GetElem(p).Grade<sx_Students[i].Grade)//有比该学生成绩还要低的
                                             {
+                                                for(int g=1;g<=row_stucount;g++)
+                                                {
+                                                    if(sx_Students[g].Groupid==sx_Teachers[k].LovestuList.GetElem(p).Groupid)
+                                                    {
+                                                        sx_Students[g].Beixuan = 0;
+                                                    }
+                                                }
+
                                                 //Console.WriteLine("找到"+sx_Teachers[k].LovestuList.GetElem(p).Groupid+"比"+sx_Students[i].Groupid+"成绩还要低!抢他！！");
                                                 Console.WriteLine("学生" + sx_Teachers[k].LovestuList.GetElem(p).Groupid + "失恋了，他的指导老师被学生" + sx_Students[i].Groupid + "抢了");
                                                 
                                                 sx_Teachers[k].LovestuList.Delete(p);//删除第p个节点
-
+                                                sx_Students[i].Beixuan = 1;
                                                 sx_Teachers[k].LovestuList.Append(sx_Students[i]);//插入第i个节点
                                                 Console.WriteLine("恭喜学生" + sx_Students[i].Groupid + "被" + sx_Teachers[k].Teaname + "老师录取了");
                                                 break;
@@ -651,6 +660,28 @@ on a.GroupID = c.groupid ";
             }
             Random random = new Random();
             int j= random.Next(0, row_stucount);
+
+            int[] vs = new int[40];
+            int e = 0;
+            string weipipei = "第一轮匹配失败组数[";
+            foreach(sx_student sx in sx_Students)
+            {
+                if(sx!=null&&sx.Beixuan==0)
+                {
+                    vs[e] = sx.Groupid;
+                    e++;
+                }
+            }
+            for(int h=0;h<vs.Length;h++)
+            {
+                if(vs[h]!=0)
+                {
+                    weipipei += vs[h].ToString() + ",";
+                }
+            }
+            weipipei += "]";
+            Console.WriteLine(weipipei);
+
 
             //  return (sx_Students[j].Groupid + " 向 " + sx_Students[j].LoveTeacher[0] + ";" + sx_Students[j].LoveTeacher[1] + ";" + sx_Students[j].LoveTeacher[2] + "  表白了");
             return ("一轮匹配结束,点击确定查看匹配结果");
