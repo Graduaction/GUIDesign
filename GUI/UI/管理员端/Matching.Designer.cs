@@ -49,10 +49,10 @@
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox1.Location = new System.Drawing.Point(10, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1013, 423);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(1108, 423);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "双选匹配";
@@ -69,9 +69,9 @@
             this.panel1.Controls.Add(this.teadataGridView);
             this.panel1.Controls.Add(this.studataGridView);
             this.panel1.Location = new System.Drawing.Point(4, 59);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(996, 360);
+            this.panel1.Size = new System.Drawing.Size(1089, 360);
             this.panel1.TabIndex = 13;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -104,7 +104,7 @@
             this.btreset.Font = new System.Drawing.Font("宋体", 12F);
             this.btreset.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btreset.Location = new System.Drawing.Point(450, 205);
-            this.btreset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btreset.Margin = new System.Windows.Forms.Padding(2);
             this.btreset.Name = "btreset";
             this.btreset.Size = new System.Drawing.Size(90, 38);
             this.btreset.TabIndex = 15;
@@ -117,7 +117,7 @@
             this.btmatch.Font = new System.Drawing.Font("宋体", 12F);
             this.btmatch.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btmatch.Location = new System.Drawing.Point(450, 119);
-            this.btmatch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btmatch.Margin = new System.Windows.Forms.Padding(2);
             this.btmatch.Name = "btmatch";
             this.btmatch.Size = new System.Drawing.Size(90, 38);
             this.btmatch.TabIndex = 14;
@@ -128,23 +128,23 @@
             // teadataGridView
             // 
             this.teadataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.teadataGridView.Location = new System.Drawing.Point(551, 54);
-            this.teadataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.teadataGridView.Location = new System.Drawing.Point(565, 54);
+            this.teadataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.teadataGridView.Name = "teadataGridView";
             this.teadataGridView.RowHeadersWidth = 51;
             this.teadataGridView.RowTemplate.Height = 27;
-            this.teadataGridView.Size = new System.Drawing.Size(434, 299);
+            this.teadataGridView.Size = new System.Drawing.Size(479, 299);
             this.teadataGridView.TabIndex = 13;
             // 
             // studataGridView
             // 
             this.studataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studataGridView.Location = new System.Drawing.Point(8, 54);
-            this.studataGridView.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.studataGridView.Margin = new System.Windows.Forms.Padding(2);
             this.studataGridView.Name = "studataGridView";
             this.studataGridView.RowHeadersWidth = 51;
             this.studataGridView.RowTemplate.Height = 27;
-            this.studataGridView.Size = new System.Drawing.Size(437, 299);
+            this.studataGridView.Size = new System.Drawing.Size(420, 299);
             this.studataGridView.TabIndex = 12;
             // 
             // label5
@@ -164,10 +164,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1036, 443);
+            this.ClientSize = new System.Drawing.Size(1184, 443);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Matching";
             this.Text = "Form25";
             this.Load += new System.EventHandler(this.Matching_Load);

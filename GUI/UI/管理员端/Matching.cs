@@ -38,7 +38,6 @@ namespace GUI.UI
         {
 
         }
-
         private void Matching_Load(object sender, EventArgs e)//加载
         {
             ad_ServicesBLL servicesBLL = new ad_ServicesBLL();           
@@ -49,11 +48,34 @@ namespace GUI.UI
 
         private void btmatch_Click(object sender, EventArgs e)//一键匹配
         {
+            ad_ServicesBLL bLL = new ad_ServicesBLL();           
+           DialogResult dr= MessageBox.Show(bLL.match(),"提示",MessageBoxButtons.OKCancel);
+            if(dr==DialogResult.OK)
+            {
+                //跳转页面
+
+            }
+            else
+            {
+                //
+            }
+            //获取学生的对象数组           
+            sx_student[] sx_Students = new sx_student[50];
+            sx_Students = Keepinformation.sx_Students;
+            //获取教师的对象数组 
+            sx_teacher[] sx_Teachers = new sx_teacher[20];
+            sx_Teachers = Keepinformation.sx_Teachers;
+
+            //Random random = new Random();
+            //int i = random.Next(0, sx_Students.Length);
+            //Console.WriteLine(sx_Students[i].Groupid + sx_Students[i].Leaderno);
 
         }
 
         private void btreset_Click(object sender, EventArgs e)//重置
-        {
+        {            
+           
+           
 
         }
 
