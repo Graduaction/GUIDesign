@@ -1,4 +1,5 @@
-﻿using BenNHControl;
+﻿
+using BenNHControl;
 using static BenNHControl.FormEX;
 using System;
 using System.Collections.Generic;
@@ -232,67 +233,95 @@ namespace GUI.UI
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
-            
-            try
-            {
-                this.initButton();
-                this.button4.BackColor = Color.FromArgb(95, 129, 174);
-                Monitor.Enter(this.lockObj);
-                if (!formSwitchFlag)
-                {
-                    formSwitchFlag = true;
-                    this.ShowForm(pnlCenter, form4);
-                    formSwitchFlag = false;
-                }
-                else
-                {
-                    return;
-                }
-            }
-#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-            catch (System.Exception ex)
-#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-            {
-                //
-            }
-            finally
-            {
-                Monitor.Exit(this.lockObj);
-            }
+            this.initButton();
+            this.button4.BackColor = Color.FromArgb(95, 129, 174);
+            MyStudents cform = new MyStudents();//实例化一个子窗口
+            //设置子窗口不显示为顶级窗口
+            cform.TopLevel = false;
+            //设置子窗口的样式，没有上面的标题栏
+            cform.FormBorderStyle = FormBorderStyle.None;
+            //填充
+            cform.Dock = DockStyle.Fill;
+            //清空控件
+            this.pnlCenter.Controls.Clear();
+            //加入控件
+            this.pnlCenter.Controls.Add(cform);
+            //让窗体显示
+            cform.Show();
+
+//            try
+//            {
+//                this.initButton();
+//                this.button4.BackColor = Color.FromArgb(95, 129, 174);
+//                Monitor.Enter(this.lockObj);
+//                if (!formSwitchFlag)
+//                {
+//                    formSwitchFlag = true;
+//                    this.ShowForm(pnlCenter, form4);
+//                    formSwitchFlag = false;
+//                }
+//                else
+//                {
+//                    return;
+//                }
+//            }
+//#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+//            catch (System.Exception ex)
+//#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+//            {
+//                //
+//            }
+//            finally
+//            {
+//                Monitor.Exit(this.lockObj);
+//            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            
+            this.initButton();
+            this.button5.BackColor = Color.FromArgb(95, 129, 174);
+            DCheckNotification cform = new DCheckNotification();//实例化一个子窗口
+            //设置子窗口不显示为顶级窗口
+            cform.TopLevel = false;
+            //设置子窗口的样式，没有上面的标题栏
+            cform.FormBorderStyle = FormBorderStyle.None;
+            //填充
+            cform.Dock = DockStyle.Fill;
+            //清空控件
+            this.pnlCenter.Controls.Clear();
+            //加入控件
+            this.pnlCenter.Controls.Add(cform);
+            //让窗体显示
+            cform.Show();
 
-            try
-            {
+//            try
+//            {
                
-                this.initButton();
-                this.button5.BackColor = Color.FromArgb(95, 129, 174);
-                Monitor.Enter(this.lockObj);
-                if (!formSwitchFlag)
-                {
-                    formSwitchFlag = true;
-                    this.ShowForm(pnlCenter, form5);
-                    formSwitchFlag = false;
-                }
-                else
-                {
-                    return;
-                }
-            }
-#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-            catch (System.Exception ex)
-#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-            {
-                //
-            }
-            finally
-            {
-                Monitor.Exit(this.lockObj);
-            }
+//                this.initButton();
+//                this.button5.BackColor = Color.FromArgb(95, 129, 174);
+//                Monitor.Enter(this.lockObj);
+//                if (!formSwitchFlag)
+//                {
+//                    formSwitchFlag = true;
+//                    this.ShowForm(pnlCenter, form5);
+//                    formSwitchFlag = false;
+//                }
+//                else
+//                {
+//                    return;
+//                }
+//            }
+//#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+//            catch (System.Exception ex)
+//#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+//            {
+//                //
+//            }
+//            finally
+//            {
+//                Monitor.Exit(this.lockObj);
+//            }
         }
 
         private void label1_Click(object sender, EventArgs e)

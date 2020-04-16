@@ -6,11 +6,20 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BLL;
+using Model;
 
 namespace GUI.UI
 {
     public partial class MyTeam : Form
     {
+        //string stuNo = "16209040087";
+        StudentData student =new StudentData() {
+            StuNo = LoginInterface.loginid
+        };
+        StudentManager sm = new StudentManager();
+        GroupTableData groupTable = new GroupTableData();
+        GroupStuData groupStu = new GroupStuData();
         public MyTeam()
         {
             InitializeComponent();
@@ -32,66 +41,83 @@ namespace GUI.UI
             }
         }
 
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form33_Load(object sender, EventArgs e)
         {
-            this.treeView1.ExpandAll();
-        }
-        private Point Position = new Point(0, 0);
-
-        private void treeView1_ItemDrag(object sender, ItemDragEventArgs e)
-        {
-            DoDragDrop(e.Item, DragDropEffects.Move);
-        }
-
-        private void treeView1_DragEnter(object sender, DragEventArgs e)
-        {
-            if (e.Data.GetDataPresent(typeof(TreeNode)))
-                e.Effect = DragDropEffects.Move;
-            else
-                e.Effect = DragDropEffects.None;
-        }
-
-        private void treeView1_DragDrop(object sender, DragEventArgs e)
-        {
-            TreeNode myNode = null;
-            if (e.Data.GetDataPresent(typeof(TreeNode)))
+            dataGridView2.DataSource = sm.CheckStuList();
+            dataGridView1.DataSource = sm.CheckGroupList(student.StuNo); //查看我的队伍
+            if (sm.IsCreateGroup(student.StuNo))
             {
-                myNode = (TreeNode)(e.Data.GetData(typeof(TreeNode)));
+                textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
+                groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
             }
             else
             {
-                MessageBox.Show("error");
-            }
-            Position.X = e.X;
-            Position.Y = e.Y;
-            Position = treeView1.PointToClient(Position);
-            TreeNode DropNode = this.treeView1.GetNodeAt(Position);
-            // 1.目标节点不是空。2.目标节点不是被拖拽接点的字节点。3.目标节点不是被拖拽节点本身
-            if (DropNode != null && DropNode.Parent != myNode && DropNode != myNode)
-            {
-                TreeNode DragNode = myNode;
-                // 将被拖拽节点从原来位置删除。
-                myNode.Remove();
-                // 在目标节点下增加被拖拽节点
-                DropNode.Nodes.Add(DragNode);
-            }
-            // 如果目标节点不存在，即拖拽的位置不存在节点，那么就将被拖拽节点放在根节点之下
-            if (DropNode == null)
-            {
-                TreeNode DragNode = myNode;
-                myNode.Remove();
-                treeView1.Nodes.Add(DragNode);
+                textBox1.Text = " ";
             }
         }
+       /* private void showGridView()
+        {
+            DataGridTextBoxColumn tb = new DataGridTextBoxColumn();
+            dataGridView2.Rows.Add(tb);
+            for (int i = 0; i < dataGridView2.ColumnCount; i++)
+            dataGridView2.Rows[dataGridView2.RowCount - 2].Cells[i].Value = a[i];
+            //根据AllowUserToAddRow属性选择最后一行，true时dataGridView1.RowCount-2,false时dataGridView1.RowCount-1
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showGridView();
+        }*/
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                MessageBox.Show("你已组队，不能重复组队");
+            }
+            else
+            {
+                MessageBox.Show("组队成功");
+                sm.CreateGroup(student.StuNo);
+                dataGridView1.DataSource = sm.CheckGroupList(student.StuNo); //查看我的队伍
+                textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
+                groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
+            }
+        }
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupStu.StuNo = dataGridView1.CurrentRow.Cells[1].Value.ToString();//获取当前行的学号
+        }
+        private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            groupStu.StuNo = dataGridView2.CurrentRow.Cells[0].Value.ToString();//获取当前行的学号
+            button1.Text = groupStu.StuNo;
+        }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                dataGridView1.DataSource = sm.SelectGroupStu(groupTable.GroupID, groupStu.StuNo);//选择队员并查看我的队伍
+            }
+            else
+            {
+                MessageBox.Show("你还未组队，请组队后再操作");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (sm.IsCreateGroup(student.StuNo))
+            {
+                //groupStu.StuNo = dataGridView1["学号", 0].Value.ToString();
+               // MessageBox.Show(groupStu.StuNo);
+                dataGridView1.DataSource = sm.DelGroupStu(groupTable.GroupID, groupStu.StuNo);//删除队员并查看我的队伍
+            }
+            else
+            {
+                MessageBox.Show("你还未组队，请组队后再操作");
+            }
+        }
+
     }
 }
