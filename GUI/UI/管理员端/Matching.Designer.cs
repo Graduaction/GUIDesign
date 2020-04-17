@@ -108,7 +108,7 @@
             this.btreset.Name = "btreset";
             this.btreset.Size = new System.Drawing.Size(90, 38);
             this.btreset.TabIndex = 15;
-            this.btreset.Text = "重置";
+            this.btreset.Text = "重置结果";
             this.btreset.UseVisualStyleBackColor = true;
             this.btreset.Click += new System.EventHandler(this.btreset_Click);
             // 
