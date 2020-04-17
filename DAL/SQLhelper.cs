@@ -20,8 +20,8 @@ namespace DAL
             conn.Open();
             return conn;
         }
-        #region 执行查询:select返回多行多列
-        //执行查询:select返回多行多列
+        #region 执行查询:select返回DataTable
+        //执行查询:select返回DataTable
         public static DataTable ExecuteQuery(SqlConnection conn, string sql, params SqlParameter[] parameters)
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter();
