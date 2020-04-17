@@ -314,14 +314,7 @@ namespace DAL
         #region 获取teavolheng表 一轮志愿教师表 存入一个datatable
         public DataTable dtTeaVol(string teano)
         {
-            // string sql = "insert into TeaVol(teano,groupid) values(@teano,@groupid)";
-            // SqlParameter[] paras =
-            //{
-            //     new SqlParameter("@teano",teano),
-            //     new SqlParameter("@groupid",groupid)
-            // };
-            // int re = SQLHelper.ExecuteNonQuery(sql,CommandType.Text,paras);
-            // return re;
+
             DataTable dtTeaVol = new DataTable();
             string sql = "select * from TeaVolheng where teano=@teano";
             SqlParameter[] paras = { new SqlParameter("@teano",teano) };
@@ -341,13 +334,6 @@ namespace DAL
                 throw ex;
             }
         }
-        //public void intoTeaVol(string teano,int groupid)
-        //{
-        //    //DataTable dtTV = dtTeaVol();
-        //    //string sql = "";
-        //    //SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(sda);
-
-        //}
         #endregion
 
         #region 向数据库提交datatable的更新一轮志愿的表teavolheng
@@ -373,5 +359,76 @@ namespace DAL
         }
         #endregion
 
+        #region 查看一轮匹配后当前登录的教师工号的已匹配组数
+        public int GetyipipeiNum(string teano)
+        {
+            string sql = "select count(*) from result  where TeacherNo=@teano";
+            SqlParameter[] paras = { new SqlParameter("@teano", teano) };
+            int re = (int)SQLHelper.ExecuteScalar(sql, CommandType.Text, paras);
+            return re;
+        }
+        #endregion
+
+        #region 查询显示所有漏选学生的志愿和组员姓名  
+        public DataTable selectlxStu()
+        {
+            string sql = "select d.groupid as 组号,d.topic as 论文选题,c.avg_grade as 平均综测,(select teaname from teacher where teano = d.volfirstid) as 第一志愿,(select teaname from teacher where teano = d.volsecondid)as 第二志愿,(select teaname from teacher where teano = d.volthirdid)as 第三志愿,'选择' 操作1,'取消'  操作2,(select stuname from  student a where a.StuNo = b.stuno1)+b.stuno1  as 组员1 ,(select stuname from student a where a.StuNo = b.stuno2)+b.stuno2  as 组员2 ,(select stuname from student a where a.StuNo = b.stuno3)+b.stuno3  as 组员3 ,(select stuname from student a where a.StuNo = b.stuno4)+b.stuno4  as 组员4 ,(select stuname from student a where a.StuNo = b.stuno5)+b.stuno5 as 组员5 from GroupNoinResult d left join getgroupstuno b on b.groupid = d.GroupId left join avg_groupgrade c on d.groupid = c.groupid order by c.avg_grade desc";
+            SqlConnection conn = new SqlConnection(connStr);
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dtStuVol = dsvol.Tables.Add("StuVol");
+                sda.Fill(dtStuVol);
+                return dtStuVol;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            //DataTable dt = SQLHelper.ExecuteQuery(sql);
+            //return dt;
+        }
+        #endregion
+        
+        #region 获取teavolheng2表 二轮志愿教师表 存入一个datatable
+        public DataTable dtTeaVol2(string teano)
+        {
+
+            DataTable dtTeaVol = new DataTable();
+            string sql = "select * from TeaVolheng2 where teano=@teano";
+            SqlParameter[] paras = { new SqlParameter("@teano", teano) };
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddRange(paras);
+            try
+            {
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dtTeaVol);
+                return dtTeaVol;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
+        #region 向数据库提交datatable的更新二轮志愿的表teavolheng2
+        public int updateTV2(DataTable dt)
+        {
+            string sql = "select * from teavolheng2";
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+            SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(sda);
+            //sda.Update(dt);
+            return sda.Update(dt);
+        }
+        #endregion
     }
 }
