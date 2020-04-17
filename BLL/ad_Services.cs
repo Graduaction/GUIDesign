@@ -254,5 +254,10 @@ namespace BLL
             return sDAL.MatchSecondtime();
         }
         #endregion
+
+        public DataTable SelectFromResuit()
+        {
+            return sDAL.SelectFromResuit();
+        }
     }
 }

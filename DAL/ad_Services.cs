@@ -959,6 +959,8 @@ on a.GroupID = c.groupid ";
             }
             weipipei += "]";
             Console.WriteLine(weipipei);
+            Keepinformation.sx_Students = sx_Students;
+            Keepinformation.sx_Teachers = sx_Teachers;
             Keepinformation.stsx_Students = sx_Students;
             Keepinformation.stsx_Teachers = sx_Teachers;
             Console.WriteLine("\n\n\n\n");
@@ -998,10 +1000,13 @@ on a.GroupID = c.groupid ";
             Keepinformation.sx_Teachers = sx_Teachers;
         }
 
-        public void InsertSTtoResult()
+        public DataTable SelectFromResuit()
         {
-
+            string sql = @"select distinct(a.groupid) as 学生组号,(select stuname from student d where d.stuno=(select leaderno from grouptable c where c.groupid=a.groupid)) as 组长姓名,b.teaname as 教师姓名,a.topic as 论文课题 from result a,teacher b,student c where a.teacherno=b.teano and a.groupid=c.groupid";
+            DataTable dataTable = SQLHelper.ExecuteQuery(sql);
+            return dataTable;
         }
+
 
 
         #region 判断表中是否有该学号的存在 ExecutScale
