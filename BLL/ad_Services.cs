@@ -159,7 +159,7 @@ namespace BLL
         #endregion
 
         #region 登录
-        
+
         public int CheckAdminLogin(AdminData adminData)
         {
             return sDAL.Login(adminData);
@@ -169,7 +169,7 @@ namespace BLL
         #region 个人信息页
         public int Updataadmbll(AdminData adminData)
         {
-            if(sDAL.UpdataAdmdata(adminData)==1)
+            if (sDAL.UpdataAdmdata(adminData) == 1)
             {
                 Keepinformation.AdminEmail = adminData.AdminEmail;
                 Keepinformation.AdminTitle = adminData.AdminTitle;
@@ -182,7 +182,7 @@ namespace BLL
         #region 设置双选参数
         public int Setparambll(ManageData manageData)
         {
-            int result =sDAL.InsertManage(manageData);
+            int result = sDAL.InsertManage(manageData);
             return result;
         }
         #endregion
@@ -198,7 +198,7 @@ namespace BLL
         //学生列表
         public DataTable stuGetmatchdata()
         {
-           return sDAL.GetStuMatchtable();
+            return sDAL.GetStuMatchtable();
         }
         //教室列表
         public DataTable teaGetmatchdata()
@@ -234,6 +234,24 @@ namespace BLL
         public bool SearchRs(string sql)
         {
             return sDAL.SearchRs(sql);
+        }
+        #endregion
+
+        #region 查询二轮界面
+        public DataTable ST_GetTeaMatchtable()
+        {
+            return sDAL.ST_GetTeaMatchtable();
+        }
+        public DataTable ST_GetStuMatchtable()
+        {
+            return sDAL.ST_GetStuMatchtable();
+        }
+        #endregion
+
+        #region 第二轮双选功能
+        public string MatchSecondtime()
+        {
+            return sDAL.MatchSecondtime();
         }
         #endregion
     }
