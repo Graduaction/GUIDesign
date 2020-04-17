@@ -123,9 +123,9 @@ namespace BLL
         //{
         //    return ts.insertTeaVol(teano, groupid);
         //} 
-        public DataTable dtTeaVol()
+        public DataTable dtTeaVol(string teano)
         {
-            return ts.dtTeaVol();
+            return ts.dtTeaVol(teano);
         }
         #endregion
         public int updateTV(DataTable dt)
@@ -137,6 +137,34 @@ namespace BLL
         public int GetGroupNum(string teano)
         {
             return ts.GetGroupNum(teano);
+        }
+        #endregion
+
+        #region 查看一轮匹配后当前登录的教师工号的可带人数
+        public int GetyipipeiNum(string teano)
+        {
+            return ts.GetyipipeiNum(teano);
+        }
+        #endregion
+
+        #region 查询显示所有漏选学生的志愿和组员姓名 
+        public DataTable selectlxStu()
+        {
+            return ts.selectlxStu();
+        }
+        #endregion
+
+        #region 获取teavolheng表 一轮志愿教师表 存入一个datatable
+        public DataTable dtTeaVol2(string teano)
+        {
+            return ts.dtTeaVol2(teano);
+        }
+        #endregion
+
+        #region 向数据库提交datatable的更新一轮志愿的表teavolheng
+        public int updateTV2(DataTable dt)
+        {
+            return ts.updateTV2(dt);
         }
         #endregion
     }

@@ -112,5 +112,26 @@ namespace GUI.UI
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)//一键匹配
+        {
+            ad_ServicesBLL bLL = new ad_ServicesBLL();
+            MessageBox.Show(bLL.MatchSecondtime(), "提示");
+        }
+
+        private void button2_Click(object sender, EventArgs e)//重新加载界面
+        {
+            ad_ServicesBLL servicesBLL = new ad_ServicesBLL();
+            dataGridView2.DataSource = servicesBLL.ST_GetStuMatchtable();           
+            dataGridView1.DataSource = servicesBLL.ST_GetTeaMatchtable();
+
+        }
+
+        private void tabControl1_Click(object sender, EventArgs e)
+        {
+            ad_ServicesBLL servicesBLL = new ad_ServicesBLL();
+            dataGridView2.DataSource = servicesBLL.ST_GetStuMatchtable();
+            dataGridView1.DataSource = servicesBLL.ST_GetTeaMatchtable();
+        }
     }
 }

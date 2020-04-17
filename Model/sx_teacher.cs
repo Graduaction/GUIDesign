@@ -8,29 +8,30 @@ using System.Threading.Tasks;
 namespace Model
 {
     [Serializable]
-   public class sx_teacher
+    public class sx_teacher
     {
         private string teano = string.Empty;//教师工号
-        private string teaname=string.Empty;//教师姓名
-        private int groupnumber=0;//所带组数
+        private string teaname = string.Empty;//教师姓名
+        private int groupnumber = 0;//所带组数
         private int yixuan = 0;//已选组数
         //private int groupid1=0;//志愿一
         //private int groupid2=0;//志愿二
         //private int groupid3=0;//志愿三
         //private int groupid4=0;//志愿四
         //private int groupid5=0;//志愿五
+        private int kexuan = 0;//第二轮可选组数
         private int[] groupid;
-       // private doubleLinkedList doubleLinkedList;//调用另一个表声明的双向链表
+        // private doubleLinkedList doubleLinkedList;//调用另一个表声明的双向链表
         private MyLinkList<sx_student> lovestuList;//单链表
 
-        
+
 
         public sx_teacher(int length)
         {
             this.groupid = new int[length];
         }
-        
-        
+
+
 
         public string Teano { get => teano; set => teano = value; }
         public string Teaname { get => teaname; set => teaname = value; }
@@ -43,18 +44,6 @@ namespace Model
         //public int Groupid5 { get => groupid5; set => groupid5 = value; }
         public int[] Groupid { get => groupid; set => groupid = value; }
         public MyLinkList<sx_student> LovestuList { get => lovestuList; set => lovestuList = value; }
-
-
-
-
-
-
-
-
-
-
-
-
-
+        public int Kexuan { get => kexuan; set => kexuan = value; }
     }
 }
