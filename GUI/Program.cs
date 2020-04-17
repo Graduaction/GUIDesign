@@ -15,7 +15,7 @@ namespace GUI.UI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());//  LoginInterface  NoticeDetails  DCheckNotification
+            Application.Run(new LoginInterface());//  LoginInterface  NoticeDetails  DCheckNotification
         }
     }
 }
