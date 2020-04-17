@@ -154,5 +154,26 @@ namespace GUI.UI
             bLL.InsertToResult(dataTable);
            
         }
+
+        private void button4_Click(object sender, EventArgs e)//重置结果
+        {
+            string deletesql = "truncate table result";
+            string searchsql = "select * from result";
+            ad_ServicesBLL bLL = new ad_ServicesBLL();
+            if (bLL.SearchRs(searchsql))
+            {
+                int i = bLL.Tuncast_TBrs(deletesql);
+                if (i == -1)
+                {
+                    MessageBox.Show("重置成功", "提示");
+                }
+                else
+                    MessageBox.Show("重置失败", "提示");
+            }
+            else
+            {
+                MessageBox.Show("请先提交数据", "提示");
+            }
+        }
     }
 }
