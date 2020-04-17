@@ -83,7 +83,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(1339, 510);
+            this.groupBox1.Size = new System.Drawing.Size(1352, 529);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看教师列表";
@@ -91,8 +91,8 @@
             // button8
             // 
             this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button8.Location = new System.Drawing.Point(317, 408);
-            this.button8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button8.Location = new System.Drawing.Point(317, 416);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(100, 34);
             this.button8.TabIndex = 8;
@@ -103,8 +103,8 @@
             // button7
             // 
             this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button7.Location = new System.Drawing.Point(317, 360);
-            this.button7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button7.Location = new System.Drawing.Point(317, 368);
+            this.button7.Margin = new System.Windows.Forms.Padding(4);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(100, 34);
             this.button7.TabIndex = 7;
@@ -128,10 +128,10 @@
             this.groupBox3.Controls.Add(this.tbteano);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox3.Location = new System.Drawing.Point(7, 51);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(284, 438);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(270, 462);
             this.groupBox3.TabIndex = 6;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "添加单条信息";
@@ -205,8 +205,8 @@
             // button6
             // 
             this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button6.Location = new System.Drawing.Point(89, 377);
-            this.button6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button6.Location = new System.Drawing.Point(85, 386);
+            this.button6.Margin = new System.Windows.Forms.Padding(4);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 29);
             this.button6.TabIndex = 5;
@@ -217,7 +217,7 @@
             // tbgroupnumber
             // 
             this.tbgroupnumber.Location = new System.Drawing.Point(99, 226);
-            this.tbgroupnumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbgroupnumber.Margin = new System.Windows.Forms.Padding(4);
             this.tbgroupnumber.Name = "tbgroupnumber";
             this.tbgroupnumber.Size = new System.Drawing.Size(132, 25);
             this.tbgroupnumber.TabIndex = 4;
@@ -225,7 +225,7 @@
             // tbacademy
             // 
             this.tbacademy.Location = new System.Drawing.Point(99, 180);
-            this.tbacademy.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbacademy.Margin = new System.Windows.Forms.Padding(4);
             this.tbacademy.Name = "tbacademy";
             this.tbacademy.Size = new System.Drawing.Size(132, 25);
             this.tbacademy.TabIndex = 3;
@@ -233,7 +233,7 @@
             // tbteaname
             // 
             this.tbteaname.Location = new System.Drawing.Point(99, 139);
-            this.tbteaname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbteaname.Margin = new System.Windows.Forms.Padding(4);
             this.tbteaname.Name = "tbteaname";
             this.tbteaname.Size = new System.Drawing.Size(132, 25);
             this.tbteaname.TabIndex = 2;
@@ -241,7 +241,7 @@
             // tbteapwd
             // 
             this.tbteapwd.Location = new System.Drawing.Point(99, 93);
-            this.tbteapwd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbteapwd.Margin = new System.Windows.Forms.Padding(4);
             this.tbteapwd.Name = "tbteapwd";
             this.tbteapwd.Size = new System.Drawing.Size(132, 25);
             this.tbteapwd.TabIndex = 1;
@@ -249,7 +249,7 @@
             // tbteano
             // 
             this.tbteano.Location = new System.Drawing.Point(99, 26);
-            this.tbteano.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbteano.Margin = new System.Windows.Forms.Padding(4);
             this.tbteano.Name = "tbteano";
             this.tbteano.Size = new System.Drawing.Size(132, 25);
             this.tbteano.TabIndex = 0;
@@ -257,7 +257,7 @@
             // button5
             // 
             this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button5.Location = new System.Drawing.Point(317, 455);
+            this.button5.Location = new System.Drawing.Point(317, 463);
             this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(103, 34);
@@ -270,7 +270,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(1167, 360);
+            this.label2.Location = new System.Drawing.Point(1187, 368);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 15);
             this.label2.TabIndex = 3;
@@ -282,7 +282,7 @@
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox2.Location = new System.Drawing.Point(584, 371);
+            this.groupBox2.Location = new System.Drawing.Point(591, 405);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -329,7 +329,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("宋体", 19F);
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(738, 20);
+            this.label3.Location = new System.Drawing.Point(750, 20);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(143, 33);
             this.label3.TabIndex = 1;
@@ -344,7 +344,7 @@
             this.Teagridview.RowHeadersWidth = 51;
             this.Teagridview.RowTemplate.Height = 27;
             this.Teagridview.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Teagridview.Size = new System.Drawing.Size(995, 282);
+            this.Teagridview.Size = new System.Drawing.Size(1015, 282);
             this.Teagridview.TabIndex = 0;
             // 
             // TeachersList
@@ -352,11 +352,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1376, 535);
+            this.ClientSize = new System.Drawing.Size(1376, 563);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TeachersList";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
