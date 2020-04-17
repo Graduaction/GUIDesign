@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Model;
 using BLL;
+using System.Threading.Tasks;
 
 namespace GUI.UI
 {
@@ -22,7 +23,6 @@ namespace GUI.UI
         public static string  regroupid =null;//存储点击单元格返回的单元格内的数据
         public DataTable dtshu = new DataTable();//暂存教师志愿的datatable  纵向的暂时存储，然后在提交按钮的时候在转化成横向
         public DataTable dtheng = new DataTable();
-
         private static CheckStudentsVolunteer formInstance;
         public static CheckStudentsVolunteer GetIntance
         {
@@ -46,11 +46,10 @@ namespace GUI.UI
 
         private void Form29_Load(object sender, EventArgs e)
         {
-            dataGridView1.Enabled = true;
+
             dtStuvol = tm.selectStuVol();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
             dataGridView1.DataSource = dtStuvol;
             dtheng = tm.dtTeaVol(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
-            Console.WriteLine("当前dtheng的行数：" + dtheng.Rows.Count);
             if (dtheng.Rows.Count == 0)
             {
                 dtshu.Columns.Add("Teano", typeof(string));
@@ -67,11 +66,41 @@ namespace GUI.UI
             }
             if (dtheng.Rows.Count > 0)
             {
-                MessageBox.Show("您已提交选择，您的一轮选择为"+dtheng.Rows[0][2]+"--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
+                MessageBox.Show("您已提交选择，您的一轮选择为" + dtheng.Rows[0][2] + "--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
                 button1.Enabled = false;
                 dataGridView1.Enabled = false;
             }
         }
+        //public void hanshu()
+        //{
+        //    Task.Factory.StartNew(() => // 将阻塞线程的操作在另外一个线程中执行，这样就不会堵塞UI线程。   
+        //    {
+        //        dtStuvol = tm.selectStuVol();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
+        //        dataGridView1.DataSource = dtStuvol;
+        //        dtheng = tm.dtTeaVol(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
+        //    });
+        //    if (dtheng.Rows.Count == 0)
+        //    {
+        //        dtshu.Columns.Add("Teano", typeof(string));
+        //        dtshu.Columns.Add("Groupid", typeof(string));
+        //        //设置dtshu的主键，控制不要同一个组插入多次竖向datatable
+        //        dtshu.PrimaryKey = new DataColumn[2] { dtshu.Columns["Teano"], dtshu.Columns["Groupid"] };
+        //        //设置dtheng的主键 
+        //        dtheng.PrimaryKey = new DataColumn[1] { dtheng.Columns["teano"] };
+        //        //以下是针对datagridview的显示设置
+        //        dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//标题居中
+        //        dataGridView1.DefaultCellStyle.BackColor = Color.White;
+        //        dataGridView1.AllowUserToAddRows = false;
+        //        dataGridView1.AllowUserToDeleteRows = false;
+        //    }
+        //    if (dtheng.Rows.Count > 0)
+        //    {
+        //        MessageBox.Show("您已提交选择，您的一轮选择为" + dtheng.Rows[0][2] + "--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
+        //        button1.Enabled = false;
+        //        dataGridView1.Enabled = false;
+        //    }
+        //}
+
         #region 双击学生单元格，查看学生详细信息
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
