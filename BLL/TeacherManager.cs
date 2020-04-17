@@ -123,9 +123,9 @@ namespace BLL
         //{
         //    return ts.insertTeaVol(teano, groupid);
         //} 
-        public DataTable dtTeaVol()
+        public DataTable dtTeaVol(string teano)
         {
-            return ts.dtTeaVol();
+            return ts.dtTeaVol(teano);
         }
         #endregion
         public int updateTV(DataTable dt)

@@ -311,8 +311,8 @@ namespace DAL
         #endregion
 
 
-        #region 向datatable表（teavol）中插入所有老师的志愿作为存储 暂时的  
-        public DataTable dtTeaVol()
+        #region 获取teavolheng表 一轮志愿教师表 存入一个datatable
+        public DataTable dtTeaVol(string teano)
         {
             // string sql = "insert into TeaVol(teano,groupid) values(@teano,@groupid)";
             // SqlParameter[] paras =
@@ -323,11 +323,15 @@ namespace DAL
             // int re = SQLHelper.ExecuteNonQuery(sql,CommandType.Text,paras);
             // return re;
             DataTable dtTeaVol = new DataTable();
-            string sql = "select * from TeaVol";
+            string sql = "select * from TeaVolheng where teano=@teano";
+            SqlParameter[] paras = { new SqlParameter("@teano",teano) };
             SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand(sql,conn);
+            cmd.Parameters.AddRange(paras);
             try
             {
-                 SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
+                conn.Open();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 sda.Fill(dtTeaVol);
                 return dtTeaVol;
             }
@@ -346,10 +350,10 @@ namespace DAL
         //}
         #endregion
 
-        #region 向数据库提交datatable的更新
+        #region 向数据库提交datatable的更新一轮志愿的表teavolheng
         public int updateTV(DataTable dt)
         {
-            string sql = "select * from teavol";
+            string sql = "select * from teavolheng";
             SqlConnection conn = new SqlConnection(connStr);
             SqlDataAdapter sda = new SqlDataAdapter(sql, conn);
             SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(sda);
