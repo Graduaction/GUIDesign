@@ -49,6 +49,8 @@
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.teadataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.studataGridView)).BeginInit();
@@ -71,7 +73,7 @@
             this.panel1.Controls.Add(this.btmatch);
             this.panel1.Controls.Add(this.teadataGridView);
             this.panel1.Controls.Add(this.studataGridView);
-            this.panel1.Location = new System.Drawing.Point(6, 50);
+            this.panel1.Location = new System.Drawing.Point(6, 60);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1342, 449);
@@ -159,6 +161,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.panel1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
@@ -171,6 +174,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.AliceBlue;
+            this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.panel2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -202,7 +206,7 @@
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Controls.Add(this.dataGridView2);
-            this.panel2.Location = new System.Drawing.Point(6, 50);
+            this.panel2.Location = new System.Drawing.Point(6, 60);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1342, 449);
@@ -302,6 +306,28 @@
             this.button1.Text = "一键匹配";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button2.Location = new System.Drawing.Point(1209, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(122, 29);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "重新加载界面";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button3.Location = new System.Drawing.Point(1209, 15);
+            this.button3.Margin = new System.Windows.Forms.Padding(4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(122, 29);
+            this.button3.TabIndex = 17;
+            this.button3.Text = "重新加载界面";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // Matching
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -353,5 +379,7 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
     }
 }
