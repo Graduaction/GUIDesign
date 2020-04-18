@@ -182,7 +182,7 @@
             this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(3, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(359, 405);
+            this.label5.Size = new System.Drawing.Size(327, 405);
             this.label5.TabIndex = 1;
             this.label5.Text = resources.GetString("label5.Text");
             // 
