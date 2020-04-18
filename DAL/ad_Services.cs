@@ -428,13 +428,7 @@ on a.GroupID = c.groupid ";
         public DataTable GetTeaMatchtable()
         {
             DataTable table = new DataTable();
-            //            string sql = @"select distinct(b.teano) as 教师工号,b.teaname as 教师姓名,b.groupnumber as 所带组数, b.yixuan as 已选组数,
-            //PARSENAME(stuff((select '.' + cast(a.groupid as char) from addgrid a  where a.teano = b.teano for xml path ('')),1,1,''),1) as 志愿小组一,
-            //PARSENAME(stuff((select '.' + cast(a.groupid as char) from addgrid a  where a.teano = b.teano for xml path ('')),1,1,''),2) as 志愿小组二,
-            //PARSENAME(stuff((select '.' + cast(a.groupid as char) from addgrid a  where a.teano = b.teano for xml path ('')),1,1,''),3) as 志愿小组三,
-            //PARSENAME(stuff((select '.' + cast(a.groupid as char) from addgrid a  where a.teano = b.teano for xml path ('')),1,1,''),4) as 志愿小组四,
-            //PARSENAME(stuff((select '.' + cast(a.groupid as char) from addgrid a  where a.teano = b.teano for xml path ('')),1,1,''),5) as 志愿小组五
-            //from addgrid b ";
+
             string sql = @"select distinct(b.teano) as 教师工号,b.teaname as 教师姓名,b.groupnumber as 所带组数,a.yixuan as 已选组数,a.Teavol1 as 志愿小组1,a.Teavol2 as 志愿小组2,a.Teavol3 as 志愿小组3,a.Teavol4 as 志愿小组4,a.Teavol5 as 志愿小组5 from addgrid b,Teavolheng a where a.teano=b.Teano";
             table = SQLHelper.ExecuteQuery(sql);
             return table;
@@ -552,7 +546,7 @@ on a.GroupID = c.groupid ";
                             Console.WriteLine("学生" + sx_Students[i].Groupid + "向" + "第" + (m + 1) + "志愿老师" + sx_Teachers[k].Teaname + "表白了");
 
                             for (int a = 0; a < 5; a++)//5个志愿
-                            {                                
+                            {
                                 if (sx_Teachers[k].Groupid[a].Equals(sx_Students[i].Groupid))//这个老师也喜欢他
                                 {
                                     // Console.WriteLine(" 这个老师志愿组数 " + (a + 1) + " 的学生为 " + sx_Teachers[k].Groupid[a]);
@@ -572,14 +566,14 @@ on a.GroupID = c.groupid ";
                                                 break;
                                             }
                                         }
-                                        if (flag == 0 &&sx_Students[i].Beixuan==0)//这个老师列表里还没有这个学生且学生未被其他老师选
+                                        if (flag == 0 && sx_Students[i].Beixuan == 0)//这个老师列表里还没有这个学生且学生未被其他老师选
                                         {
                                             sx_Students[i].Beixuan = 1;
                                             sx_Teachers[k].LovestuList.Append(sx_Students[i]);
                                             Console.WriteLine("恭喜学生" + sx_Students[i].Groupid + "被" + sx_Teachers[k].Teaname + "老师录取了");
 
                                         }
-                                        else if(flag==0&&sx_Students[i].Beixuan==1)//这个老师列表里还没有这个学生但已被其他老师选中                                                
+                                        else if (flag == 0 && sx_Students[i].Beixuan == 1)//这个老师列表里还没有这个学生但已被其他老师选中                                                
                                         {
                                             break;//本来也就是志愿从高到底去找老师，这种情况无需考虑
                                         }
@@ -592,7 +586,7 @@ on a.GroupID = c.groupid ";
                                     }
                                     else//满了
                                     {
-                                         Console.WriteLine("啊哦，这个老师的可选人数已满了，让我们来看看可不可以抢位置");                                       
+                                        Console.WriteLine("啊哦，这个老师的可选人数已满了，让我们来看看可不可以抢位置");
 
                                         int length = sx_Teachers[k].LovestuList.GetLength();//获取已选学生列表长度
                                         for (int p = 1; p <= length; p++)//替换掉比当前学生成绩低的学生
@@ -608,7 +602,7 @@ on a.GroupID = c.groupid ";
                                                     }
                                                 }
 
-                                                Console.WriteLine("找到"+sx_Teachers[k].LovestuList.GetElem(p).Groupid+"比"+sx_Students[i].Groupid+"成绩还要低!抢他！！");
+                                                Console.WriteLine("找到" + sx_Teachers[k].LovestuList.GetElem(p).Groupid + "比" + sx_Students[i].Groupid + "成绩还要低!抢他！！");
                                                 Console.WriteLine("学生" + sx_Teachers[k].LovestuList.GetElem(p).Groupid + "失恋了，他的指导老师被学生" + sx_Students[i].Groupid + "抢了");
                                                 sx_Teachers[k].LovestuList.Delete(p);//删除第p个节点
                                                 sx_Students[i].Beixuan = 1;
@@ -618,7 +612,7 @@ on a.GroupID = c.groupid ";
                                             }
                                             else//没有比当前学生成绩还要低的了
                                             {
-                                                Console.WriteLine("你的段位才"+sx_Students[i].Grade+",打不过这个组"+sx_Teachers[k].LovestuList.GetElem(p).Groupid+"，他的段位"+sx_Teachers[k].LovestuList.GetElem(p).Grade);
+                                                Console.WriteLine("你的段位才" + sx_Students[i].Grade + ",打不过这个组" + sx_Teachers[k].LovestuList.GetElem(p).Groupid + "，他的段位" + sx_Teachers[k].LovestuList.GetElem(p).Grade);
                                                 continue;
                                             }
                                         }
@@ -682,18 +676,18 @@ on a.GroupID = c.groupid ";
         #region 查询result表数据
         public bool SearchRs(string sql)
         {
-            SqlDataReader reader  = SQLHelper.ExecuteReader(sql,CommandType.Text);
+            SqlDataReader reader = SQLHelper.ExecuteReader(sql, CommandType.Text);
             if (reader.HasRows)
             {
                 return reader.Read();
             }
             else
                 return false;
-            
-        }        
+
+        }
 
         #endregion
-       
+
         #region 查找当前行的教师工号的可带人数
         public int GetGroupNum(string teano)
         {
@@ -731,10 +725,10 @@ on a.GroupID = c.groupid ";
                         bulkCopy.BatchSize = dt.Rows.Count;
                         bulkCopy.ColumnMappings.Add("教师工号", "TeacherNo");//映射字段名 DataTable列名 ,数据库 对应的列名 
                         bulkCopy.ColumnMappings.Add("学生组号", "GroupId");
-                        bulkCopy.ColumnMappings.Add("论文课题", "Topic");                   
+                        bulkCopy.ColumnMappings.Add("论文课题", "Topic");
                         bulkCopy.WriteToServer(dt);
                         MessageBox.Show("插入成功", "提示");
-                     //   result = 1;
+                        //   result = 1;
                     }
                     catch (Exception ex)
                     {
@@ -745,10 +739,276 @@ on a.GroupID = c.groupid ";
                     }
                 }
             }
-          //  return result;
+            //  return result;
         }
         #endregion
-       
+
+
+
+        #region 二轮双选匹配界面显示数据
+        //学生列表
+        public DataTable ST_GetStuMatchtable()
+        {
+            DataTable tableall = new DataTable();
+            //
+            string sql = @"select distinct(a.groupid) as 组号 ,a.membernum as 组内人数,a.leaderno as 组长学号,a.VolFirstId as 志愿一,a.VolSecondId as 志愿二,a.VolThirdId as 志愿三,a.Topic as 学生课题,
+(select stuname from student where student.stuno=a.leaderno) as 组长姓名,
+(select avg(grade) as avg_grade from Student e,GroupStu d where e.StuNo=d.StuNo) as 小组平均成绩
+from grouptable a left join groupstu c
+on a.GroupID = c.groupid ";
+            tableall = SQLHelper.ExecuteQuery(sql);
+            DataTable tableyixuan = new DataTable();
+            string sql1 = "select teacherno as 教师工号,groupid as 学生组号,topic as 论文课题 from result";
+            tableyixuan = SQLHelper.ExecuteQuery(sql1);
+
+            for (int j = tableall.Rows.Count - 1; j >= 0; j--)
+            {
+                Console.WriteLine(tableall.Rows[j][0]);
+                for (int i = 0; i < tableyixuan.Rows.Count; i++)
+                {
+                    if (tableall.Rows[j][0].ToString() == tableyixuan.Rows[i][1].ToString())
+                    {
+                        Console.WriteLine(tableall.Rows[j][0] + "tableyixuan:" + tableyixuan.Rows[i][1]);
+                        tableall.Rows.RemoveAt(j);
+                    }
+                }
+            }
+            //倒序删除
+            string str = "weipipeitable:[";
+            for (int m = 0; m < tableall.Rows.Count; m++)
+            {
+                str += tableall.Rows[m][0] + ",";
+            }
+            str += "]";
+            Console.WriteLine(str);
+            return tableall;
+        }
+        //教师列表
+        public DataTable ST_GetTeaMatchtable()
+        {
+            DataTable table = new DataTable();
+            string sql = @"select distinct(b.teano) as 教师工号,b.teaname as 教师姓名,b.groupnumber as 所带组数,a.kexuan as 可选组数,a.Teavol1 as 志愿小组1,a.Teavol2 as 志愿小组2,a.Teavol3 as 志愿小组3,a.Teavol4 as 志愿小组4,a.Teavol5 as 志愿小组5,a.yixuan as 已选组数 from addgrid b,Teavolheng2 a where a.teano=b.Teano";
+            table = SQLHelper.ExecuteQuery(sql);
+            DataTable table1 = new DataTable();
+            table1 = table.Clone();
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(table.Rows[i][3]) > 0)
+                {
+                    DataRow dr = table.Rows[i];
+                    table1.Rows.Add(dr.ItemArray);
+                }
+            }
+            return table;
+        }
+        #endregion
+
+
+        #region 二轮选择实现
+        public string MatchSecondtime()
+        {
+            sx_student[] sx_Students = new sx_student[50];
+            sx_teacher[] sx_Teachers = new sx_teacher[20];
+            DataTable stutable = ST_GetStuMatchtable();
+            int row_stucount = stutable.Rows.Count;
+            DataTable teatable = ST_GetTeaMatchtable();
+            int row_teacount = teatable.Rows.Count;
+            //将datatable中的值赋给sx_student对象数组
+            for (int i = 0; i < row_stucount; i++)
+            {
+                sx_student student = new sx_student(10);
+                //if(sx_Students[i]!=null)
+                // {
+                if (stutable.Rows[i][0] != DBNull.Value)
+                {
+                    student.Groupid = Convert.ToInt32(stutable.Rows[i][0]);
+                }
+
+                if (stutable.Rows[i][1] != DBNull.Value)
+                {
+                    student.Membernum = Convert.ToInt32(stutable.Rows[i][1]);
+                }
+                if (stutable.Rows[i][2] != DBNull.Value)
+                {
+                    student.Leaderno = stutable.Rows[i][2].ToString();
+                }
+                if (stutable.Rows[i][3] != DBNull.Value)
+                {
+                    student.LoveTeacher[0] = stutable.Rows[i][3].ToString();
+                }
+                if (stutable.Rows[i][4] != DBNull.Value)
+                {
+                    student.LoveTeacher[1] = stutable.Rows[i][4].ToString();
+                }
+                if (stutable.Rows[i][5] != DBNull.Value)
+                {
+                    student.LoveTeacher[2] = stutable.Rows[i][5].ToString();
+                }
+                if (stutable.Rows[i][6] != DBNull.Value)
+                {
+                    student.Topic = stutable.Rows[i][6].ToString();
+                }
+                if (stutable.Rows[i][7] != DBNull.Value)
+                {
+                    student.Stuname = stutable.Rows[i][7].ToString();
+                }
+                if (stutable.Rows[i][8] != DBNull.Value)
+                {
+                    student.Grade = Convert.ToDouble(stutable.Rows[i][8]);
+                }
+                student.Beixuan = 0;//初始化被选=0
+
+                sx_Students[i] = student;
+                //}
+            }
+            //将datatable中的值赋给sx_teacher对象数组
+            for (int i = 0; i < row_teacount; i++)
+            {
+                sx_teacher teacher = new sx_teacher(20);//实例化对象
+                teacher.Teano = teatable.Rows[i][0].ToString();
+                teacher.Teaname = teatable.Rows[i][1].ToString();
+                teacher.Groupnumber = Convert.ToInt32(teatable.Rows[i][2]);
+                if (teatable.Rows[i][3] != DBNull.Value)
+                {
+                    teacher.Kexuan = Convert.ToInt32(teatable.Rows[i][3]);
+                }
+                if (teatable.Rows[i][4] != DBNull.Value)
+                {
+                    teacher.Groupid[0] = Convert.ToInt32(teatable.Rows[i][4]);
+                }
+                if (teatable.Rows[i][5] != DBNull.Value)
+                {
+                    teacher.Groupid[1] = Convert.ToInt32(teatable.Rows[i][5]);
+                }
+                if (teatable.Rows[i][6] != DBNull.Value)
+                {
+                    teacher.Groupid[2] = Convert.ToInt32(teatable.Rows[i][6]);
+                }
+                if (teatable.Rows[i][7] != DBNull.Value)
+                {
+                    teacher.Groupid[3] = Convert.ToInt32(teatable.Rows[i][7]);
+                }
+                if (teatable.Rows[i][8] != DBNull.Value)
+                {
+                    teacher.Groupid[4] = Convert.ToInt32(teatable.Rows[i][8]);
+                }
+                if (teatable.Rows[i][9] != DBNull.Value)
+                {
+                    teacher.Yixuan = Convert.ToInt32(teatable.Rows[i][9]);
+                }
+                sx_Teachers[i] = teacher;
+                sx_Teachers[i].LovestuList = new MyLinkList<sx_student>();
+            }
+            Console.WriteLine("第二轮表白游戏开始啦！！！");
+            //教师有可选组数，遍历每个志愿学生，看学生是否喜欢他
+            for (int i = 0; i < row_teacount; i++)//遍历每个教师，由教师追学生
+            {
+                if (sx_Teachers[i].Kexuan > sx_Teachers[i].LovestuList.GetLength())//该教师是否还有名额可以收徒
+                {
+                    for (int k = 0; k < sx_Teachers[i].Yixuan; k++)//遍历该教师的已选志愿
+                    {
+                        Console.WriteLine(sx_Teachers[i].Teaname + "老师向学生" + sx_Teachers[i].Groupid[k] + "表白啦");
+                        for (int j = 0; j < row_stucount; j++)
+                        {
+                            if (sx_Students[j].Groupid == sx_Teachers[i].Groupid[k])//找到相应志愿的学生
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    if (sx_Students[j].LoveTeacher[l] == sx_Teachers[i].Teano && sx_Students[j].Beixuan == 0)
+                                    {
+                                        Console.WriteLine("该学生被" + sx_Teachers[i].Teaname + "老师录取啦");
+                                        Console.WriteLine("该老师目前可选人数为" + sx_Teachers[i].Kexuan + "人\n");
+                                        sx_Students[j].Beixuan = 1;
+                                        sx_Teachers[i].LovestuList.Append(sx_Students[j]);
+                                        sx_Teachers[i].Kexuan -= 1;
+
+                                        break;
+                                    }
+                                    else if (sx_Students[j].LoveTeacher[l] == sx_Teachers[i].Teano && sx_Students[j].Beixuan == 1)
+                                    {
+                                        //找到该学生但却已经被录取了，那也没办法了
+                                    }
+
+                                }
+                                break;
+                            }
+                            break;
+                        }
+                    }
+                }
+
+            }
+
+            int[] vs = new int[40];
+            int e = 0;
+            string weipipei = "第二轮匹配失败组数[";
+            foreach (sx_student sx in sx_Students)
+            {
+                if (sx != null && sx.Beixuan == 0)
+                {
+                    vs[e] = sx.Groupid;
+                    e++;
+                }
+            }
+            for (int h = 0; h < vs.Length; h++)
+            {
+                if (vs[h] != 0)
+                {
+                    weipipei += vs[h].ToString() + ",";
+                }
+            }
+            weipipei += "]";
+            Console.WriteLine(weipipei);
+            Keepinformation.sx_Students = sx_Students;
+            Keepinformation.sx_Teachers = sx_Teachers;
+            Keepinformation.stsx_Students = sx_Students;
+            Keepinformation.stsx_Teachers = sx_Teachers;
+            Console.WriteLine("\n\n\n\n");
+            Merge_First_Sec();
+            return ("二轮匹配结束,点击确定查看匹配结果");
+        }
+        #endregion
+
+        //将剩余的结果继续加到老师的链表中去并提交
+        public void Merge_First_Sec()
+        {
+            sx_student[] sx_Students = Keepinformation.stsx_Students;
+            sx_teacher[] sx_Teachers = Keepinformation.stsx_Teachers;
+
+            for (int i = 0; i < sx_Students.Length; i++)
+            {
+                for (int j = 0; j < sx_Teachers.Length; j++)
+                {
+                    if (sx_Teachers[j] != null && sx_Teachers[j].Kexuan > 0 && sx_Students[i] != null && sx_Students[i].Beixuan == 0)
+                    {
+                        sx_Students[i].Beixuan = 1;
+                        sx_Teachers[j].LovestuList.Append(sx_Students[i]);
+                        Console.WriteLine("学生" + sx_Students[i].Groupid + "被老师" + sx_Teachers[j].Teaname + "录取啦");
+                        sx_Teachers[j].Kexuan -= 1;
+                        Console.WriteLine(sx_Teachers[j].Teaname + "的可选数为" + sx_Teachers[j].Kexuan);
+                    }
+                }
+            }
+            for (int k = 0; k < sx_Students.Length; k++)
+            {
+                if (sx_Students[k] != null && sx_Students[k].Beixuan == 0)
+                {
+                    Console.WriteLine("不好啦，学生" + sx_Students[k].Groupid + "被漏选啦");
+                }
+            }
+            Keepinformation.stsx_Students = sx_Students;
+            Keepinformation.sx_Teachers = sx_Teachers;
+        }
+
+        public DataTable SelectFromResuit()
+        {
+            string sql = @"select distinct(a.groupid) as 学生组号,(select stuname from student d where d.stuno=(select leaderno from grouptable c where c.groupid=a.groupid)) as 组长姓名,b.teaname as 教师姓名,a.topic as 论文课题 from result a,teacher b,student c where a.teacherno=b.teano and a.groupid=c.groupid";
+            DataTable dataTable = SQLHelper.ExecuteQuery(sql);
+            return dataTable;
+        }
+
+
+
         #region 判断表中是否有该学号的存在 ExecutScale
         /// <summary>
         /// 判断表中是否有该主键的存在
