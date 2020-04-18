@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Teacher));
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,6 +58,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlBottom.SuspendLayout();
             this.pnlCenter.SuspendLayout();
@@ -132,6 +134,7 @@
             // pnlBottom
             // 
             this.pnlBottom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(41)))), ((int)(((byte)(52)))));
+            this.pnlBottom.Controls.Add(this.button8);
             this.pnlBottom.Controls.Add(this.button5);
             this.pnlBottom.Controls.Add(this.button4);
             this.pnlBottom.Controls.Add(this.button3);
@@ -151,7 +154,7 @@
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(1, 190);
+            this.button5.Location = new System.Drawing.Point(0, 234);
             this.button5.Margin = new System.Windows.Forms.Padding(4);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(130, 36);
@@ -166,7 +169,7 @@
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 146);
+            this.button4.Location = new System.Drawing.Point(0, 190);
             this.button4.Margin = new System.Windows.Forms.Padding(4);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 36);
@@ -345,11 +348,9 @@
             this.label9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.Location = new System.Drawing.Point(3, 7);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(327, 195);
+            this.label9.Size = new System.Drawing.Size(327, 255);
             this.label9.TabIndex = 0;
-            this.label9.Text = "个人中心：可修改个人信息，首次登陆请完善\r\n个人信息并且更改密码\r\n\r\n个人信息浏览：个人中心修改个人信息后生成\r\n的界面，也是学生浏览教师信息的界面\r\n\r\n查看" +
-    "学生志愿：可查看目前有志愿选择您当导\r\n师的学生，可点击学生名字查看学生详细信息\r\n\r\n查看我的学生：最终确认的您带领的学生，可\r\n点击学生名字查看学生详细信息" +
-    "\r\n\r\n查看通知：查看通知，可下载附件";
+            this.label9.Text = resources.GetString("label9.Text");
             // 
             // tabPage3
             // 
@@ -425,6 +426,21 @@
             this.label10.Text = "修改密码";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
+            // button8
+            // 
+            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(129)))), ((int)(((byte)(174)))));
+            this.button8.FlatAppearance.BorderSize = 0;
+            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button8.ForeColor = System.Drawing.Color.White;
+            this.button8.Location = new System.Drawing.Point(0, 146);
+            this.button8.Margin = new System.Windows.Forms.Padding(4);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(130, 36);
+            this.button8.TabIndex = 15;
+            this.button8.Text = "查看二轮志愿";
+            this.button8.UseVisualStyleBackColor = false;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
             // Teacher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -494,5 +510,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button8;
     }
 }
