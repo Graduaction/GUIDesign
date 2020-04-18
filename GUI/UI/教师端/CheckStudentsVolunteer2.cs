@@ -10,7 +10,7 @@ using Model;
 using BLL;
 namespace GUI.UI
 {
-    public partial class Form35 : Form
+    public partial class CheckStudentsVolunteer2 : Form
     {
         //变量定义
         TeacherManager tm = new TeacherManager();
@@ -21,7 +21,7 @@ namespace GUI.UI
         public DataTable dtshu = new DataTable();//暂存教师志愿的datatable  纵向的暂时存储，然后在提交按钮的时候在转化成横向
         public DataTable dtheng = new DataTable();
         public DataTable dtStuvol = new DataTable();
-        public Form35()
+        public CheckStudentsVolunteer2()
         {
             InitializeComponent();
         }
