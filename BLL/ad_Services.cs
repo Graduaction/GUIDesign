@@ -114,7 +114,7 @@ namespace BLL
         }
         #endregion
 
-        #region check
+        #region check学号是否存在
         public bool Check(string id)
         {
             return sDAL.CheckNo(id);
@@ -159,7 +159,7 @@ namespace BLL
         #endregion
 
         #region 登录
-        
+
         public int CheckAdminLogin(AdminData adminData)
         {
             return sDAL.Login(adminData);
@@ -169,7 +169,7 @@ namespace BLL
         #region 个人信息页
         public int Updataadmbll(AdminData adminData)
         {
-            if(sDAL.UpdataAdmdata(adminData)==1)
+            if (sDAL.UpdataAdmdata(adminData) == 1)
             {
                 Keepinformation.AdminEmail = adminData.AdminEmail;
                 Keepinformation.AdminTitle = adminData.AdminTitle;
@@ -182,7 +182,7 @@ namespace BLL
         #region 设置双选参数
         public int Setparambll(ManageData manageData)
         {
-            int result =sDAL.InsertManage(manageData);
+            int result = sDAL.InsertManage(manageData);
             return result;
         }
         #endregion
@@ -198,7 +198,7 @@ namespace BLL
         //学生列表
         public DataTable stuGetmatchdata()
         {
-           return sDAL.GetStuMatchtable();
+            return sDAL.GetStuMatchtable();
         }
         //教室列表
         public DataTable teaGetmatchdata()
@@ -207,16 +207,57 @@ namespace BLL
         }
         #endregion
 
+        #region 双选匹配
         //双选匹配
         public string match()
         {
             return sDAL.Match();
         }
+        #endregion
 
+        #region 插入result的datatable数据到数据库
         //插入result的datatable数据到数据库
         public void InsertToResult(DataTable dataTable)
         {
             sDAL.InsertToResult(dataTable);
+        }
+        #endregion
+
+        #region  删除整个表的数据，保留表结构
+        public int Tuncast_TBrs(string sql)
+        {
+            return sDAL.Tuncast_TBrs(sql);
+        }
+        #endregion
+
+        #region 查询整个result表
+        public bool SearchRs(string sql)
+        {
+            return sDAL.SearchRs(sql);
+        }
+        #endregion
+
+        #region 查询二轮界面
+        public DataTable ST_GetTeaMatchtable()
+        {
+            return sDAL.ST_GetTeaMatchtable();
+        }
+        public DataTable ST_GetStuMatchtable()
+        {
+            return sDAL.ST_GetStuMatchtable();
+        }
+        #endregion
+
+        #region 第二轮双选功能
+        public string MatchSecondtime()
+        {
+            return sDAL.MatchSecondtime();
+        }
+        #endregion
+
+        public DataTable SelectFromResuit()
+        {
+            return sDAL.SelectFromResuit();
         }
     }
 }
