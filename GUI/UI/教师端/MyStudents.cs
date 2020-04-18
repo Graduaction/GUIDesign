@@ -55,8 +55,9 @@ namespace GUI.UI
             dataGridView1.Columns[3].HeaderText = "组员三";
             dataGridView1.Columns[4].HeaderText = "组员四";
             dataGridView1.Columns[5].HeaderText = "组员五";
-            dataGridView1.Columns[6].HeaderText = "组长联系方式";
-            dataGridView1.Columns[7].HeaderText = "论文预选题目";
+            dataGridView1.Columns[6].HeaderText = "组长姓名";
+            dataGridView1.Columns[7].HeaderText = "组长联系方式";
+            dataGridView1.Columns[8].HeaderText = "论文预选题目";
             #endregion
         }
 
@@ -89,7 +90,7 @@ namespace GUI.UI
                     //获取单元格内容中的数字
                     restu = System.Text.RegularExpressions.Regex.Replace(restu, @"[^0-9]+", "");
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
-                    XPersonalInformationPreview cform = new XPersonalInformationPreview();//实例化一个子窗口
+                    XPersonalInformationPreview cform = new XPersonalInformationPreview(restu);//实例化一个子窗口
                                                                                           //设置子窗口不显示为顶级窗口
                     cform.TopLevel = false;
                     //设置子窗口的样式，没有上面的标题栏
