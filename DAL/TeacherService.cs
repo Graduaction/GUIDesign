@@ -286,7 +286,7 @@ namespace DAL
         //DataTable dtTeaVol = dsvol.Tables.Add("TeaVol");//把教师选择的志愿信息 放在这个datatable 中，连接到数据库，一次性提交到数据库
        
         #region 查询显示所有学生组的志愿和组员姓名
-        public DataTable selectStuVol()
+        public DataTable selectStuVol1()
         {
             string sql = "select d.groupid as 组号,d.topic as 论文选题,c.avg_grade as 平均综测,(select teaname from teacher where teano = d.volfirstid) as 第一志愿,(select teaname from teacher where teano = d.volsecondid)as 第二志愿,(select teaname from teacher where teano = d.volthirdid)as 第三志愿,'选择' 操作1,'取消'  操作2,(select stuname from  student a where a.StuNo = b.stuno1)+b.stuno1  as 组员1 ,(select stuname from student a where a.StuNo = b.stuno2)+b.stuno2  as 组员2 ,(select stuname from student a where a.StuNo = b.stuno3)+b.stuno3  as 组员3 ,(select stuname from student a where a.StuNo = b.stuno4)+b.stuno4  as 组员4 ,(select stuname from student a where a.StuNo = b.stuno5)+b.stuno5 as 组员5 from grouptable d left join getgroupstuno b on b.groupid = d.GroupId left join avg_groupgrade c on d.groupid = c.groupid order by d.leaderno desc";
             SqlConnection conn = new SqlConnection(connStr);
@@ -295,9 +295,9 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dtStuVol = dsvol.Tables.Add("StuVol");
-                sda.Fill(dtStuVol);
-                return dtStuVol;
+                DataTable dtStuVol1 = new DataTable();
+                sda.Fill(dtStuVol1);
+                return dtStuVol1;
 
             }
             catch (Exception ex)
@@ -379,9 +379,9 @@ namespace DAL
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 conn.Open();
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                DataTable dtStuVol = dsvol.Tables.Add("StuVol");
-                sda.Fill(dtStuVol);
-                return dtStuVol;
+                DataTable dtStuVol2 = new DataTable();
+                sda.Fill(dtStuVol2);
+                return dtStuVol2;
 
             }
             catch (Exception ex)

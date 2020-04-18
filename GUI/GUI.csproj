@@ -252,23 +252,23 @@
     <Compile Include="UI\管理员端\GNoticeDetails.Designer.cs">
       <DependentUpon>GNoticeDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form37.cs">
+    <Compile Include="UI\管理员端\Form37.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form37.Designer.cs">
+    <Compile Include="UI\管理员端\Form37.Designer.cs">
       <DependentUpon>Form37.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form38.cs">
+    <Compile Include="UI\学生端\XHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form38.Designer.cs">
-      <DependentUpon>Form38.cs</DependentUpon>
+    <Compile Include="UI\学生端\XHomePage.Designer.cs">
+      <DependentUpon>XHomePage.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form39.cs">
+    <Compile Include="UI\教师端\DHomePage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form39.Designer.cs">
-      <DependentUpon>Form39.cs</DependentUpon>
+    <Compile Include="UI\教师端\DHomePage.Designer.cs">
+      <DependentUpon>DHomePage.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\管理员端\AddStudentInformation.cs">
       <SubType>Form</SubType>
@@ -365,8 +365,14 @@
     <EmbeddedResource Include="UI\ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\学生端\XHomePage.resx">
+      <DependentUpon>XHomePage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\教师端\CheckStudentsVolunteer2.resx">
       <DependentUpon>CheckStudentsVolunteer2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\教师端\DHomePage.resx">
+      <DependentUpon>DHomePage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\管理员端\GNoticeDetails.resx">
       <DependentUpon>GNoticeDetails.cs</DependentUpon>

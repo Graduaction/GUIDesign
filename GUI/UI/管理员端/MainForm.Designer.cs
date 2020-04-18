@@ -44,6 +44,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.pnlBottom = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.pnlCenter.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -78,7 +78,7 @@
             this.pnlTop.Location = new System.Drawing.Point(0, 38);
             this.pnlTop.Margin = new System.Windows.Forms.Padding(4);
             this.pnlTop.Name = "pnlTop";
-            this.pnlTop.Size = new System.Drawing.Size(1532, 10);
+            this.pnlTop.Size = new System.Drawing.Size(1544, 10);
             this.pnlTop.TabIndex = 1;
             // 
             // pnlCenter
@@ -91,7 +91,7 @@
             this.pnlCenter.Location = new System.Drawing.Point(147, 201);
             this.pnlCenter.Margin = new System.Windows.Forms.Padding(4);
             this.pnlCenter.Name = "pnlCenter";
-            this.pnlCenter.Size = new System.Drawing.Size(1355, 539);
+            this.pnlCenter.Size = new System.Drawing.Size(1372, 554);
             this.pnlCenter.TabIndex = 2;
             this.pnlCenter.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlCenter_Paint);
             // 
@@ -182,7 +182,7 @@
             this.label5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label5.Location = new System.Drawing.Point(3, 8);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(359, 405);
+            this.label5.Size = new System.Drawing.Size(327, 405);
             this.label5.TabIndex = 1;
             this.label5.Text = resources.GetString("label5.Text");
             // 
@@ -247,9 +247,24 @@
             this.pnlBottom.Location = new System.Drawing.Point(4, 201);
             this.pnlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.pnlBottom.Name = "pnlBottom";
-            this.pnlBottom.Size = new System.Drawing.Size(131, 539);
+            this.pnlBottom.Size = new System.Drawing.Size(131, 554);
             this.pnlBottom.TabIndex = 3;
             this.pnlBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlBottom_Paint);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(129)))), ((int)(((byte)(174)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(-2, 366);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(133, 36);
+            this.button2.TabIndex = 22;
+            this.button2.Text = "查看未匹配情况";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_2);
             // 
             // button12
             // 
@@ -456,7 +471,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 45);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1507, 102);
+            this.pictureBox1.Size = new System.Drawing.Size(1519, 102);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 12;
             this.pictureBox1.TabStop = false;
@@ -485,26 +500,11 @@
             this.label3.Text = "切换账号";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(129)))), ((int)(((byte)(174)))));
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(-2, 366);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 36);
-            this.button2.TabIndex = 22;
-            this.button2.Text = "查看未匹配情况";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_2);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1532, 768);
+            this.ClientSize = new System.Drawing.Size(1544, 782);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);

@@ -10,18 +10,18 @@ using Model;
 using BLL;
 namespace GUI.UI
 {
-    public partial class Form35 : Form
+    public partial class CheckStudentsVolunteer2 : Form
     {
         //变量定义
         TeacherManager tm = new TeacherManager();
-        //public string teaNo = LoginInterface.loginid;// 当前登录用户的账号  非常重要
-        public string teaNo = "10011";
+        public string teaNo = LoginInterface.loginid;// 当前登录用户的账号  非常重要
+       // public string teaNo = "10011";
         public static string restuno = null;//存储点击单元格返回的单元格内的数据
         public static string regroupid = null;//存储点击单元格返回的单元格内的数据
         public DataTable dtshu = new DataTable();//暂存教师志愿的datatable  纵向的暂时存储，然后在提交按钮的时候在转化成横向
         public DataTable dtheng = new DataTable();
-        public DataTable dtStuvol = new DataTable();
-        public Form35()
+        public DataTable dtStuvol2 = new DataTable();
+        public CheckStudentsVolunteer2()
         {
             InitializeComponent();
         }
@@ -29,8 +29,8 @@ namespace GUI.UI
         private void Form35_Load(object sender, EventArgs e)
         {
             ///判断当前是一轮还是二轮  如果result表没有数据，说明没有一轮匹配，说明不能进入二轮
-            dtStuvol = tm.selectlxStu();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
-            dataGridView1.DataSource = dtStuvol;
+            dtStuvol2 = tm.selectlxStu();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
+            dataGridView1.DataSource = dtStuvol2;
             dtheng = tm.dtTeaVol2(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
             if (dtheng.Rows.Count == 0)
             {
@@ -50,7 +50,7 @@ namespace GUI.UI
             {
                 MessageBox.Show("您已提交选择，您的二轮选择为" + dtheng.Rows[0][2] + "--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
                 button1.Enabled = false;
-                dataGridView1.Enabled = false;
+                //dataGridView1.Enabled = false;
             }
         }
 
@@ -80,7 +80,7 @@ namespace GUI.UI
                     MessageBox.Show("提交选择成功");
                 }
                 button1.Enabled = false;
-                dataGridView1.Enabled = false;//整个datagridview变灰 无法触发点击事件
+                //dataGridView1.Enabled = false;//整个datagridview变灰 无法触发点击事件
             }
         }
 
