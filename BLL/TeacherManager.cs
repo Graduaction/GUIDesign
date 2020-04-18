@@ -112,9 +112,9 @@ namespace BLL
         }
         #endregion
         #region 显示教师查看所有学生组的志愿跟组员
-        public DataTable selectStuVol()
+        public DataTable selectStuVol1()
         {
-            return ts.selectStuVol();
+            return ts.selectStuVol1();
         }
         #endregion
 
