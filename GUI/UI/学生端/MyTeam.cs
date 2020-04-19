@@ -13,13 +13,16 @@ namespace GUI.UI
 {
     public partial class MyTeam : Form
     {
-        //string stuNo = "16209040087";
-        StudentData student =new StudentData() {
+        StudentData student = new StudentData()
+        {
             StuNo = LoginInterface.loginid
+            //StuNo = "16209010016"
         };
+        private string stu_no;//学生列表当前行的学生学号
         StudentManager sm = new StudentManager();
         GroupTableData groupTable = new GroupTableData();
         GroupStuData groupStu = new GroupStuData();
+        DataTable dt = new DataTable();
         public MyTeam()
         {
             InitializeComponent();
@@ -40,37 +43,34 @@ namespace GUI.UI
                 }
             }
         }
-
         private void Form33_Load(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = sm.CheckStuList();
+            dt = sm.CheckStuList();
+            dataGridView2.DataSource = dt;
             dataGridView1.DataSource = sm.CheckGroupList(student.StuNo); //查看我的队伍
+            groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
+            groupTable.Leaderno = dataGridView1["学号", 0].Value.ToString();//获取队长学号
             if (sm.IsCreateGroup(student.StuNo))
             {
+                //判断该学生是否组队，若true则显示队长姓名
                 textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
-                groupTable.GroupID = Convert.ToInt32(dataGridView1["组号", 0].Value);//获取组号
+                if (!sm.IsLeader(student.StuNo))
+                {
+                    //判断是否为队长，是则可以选择/删除队员
+                    button1.Enabled = false;
+                    button3.Enabled = false;
+                }
             }
             else
             {
+                //若false队长姓名为空，你需要进行组队才能显示队伍信息
                 textBox1.Text = " ";
             }
         }
-       /* private void showGridView()
-        {
-            DataGridTextBoxColumn tb = new DataGridTextBoxColumn();
-            dataGridView2.Rows.Add(tb);
-            for (int i = 0; i < dataGridView2.ColumnCount; i++)
-            dataGridView2.Rows[dataGridView2.RowCount - 2].Cells[i].Value = a[i];
-            //根据AllowUserToAddRow属性选择最后一行，true时dataGridView1.RowCount-2,false时dataGridView1.RowCount-1
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            showGridView();
-        }*/
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //组队
             if (sm.IsCreateGroup(student.StuNo))
             {
                 MessageBox.Show("你已组队，不能重复组队");
@@ -86,38 +86,78 @@ namespace GUI.UI
         }
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            groupStu.StuNo = dataGridView1.CurrentRow.Cells[1].Value.ToString();//获取当前行的学号
+            //队伍列表
+            groupStu.StuNo = dataGridView1.CurrentRow.Cells[1].Value.ToString();//获取当前行的组员学号
         }
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            groupStu.StuNo = dataGridView2.CurrentRow.Cells[0].Value.ToString();//获取当前行的学号
-            button1.Text = groupStu.StuNo;
+            //学生列表
+            stu_no = dataGridView2.CurrentRow.Cells[0].Value.ToString();//获取当前行的学生学号
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            //选择队员
             if (sm.IsCreateGroup(student.StuNo))
             {
-                dataGridView1.DataSource = sm.SelectGroupStu(groupTable.GroupID, groupStu.StuNo);//选择队员并查看我的队伍
+                try
+                {
+                    dataGridView1.DataSource = sm.SelectGroupStu(groupTable.GroupID, stu_no);//选择队员并查看我的队伍
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("请在学生列表选择", "操作失误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
             }
             else
             {
                 MessageBox.Show("你还未组队，请组队后再操作");
             }
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
+            //删除队员
             if (sm.IsCreateGroup(student.StuNo))
             {
-                //groupStu.StuNo = dataGridView1["学号", 0].Value.ToString();
-               // MessageBox.Show(groupStu.StuNo);
-                dataGridView1.DataSource = sm.DelGroupStu(groupTable.GroupID, groupStu.StuNo);//删除队员并查看我的队伍
+                try
+                {
+                    dataGridView1.DataSource = sm.DelGroupStu(groupTable.GroupID, groupStu.StuNo);//删除队员并查看我的队伍
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("请在队伍列表选择", "操作失误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+                }
             }
             else
             {
                 MessageBox.Show("你还未组队，请组队后再操作");
             }
         }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (textBox2.Text != "" && textBox2.Text != "请输入姓名")
+            {
+                dt.DefaultView.RowFilter = string.Format("姓名 LIKE '%{0}%'", textBox2.Text);//模糊查询
+            }
+        }
 
+        private void textBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (textBox2.Text == "请输入姓名")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Blue;
+            }
+        }
+
+        private void textBox2_MouseLeave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "请输入姓名";
+                textBox2.ForeColor = Color.Silver;
+            }
+        }
     }
 }

@@ -37,7 +37,11 @@ namespace GUI.UI
         {
             InitializeComponent();
         }
-
+        public DPersonalInformationPreview(string re)
+        {
+            InitializeComponent();
+            teaNo = re;
+        }
         private void XPersonalInformationPreview_Load(object sender, EventArgs e)
         {
             //页面载入时显示当前账号的个人信息
@@ -70,16 +74,16 @@ namespace GUI.UI
 #pragma warning disable CS0169 // 从不使用字段“DPersonalInformationPreview.y”
         private int y;
 #pragma warning restore CS0169 // 从不使用字段“DPersonalInformationPreview.y”
-       
+
         private void XPersonalInformationPreview_Load(object sender, PaintEventArgs e)
         {
-            
+
 
         }
 
         private void XPersonalInformationPreview_Load_Scroll(object sender, ScrollEventArgs e)
         {
-            
+
         }
 
         private void label16_Click(object sender, EventArgs e)
