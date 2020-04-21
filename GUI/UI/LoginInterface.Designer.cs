@@ -60,7 +60,7 @@
             this.TxtPwd.Name = "TxtPwd";
             this.TxtPwd.PasswordChar = '*';
             this.TxtPwd.Size = new System.Drawing.Size(215, 25);
-            this.TxtPwd.TabIndex = 18;
+            this.TxtPwd.TabIndex = 2;
             // 
             // TxtName
             // 

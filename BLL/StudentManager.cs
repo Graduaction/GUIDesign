@@ -16,7 +16,7 @@ namespace BLL
         StudentService ss = new StudentService();
         #endregion
 
-        #region 登录
+        #region 1.登录
         /// <summary>
         /// 登录
         /// </summary>
@@ -36,7 +36,7 @@ namespace BLL
         }
         #endregion
 
-        #region 根据学号获取学生对象
+        #region 2.1根据学号获取学生对象
         /// <summary>
         /// 根据学号获取学生信息
         /// </summary>
@@ -55,7 +55,7 @@ namespace BLL
         }
         #endregion
 
-        #region 个人中心更新学生信息
+        #region 2.2个人中心更新学生信息
         /// <summary>
         /// 插入数据
         /// </summary>
@@ -75,7 +75,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看教师列表
+        #region 3.1学生查看教师列表
         /// <summary>
         /// 学生查看教师列表
         /// </summary>
@@ -86,7 +86,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看导师简介
+        #region 3.2学生查看导师简介
         /// <summary>
         /// 学生查看导师简介
         /// </summary>
@@ -98,7 +98,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看通知
+        #region 4.1学生查看通知
         /// <summary>
         /// 学生查看查看通知
         /// </summary>
@@ -109,7 +109,7 @@ namespace BLL
         }
         #endregion
 
-        #region 判断学生是否创建过队伍
+        #region 5.1判断学生是否创建过队伍
         /// <summary>
         /// 判断学生是否创建过队伍
         /// </summary>
@@ -121,7 +121,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生创建队伍
+        #region 5.2学生创建队伍
         /// <summary>
         /// 学生创建队伍
         /// </summary>
@@ -132,7 +132,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看学生列表
+        #region 5.3学生查看学生列表
         /// <summary>
         /// 学生查看学生列表
         /// </summary>
@@ -143,7 +143,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看队伍列表
+        #region 5.4学生查看队伍列表
         /// <summary>
         /// 学生查看队伍列表
         /// </summary>
@@ -154,7 +154,19 @@ namespace BLL
         }
         #endregion
 
-        #region 选择组员
+        #region 5.5判断学生是否是队长
+        /// <summary>
+        /// 判断学生是否是队长
+        /// </summary>
+        /// <param name="stuno">入参：当前学生学号</param>
+        /// <returns>true:是队长，false:不是队长</returns>
+        public bool IsLeader(string stuno)
+        {
+            return ss.IsLeader(stuno);
+        }
+        #endregion
+
+        #region 5.6选择组员
         /// <summary>
         /// 选择组员
         /// </summary>
@@ -165,7 +177,7 @@ namespace BLL
         }
         #endregion
 
-        #region 删除组员
+        #region 5.7删除组员
         /// <summary>
         /// 删除组员
         /// </summary>
@@ -176,7 +188,7 @@ namespace BLL
         }
         #endregion
 
-        #region 选择志愿
+        #region 6.1选择志愿
         /// <summary>
         /// 选择志愿
         /// </summary>
@@ -187,7 +199,7 @@ namespace BLL
         }
         #endregion
 
-        #region 学生查看志愿列表
+        #region 6.2学生查看志愿列表
         /// <summary>
         /// 学生查看志愿列表
         /// </summary>
@@ -195,6 +207,28 @@ namespace BLL
         public DataTable CheckMyVol(string stuno)
         {
             return ss.CheckMyVol(stuno);
+        }
+        #endregion
+
+        #region 7.1查看双选结果的导师
+        /// <summary>
+        /// 1查看双选结果的导师
+        /// </summary>
+        /// <param name="stuno">入参：当前学生学号</param>
+        /// <returns>true:是队长，false:不是队长</returns>
+        public DataTable MyMentor(string stuno)
+        {
+            return ss.MyMentor(stuno);
+        }
+        #endregion
+
+        #region 8.1获取系统开放时间
+        /// <summary>
+        /// 1获取系统开放时间
+        /// </summary>
+        public DataTable GetOpenTime()
+        {
+            return ss.GetOpenTime();
         }
         #endregion
     }
