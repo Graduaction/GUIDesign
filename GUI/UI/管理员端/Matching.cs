@@ -48,7 +48,7 @@ namespace GUI.UI
 
         }
 
-        private void btmatch_Click(object sender, EventArgs e)//一键匹配
+        private void btmatch_Click(object sender, EventArgs e)//第一轮一键匹配
         {
             ad_ServicesBLL bLL = new ad_ServicesBLL();           
            DialogResult dr= MessageBox.Show(bLL.match(),"提示",MessageBoxButtons.OKCancel);
@@ -81,9 +81,6 @@ namespace GUI.UI
             sx_teacher[] sx_Teachers = new sx_teacher[20];
             sx_Teachers = Keepinformation.sx_Teachers;
 
-            //Random random = new Random();
-            //int i = random.Next(0, sx_Students.Length);
-            //Console.WriteLine(sx_Students[i].Groupid + sx_Students[i].Leaderno);
 
         }
 
@@ -113,13 +110,13 @@ namespace GUI.UI
 
         }
 
-        private void button1_Click(object sender, EventArgs e)//一键匹配
+        private void button1_Click(object sender, EventArgs e)//第二轮一键匹配
         {
             ad_ServicesBLL bLL = new ad_ServicesBLL();
             MessageBox.Show(bLL.MatchSecondtime(), "提示");
         }
 
-        private void button2_Click(object sender, EventArgs e)//重新加载界面
+        private void button2_Click(object sender, EventArgs e)//第二轮重新加载界面
         {
             ad_ServicesBLL servicesBLL = new ad_ServicesBLL();
             dataGridView2.DataSource = servicesBLL.ST_GetStuMatchtable();           
@@ -127,11 +124,18 @@ namespace GUI.UI
 
         }
 
-        private void tabControl1_Click(object sender, EventArgs e)
+        private void tabControl1_Click(object sender, EventArgs e)//
+        {
+            //ad_ServicesBLL servicesBLL = new ad_ServicesBLL();
+            //dataGridView2.DataSource = servicesBLL.ST_GetStuMatchtable();
+            //dataGridView1.DataSource = servicesBLL.ST_GetTeaMatchtable();
+        }
+
+        private void button3_Click(object sender, EventArgs e)//第一轮加载界面
         {
             ad_ServicesBLL servicesBLL = new ad_ServicesBLL();
-            dataGridView2.DataSource = servicesBLL.ST_GetStuMatchtable();
-            dataGridView1.DataSource = servicesBLL.ST_GetTeaMatchtable();
+            studataGridView.DataSource = servicesBLL.stuGetmatchdata();
+            teadataGridView.DataSource = servicesBLL.teaGetmatchdata();
         }
     }
 }
