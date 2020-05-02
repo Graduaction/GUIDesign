@@ -46,9 +46,9 @@ namespace GUI.UI
 
         private void Form29_Load(object sender, EventArgs e)
         {
-
-            dtStuvol = tm.selectStuVol();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
-            dataGridView1.DataSource = dtStuvol;
+            DataTable dtStuvol1 = new DataTable();
+            dtStuvol1 = tm.selectStuVol1();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
+            dataGridView1.DataSource = dtStuvol1;
             dtheng = tm.dtTeaVol(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
             if (dtheng.Rows.Count == 0)
             {
@@ -68,7 +68,7 @@ namespace GUI.UI
             {
                 MessageBox.Show("您已提交选择，您的一轮选择为" + dtheng.Rows[0][2] + "--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
                 button1.Enabled = false;
-                dataGridView1.Enabled = false;
+                //dataGridView1.Enabled = false;
             }
         }
         //public void hanshu()
@@ -215,7 +215,7 @@ namespace GUI.UI
                     MessageBox.Show("提交选择成功");
                 }
                 button1.Enabled = false;
-                dataGridView1.Enabled = false;//整个datagridview变灰 无法触发点击事件
+                //dataGridView1.Enabled = false;//整个datagridview变灰 无法触发点击事件
             }
         } 
         #endregion

@@ -138,42 +138,46 @@ namespace GUI.UI
                     {
                         continue;
                     }                   
-                    DataRow dataRow = dataTable.NewRow();
-                    if (sx_Teachers[i] != null && sx_Teachers[i].Teaname != null)
+                    if(sx_Teachers[i].Groupnumber>sx_Teachers[i].LovestuList.GetLength())
                     {
-                        dataRow["教师姓名"] = sx_Teachers[i].Teaname;
-                    }
-                    if (sx_Teachers[i] != null && sx_Teachers[i].Groupnumber != 0)
-                    {
-                        dataRow["应带组数"] = sx_Teachers[i].Groupnumber;
-                    }
-                    if (sx_Teachers[i] != null && sx_Teachers[i].LovestuList.GetLength() != 0)
-                    {
-                        dataRow["已匹配组数"] = sx_Teachers[i].LovestuList.GetLength();
-                    }
-                    for(int j=1;j<=sx_Teachers[i].LovestuList.GetLength();j++)
-                    {
-                        switch(j)
+                        DataRow dataRow = dataTable.NewRow();
+                        if (sx_Teachers[i] != null && sx_Teachers[i].Teaname != null)
                         {
-                            case 1:
-                                dataRow["匹配组数一"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
-                                break;
-                            case 2:
-                                dataRow["匹配组数二"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
-                                break;
-                            case 3:
-                                dataRow["匹配组数三"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
-                                break;
-                            case 4:
-                                dataRow["匹配组数四"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
-                                break;
-                            case 5:
-                                dataRow["匹配组数五"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
-                                break;
+                            dataRow["教师姓名"] = sx_Teachers[i].Teaname;
                         }
-                            
+                        if (sx_Teachers[i] != null && sx_Teachers[i].Groupnumber != 0)
+                        {
+                            dataRow["应带组数"] = sx_Teachers[i].Groupnumber;
+                        }
+                        if (sx_Teachers[i] != null && sx_Teachers[i].LovestuList.GetLength() != 0)
+                        {
+                            dataRow["已匹配组数"] = sx_Teachers[i].LovestuList.GetLength();
+                        }
+                        for (int j = 1; j <= sx_Teachers[i].LovestuList.GetLength(); j++)
+                        {
+                            switch (j)
+                            {
+                                case 1:
+                                    dataRow["匹配组数一"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
+                                    break;
+                                case 2:
+                                    dataRow["匹配组数二"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
+                                    break;
+                                case 3:
+                                    dataRow["匹配组数三"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
+                                    break;
+                                case 4:
+                                    dataRow["匹配组数四"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
+                                    break;
+                                case 5:
+                                    dataRow["匹配组数五"] = sx_Teachers[i].LovestuList.GetElem(j).Groupid;
+                                    break;
+                            }
+
+                        }
+                        dataTable.Rows.Add(dataRow);
                     }
-                    dataTable.Rows.Add(dataRow);
+                    
 
 
                     //dataRow["是否被选"] = sx_Students[i].Beixuan > 0 ? "是" : "不是";
