@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using BLL;
+using Model;
 
 namespace GUI.UI
 {
@@ -52,7 +54,6 @@ namespace GUI.UI
         private System.Windows.Forms.Form currentForm;
 
 
-
         public StudentForm()
         {
             InitializeComponent();
@@ -73,7 +74,7 @@ namespace GUI.UI
                 this.button9.BackColor = Color.FromArgb(53, 66, 83);
                 this.button10.BackColor = Color.FromArgb(53, 66, 83);
                 this.button11.BackColor = Color.FromArgb(53, 66, 83);
-                
+
             }
 #pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
             catch (Exception ex)
@@ -108,10 +109,34 @@ namespace GUI.UI
             tabControl1.TabPages[2].Text = "动态";
             tabControl1.TabPages[3].Text = "注意事项";
         }
+        /// <summary>
+        /// 系统是否开放
+        /// </summary>
+        public static bool IsOpen()
+        {
+            DateTime localTime = DateTime.Now.ToLocalTime();
+            StudentManager sm = new StudentManager();
+            DataTable dataTable = sm.GetOpenTime();
+            DateTime startTime = Convert.ToDateTime(dataTable.Rows[0]["StartTime"]);
+            DateTime endTime = Convert.ToDateTime(dataTable.Rows[0]["EndTime"]);
+            bool flag;
+            if (localTime > startTime && localTime < endTime)
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+                string mss = "很抱歉，系统暂未开放，开放时间为：" + startTime + "-" + endTime;
+                MessageBox.Show(mss, "系统提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            return flag;
+        }
+
 
         private void pnlCenter_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         public void ShowForm(System.Windows.Forms.Panel panel, System.Windows.Forms.Form frm)
@@ -200,92 +225,98 @@ namespace GUI.UI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.initButton();
-            this.button2.BackColor = Color.FromArgb(95, 129, 174);
-            XTeacherList cform = new XTeacherList();//实例化一个子窗口
-            //设置子窗口不显示为顶级窗口
-            cform.TopLevel = false;
-            //设置子窗口的样式，没有上面的标题栏
-            cform.FormBorderStyle = FormBorderStyle.None;
-            //填充
-            cform.Dock = DockStyle.Fill;
-            //清空控件
-            this.pnlCenter.Controls.Clear();
-            //加入控件
-            this.pnlCenter.Controls.Add(cform);
-            //让窗体显示
-            cform.Show();
-            //            try
-            //            {
-            //                this.initButton();
-            //                this.button2.BackColor = Color.FromArgb(95, 129, 174);
-            //                Monitor.Enter(this.lockObj);
-            //                if (!formSwitchFlag)
-            //                {
-            //                    formSwitchFlag = true;
-            //                    this.ShowForm(pnlCenter, form2);
-            //                    formSwitchFlag = false;
-            //                }
-            //                else
-            //                {
-            //                    return;
-            //                }
-            //            }
-            //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-            //            catch (System.Exception ex)
-            //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-            //            {
-            //                //
-            //            }
-            //            finally
-            //            {
-            //                Monitor.Exit(this.lockObj);
-            //            }
+            if (IsOpen())
+            {
+                this.initButton();
+                this.button2.BackColor = Color.FromArgb(95, 129, 174);
+                XTeacherList cform = new XTeacherList();//实例化一个子窗口
+                                                        //设置子窗口不显示为顶级窗口
+                cform.TopLevel = false;
+                //设置子窗口的样式，没有上面的标题栏
+                cform.FormBorderStyle = FormBorderStyle.None;
+                //填充
+                cform.Dock = DockStyle.Fill;
+                //清空控件
+                this.pnlCenter.Controls.Clear();
+                //加入控件
+                this.pnlCenter.Controls.Add(cform);
+                //让窗体显示
+                cform.Show();
+                //            try
+                //            {
+                //                this.initButton();
+                //                this.button2.BackColor = Color.FromArgb(95, 129, 174);
+                //                Monitor.Enter(this.lockObj);
+                //                if (!formSwitchFlag)
+                //                {
+                //                    formSwitchFlag = true;
+                //                    this.ShowForm(pnlCenter, form2);
+                //                    formSwitchFlag = false;
+                //                }
+                //                else
+                //                {
+                //                    return;
+                //                }
+                //            }
+                //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+                //            catch (System.Exception ex)
+                //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+                //            {
+                //                //
+                //            }
+                //            finally
+                //            {
+                //                Monitor.Exit(this.lockObj);
+                //            } 
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.initButton();
-            this.button3.BackColor = Color.FromArgb(95, 129, 174);
-            MyVolunteer cform = new MyVolunteer();//实例化一个子窗口
-            //设置子窗口不显示为顶级窗口
-            cform.TopLevel = false;
-            //设置子窗口的样式，没有上面的标题栏
-            cform.FormBorderStyle = FormBorderStyle.None;
-            //填充
-            cform.Dock = DockStyle.Fill;
-            //清空控件
-            this.pnlCenter.Controls.Clear();
-            //加入控件
-            this.pnlCenter.Controls.Add(cform);
-            //让窗体显示
-            cform.Show();
-            //            try
-            //            {
-            //                this.initButton();
-            //                this.button3.BackColor = Color.FromArgb(95, 129, 174);
-            //                Monitor.Enter(this.lockObj);
-            //                if (!formSwitchFlag)
-            //                {
-            //                    formSwitchFlag = true;
-            //                    this.ShowForm(pnlCenter, form3);
-            //                    formSwitchFlag = false;
-            //                }
-            //                else
-            //                {
-            //                    return;
-            //                }
-            //            }
-            //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-            //            catch (System.Exception ex)
-            //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-            //            {
-            //                //
-            //            }
-            //            finally
-            //            {
-            //                Monitor.Exit(this.lockObj);
-            //            }
+            if (IsOpen())
+            {
+                this.initButton();
+                this.button3.BackColor = Color.FromArgb(95, 129, 174);
+                MyVolunteer cform = new MyVolunteer();//实例化一个子窗口
+                                                      //设置子窗口不显示为顶级窗口
+                cform.TopLevel = false;
+                //设置子窗口的样式，没有上面的标题栏
+                cform.FormBorderStyle = FormBorderStyle.None;
+                //填充
+                cform.Dock = DockStyle.Fill;
+                //清空控件
+                this.pnlCenter.Controls.Clear();
+                //加入控件
+                this.pnlCenter.Controls.Add(cform);
+                //让窗体显示
+                cform.Show();
+                //            try
+                //            {
+                //                this.initButton();
+                //                this.button3.BackColor = Color.FromArgb(95, 129, 174);
+                //                Monitor.Enter(this.lockObj);
+                //                if (!formSwitchFlag)
+                //                {
+                //                    formSwitchFlag = true;
+                //                    this.ShowForm(pnlCenter, form3);
+                //                    formSwitchFlag = false;
+                //                }
+                //                else
+                //                {
+                //                    return;
+                //                }
+                //            }
+                //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+                //            catch (System.Exception ex)
+                //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+                //            {
+                //                //
+                //            }
+                //            finally
+                //            {
+                //                Monitor.Exit(this.lockObj);
+                //            } 
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -305,60 +336,15 @@ namespace GUI.UI
             this.pnlCenter.Controls.Add(cform);
             //让窗体显示
             cform.Show();
-//            try
-//            {
-//                this.initButton();
-//                this.button4.BackColor = Color.FromArgb(95, 129, 174);
-//                Monitor.Enter(this.lockObj);
-//                if (!formSwitchFlag)
-//                {
-//                    formSwitchFlag = true;
-//                    this.ShowForm(pnlCenter, form4);
-//                    formSwitchFlag = false;
-//                }
-//                else
-//                {
-//                    return;
-//                }
-//            }
-//#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-//            catch (System.Exception ex)
-//#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-//            {
-//                //
-//            }
-//            finally
-//            {
-//                Monitor.Exit(this.lockObj);
-//            }
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.initButton();
-            this.button5.BackColor = Color.FromArgb(95, 129, 174);
-            CheckMentor cform = new CheckMentor();//实例化一个子窗口
-            //设置子窗口不显示为顶级窗口
-            cform.TopLevel = false;
-            //设置子窗口的样式，没有上面的标题栏
-            cform.FormBorderStyle = FormBorderStyle.None;
-            //填充
-            cform.Dock = DockStyle.Fill;
-            //清空控件
-            this.pnlCenter.Controls.Clear();
-            //加入控件
-            this.pnlCenter.Controls.Add(cform);
-            //让窗体显示
-            cform.Show();
             //            try
             //            {
             //                this.initButton();
-            //                this.button5.BackColor = Color.FromArgb(95, 129, 174);
+            //                this.button4.BackColor = Color.FromArgb(95, 129, 174);
             //                Monitor.Enter(this.lockObj);
             //                if (!formSwitchFlag)
             //                {
             //                    formSwitchFlag = true;
-            //                    this.ShowForm(pnlCenter, form5);
+            //                    this.ShowForm(pnlCenter, form4);
             //                    formSwitchFlag = false;
             //                }
             //                else
@@ -378,6 +364,54 @@ namespace GUI.UI
             //            }
         }
 
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (IsOpen())
+            {
+                this.initButton();
+                this.button5.BackColor = Color.FromArgb(95, 129, 174);
+                CheckMentor cform = new CheckMentor();//实例化一个子窗口
+                                                      //设置子窗口不显示为顶级窗口
+                cform.TopLevel = false;
+                //设置子窗口的样式，没有上面的标题栏
+                cform.FormBorderStyle = FormBorderStyle.None;
+                //填充
+                cform.Dock = DockStyle.Fill;
+                //清空控件
+                this.pnlCenter.Controls.Clear();
+                //加入控件
+                this.pnlCenter.Controls.Add(cform);
+                //让窗体显示
+                cform.Show();
+                //            try
+                //            {
+                //                this.initButton();
+                //                this.button5.BackColor = Color.FromArgb(95, 129, 174);
+                //                Monitor.Enter(this.lockObj);
+                //                if (!formSwitchFlag)
+                //                {
+                //                    formSwitchFlag = true;
+                //                    this.ShowForm(pnlCenter, form5);
+                //                    formSwitchFlag = false;
+                //                }
+                //                else
+                //                {
+                //                    return;
+                //                }
+                //            }
+                //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+                //            catch (System.Exception ex)
+                //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+                //            {
+                //                //
+                //            }
+                //            finally
+                //            {
+                //                Monitor.Exit(this.lockObj);
+                //            } 
+            }
+        }
+
         private void button8_Click(object sender, EventArgs e)
         {
             this.initButton();
@@ -395,32 +429,32 @@ namespace GUI.UI
             this.pnlCenter.Controls.Add(cform);
             //让窗体显示
             cform.Show();
-//            try
-//            {
-//                this.initButton();
-//                this.button8.BackColor = Color.FromArgb(95, 129, 174);
-//                Monitor.Enter(this.lockObj);
-//                if (!formSwitchFlag)
-//                {
-//                    formSwitchFlag = true;
-//                    this.ShowForm(pnlCenter, form6);
-//                    formSwitchFlag = false;
-//                }
-//                else
-//                {
-//                    return;
-//                }
-//            }
-//#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-//            catch (System.Exception ex)
-//#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-//            {
-//                //
-//            }
-//            finally
-//            {
-//                Monitor.Exit(this.lockObj);
-//            }
+            //            try
+            //            {
+            //                this.initButton();
+            //                this.button8.BackColor = Color.FromArgb(95, 129, 174);
+            //                Monitor.Enter(this.lockObj);
+            //                if (!formSwitchFlag)
+            //                {
+            //                    formSwitchFlag = true;
+            //                    this.ShowForm(pnlCenter, form6);
+            //                    formSwitchFlag = false;
+            //                }
+            //                else
+            //                {
+            //                    return;
+            //                }
+            //            }
+            //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+            //            catch (System.Exception ex)
+            //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+            //            {
+            //                //
+            //            }
+            //            finally
+            //            {
+            //                Monitor.Exit(this.lockObj);
+            //            }
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -483,52 +517,55 @@ namespace GUI.UI
 
         private void button9_Click(object sender, EventArgs e)
         {
-            this.initButton();
-            this.button9.BackColor = Color.FromArgb(95, 129, 174);
-            MyTeam cform = new MyTeam();//实例化一个子窗口
-            //设置子窗口不显示为顶级窗口
-            cform.TopLevel = false;
-            //设置子窗口的样式，没有上面的标题栏
-            cform.FormBorderStyle = FormBorderStyle.None;
-            //填充
-            cform.Dock = DockStyle.Fill;
-            //清空控件
-            this.pnlCenter.Controls.Clear();
-            //加入控件
-            this.pnlCenter.Controls.Add(cform);
-            //让窗体显示
-            cform.Show();
-            //            try
-            //            {
-            //                this.initButton();
-            //                this.button9.BackColor = Color.FromArgb(95, 129, 174);
-            //                Monitor.Enter(this.lockObj);
-            //                if (!formSwitchFlag)
-            //                {
-            //                    formSwitchFlag = true;
-            //                    this.ShowForm(pnlCenter, form8);
-            //                    formSwitchFlag = false;
-            //                }
-            //                else
-            //                {
-            //                    return;
-            //                }
-            //            }
-            //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
-            //            catch (System.Exception ex)
-            //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
-            //            {
-            //                //
-            //            }
-            //            finally
-            //            {
-            //                Monitor.Exit(this.lockObj);
-            //            }
+            if (IsOpen())
+            {
+                this.initButton();
+                this.button9.BackColor = Color.FromArgb(95, 129, 174);
+                MyTeam cform = new MyTeam();//实例化一个子窗口
+                                            //设置子窗口不显示为顶级窗口
+                cform.TopLevel = false;
+                //设置子窗口的样式，没有上面的标题栏
+                cform.FormBorderStyle = FormBorderStyle.None;
+                //填充
+                cform.Dock = DockStyle.Fill;
+                //清空控件
+                this.pnlCenter.Controls.Clear();
+                //加入控件
+                this.pnlCenter.Controls.Add(cform);
+                //让窗体显示
+                cform.Show();
+                //            try
+                //            {
+                //                this.initButton();
+                //                this.button9.BackColor = Color.FromArgb(95, 129, 174);
+                //                Monitor.Enter(this.lockObj);
+                //                if (!formSwitchFlag)
+                //                {
+                //                    formSwitchFlag = true;
+                //                    this.ShowForm(pnlCenter, form8);
+                //                    formSwitchFlag = false;
+                //                }
+                //                else
+                //                {
+                //                    return;
+                //                }
+                //            }
+                //#pragma warning disable CS0168 // 声明了变量“ex”，但从未使用过
+                //            catch (System.Exception ex)
+                //#pragma warning restore CS0168 // 声明了变量“ex”，但从未使用过
+                //            {
+                //                //
+                //            }
+                //            finally
+                //            {
+                //                Monitor.Exit(this.lockObj);
+                //            }
+            }
         }
     }
 
- }
+}
 
 
-    
+
 

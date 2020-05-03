@@ -32,12 +32,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.工号 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeaName = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.TeaName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Contaction = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VolSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VolStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Control = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -67,15 +64,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.工号,
             this.TeaName,
             this.Contaction,
-            this.Email,
-            this.VolSort,
-            this.VolStatus,
-            this.Control});
+            this.Email});
             this.dataGridView1.Location = new System.Drawing.Point(29, 79);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -90,7 +87,7 @@
             this.工号.HeaderText = "工号";
             this.工号.MinimumWidth = 6;
             this.工号.Name = "工号";
-            this.工号.Width = 125;
+            this.工号.Visible = false;
             // 
             // TeaName
             // 
@@ -99,8 +96,6 @@
             this.TeaName.MinimumWidth = 6;
             this.TeaName.Name = "TeaName";
             this.TeaName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.TeaName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.TeaName.Width = 125;
             // 
             // Contaction
             // 
@@ -108,7 +103,6 @@
             this.Contaction.HeaderText = "导师电话";
             this.Contaction.MinimumWidth = 6;
             this.Contaction.Name = "Contaction";
-            this.Contaction.Width = 125;
             // 
             // Email
             // 
@@ -116,34 +110,6 @@
             this.Email.HeaderText = "导师邮箱";
             this.Email.MinimumWidth = 6;
             this.Email.Name = "Email";
-            this.Email.Width = 125;
-            // 
-            // VolSort
-            // 
-            this.VolSort.DataPropertyName = "VolSort";
-            this.VolSort.HeaderText = "志愿序号";
-            this.VolSort.MinimumWidth = 6;
-            this.VolSort.Name = "VolSort";
-            this.VolSort.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.VolSort.Width = 125;
-            // 
-            // VolStatus
-            // 
-            this.VolStatus.DataPropertyName = "VolStatus";
-            this.VolStatus.HeaderText = "志愿状态";
-            this.VolStatus.MinimumWidth = 6;
-            this.VolStatus.Name = "VolStatus";
-            this.VolStatus.Width = 125;
-            // 
-            // Control
-            // 
-            this.Control.DataPropertyName = "Control";
-            this.Control.HeaderText = "操作";
-            this.Control.MinimumWidth = 6;
-            this.Control.Name = "Control";
-            this.Control.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Control.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.Control.Width = 125;
             // 
             // MyVolunteer
             // 
@@ -169,11 +135,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn 工号;
-        private System.Windows.Forms.DataGridViewButtonColumn TeaName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeaName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Contaction;
         private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VolSort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VolStatus;
-        private System.Windows.Forms.DataGridViewButtonColumn Control;
     }
 }
