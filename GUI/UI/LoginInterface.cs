@@ -26,7 +26,7 @@ namespace GUI.UI
         public static string loginid;//登入账号
 
         #endregion
-       
+
         // 构造函数
         public LoginInterface()
         {
@@ -78,6 +78,9 @@ namespace GUI.UI
                 // 判断用户类型
                 if (RadioStudent.Checked == true)
                 {
+                    StudentData student = new StudentData();
+                    student.StuNo = TxtName.Text.Trim();
+                    student.StuPwd = TxtPwd.Text.Trim();
                     if (sm.CheckStudentLogin(TxtName.Text.Trim(), TxtPwd.Text.Trim()))
                     {
                         this.Visible = false;
@@ -93,24 +96,24 @@ namespace GUI.UI
                 else if (RadioTeacher.Checked == true)
                 {
                     if (tm.CheckTeacherLogin(TxtName.Text.Trim(), TxtPwd.Text.Trim()))
-                   {
-                    this.Visible = false;
-                    Teacher f2 = new Teacher();
-                    f2.ShowDialog();
-                    this.Visible = true;
-                   }
-                   else
-                   {
-                       MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
-                   }
+                    {
+                        this.Visible = false;
+                        Teacher f2 = new Teacher();
+                        f2.ShowDialog();
+                        this.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
                 else
                 {
                     AdminData adminData = new AdminData();
                     adminData.AdminNo = TxtName.Text.Trim();
 
-                    adminData.AdminPwd = TxtPwd.Text.Trim();                  
-                    if(ad_ServicesBLL.CheckAdminLogin(adminData)==2)
+                    adminData.AdminPwd = TxtPwd.Text.Trim();
+                    if (ad_ServicesBLL.CheckAdminLogin(adminData) == 2)
                     {
                         this.Visible = false;
                         MainForm f3 = new MainForm();
@@ -121,11 +124,11 @@ namespace GUI.UI
                     {
                         MessageBox.Show(INPUTNOEXIST, INPUTWARN, MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    
+
 
                 }
             }
-            catch (Exception ex )
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, LOGINFAILED, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -133,13 +136,13 @@ namespace GUI.UI
 
         // 退出登录
         private void BtnExit_Click(object sender, EventArgs e)
-        {   
+        {
             this.Close();
         }
 
         private void TxtName_TextChanged(object sender, EventArgs e)
         {
-            loginid = this.TxtName.Text;
+            loginid = this.TxtName.Text.Trim();
         }
     }
 }

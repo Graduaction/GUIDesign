@@ -46,9 +46,9 @@ namespace GUI.UI
         private void jiazaiyilun()
         {
             //加载一轮匹配结果
-            sx_student[] sx_Students = new sx_student[50];
+            sx_student[] sx_Students = new sx_student[100];
             sx_Students = Keepinformation.sx_Students;
-            sx_teacher[] sx_Teachers = new sx_teacher[20];
+            sx_teacher[] sx_Teachers = new sx_teacher[100];
             sx_Teachers = Keepinformation.sx_Teachers;
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("教师工号", typeof(string));
@@ -57,25 +57,38 @@ namespace GUI.UI
             dataTable.Columns.Add("组长姓名", typeof(string));
             dataTable.Columns.Add("组长学号", typeof(string));
             dataTable.Columns.Add("论文课题", typeof(string));
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1];//声明了一个datacolumn的数组，该数组只有一个元素 
+            PrimaryKeyColumns[0] = dataTable.Columns["学生组号"];//把主键列赋给数组元素 
+            dataTable.PrimaryKey = PrimaryKeyColumns;//指定表的主键为PrimaryKeyColumns主键数组 
             if (sx_Teachers != null)
             {
                 foreach (sx_teacher sx in sx_Teachers)
                 {
                     if (sx != null)
                     {
-                        for (int i = 1; i <= sx.LovestuList.GetLength(); i++)
-                        {
-                            DataRow dataRow = dataTable.NewRow();
-                            dataRow["教师工号"] = sx.Teano;
-                            dataRow["教师姓名"] = sx.Teaname;
-                            dataRow["学生组号"] = sx.LovestuList.GetElem(i).Groupid;
-                            dataRow["组长姓名"] = sx.LovestuList.GetElem(i).Stuname;
-                            dataRow["组长学号"] = sx.LovestuList.GetElem(i).Leaderno;
-                            dataRow["论文课题"] = sx.LovestuList.GetElem(i).Topic;
-                            dataTable.Rows.Add(dataRow);
-                            //Console.WriteLine(dataRow["教师姓名"].ToString());
+                        
+                            for (int i = 1; i <= sx.LovestuList.GetLength(); i++)
+                            {
+                            try
+                            {
+                                DataRow dataRow = dataTable.NewRow();
+                                dataRow["教师工号"] = sx.Teano;
+                                dataRow["教师姓名"] = sx.Teaname;
+                                dataRow["学生组号"] = sx.LovestuList.GetElem(i).Groupid;
+                                dataRow["组长姓名"] = sx.LovestuList.GetElem(i).Stuname;
+                                dataRow["组长学号"] = sx.LovestuList.GetElem(i).Leaderno;
+                                dataRow["论文课题"] = sx.LovestuList.GetElem(i).Topic;
+                                dataTable.Rows.Add(dataRow);
+                                Console.WriteLine(dataRow["教师姓名"].ToString());
+                            }
+                            catch(Exception e)
+                            {
+                                Console.WriteLine(e.Message);
+                                continue;
+                            }
                         }
-                        dataGridView1.DataSource = dataTable;
+                            dataGridView1.DataSource = dataTable;
+                        
                     }
                 }
             }
@@ -201,6 +214,7 @@ namespace GUI.UI
             ad_ServicesBLL bLL = new ad_ServicesBLL();
             bLL.InsertToResult(dataTable);
             button2_Click(sender, e);
+            bLL.Tuncast_TBrs("truncate table teavolheng2");
 
         }
 
