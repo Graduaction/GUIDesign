@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace Model
 {
     [Serializable]
-   public class GroupTableData
+    public class GroupTableData
     {
         private int _groupID = 0;
         private string topic = string.Empty;
         private int _memberNum = 0;
         private string _leaderno = string.Empty;
         private string _volFirstId = string.Empty;
-        private string _volSecondeId = string.Empty;
+        private string _volSecondId = string.Empty;
         private string _volThirdId = string.Empty;
         /// <summary>
         /// 组别ID
@@ -43,7 +43,7 @@ namespace Model
         /// <summary>
         /// 第二志愿老师id
         /// </summary>
-        public string VolSecondeId { get => _volSecondeId; set => _volSecondeId = value; }
+        public string VolSecondId { get => _volSecondId; set => _volSecondId = value; }
 
         /// <summary>
         /// 第三志愿老师id

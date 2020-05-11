@@ -57,7 +57,6 @@
             this.LbTeaGender = new System.Windows.Forms.Label();
             this.LbTeaName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -68,11 +67,10 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.AliceBlue;
-            this.groupBox1.Controls.Add(this.BtnBack);
             this.groupBox1.Controls.Add(this.panel2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(13, 13);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1313, 1006);
             this.groupBox1.TabIndex = 0;
@@ -395,16 +393,6 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "我的导师";
             // 
-            // BtnBack
-            // 
-            this.BtnBack.Location = new System.Drawing.Point(575, 938);
-            this.BtnBack.Name = "BtnBack";
-            this.BtnBack.Size = new System.Drawing.Size(75, 23);
-            this.BtnBack.TabIndex = 9;
-            this.BtnBack.Text = "返回";
-            this.BtnBack.UseVisualStyleBackColor = true;
-            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
-            // 
             // CheckMentor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -460,6 +448,5 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label LbTeaGender;
         private System.Windows.Forms.Label LbTeaName;
-        private System.Windows.Forms.Button BtnBack;
     }
 }
