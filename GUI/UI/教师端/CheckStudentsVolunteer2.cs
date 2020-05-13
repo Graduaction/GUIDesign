@@ -29,7 +29,15 @@ namespace GUI.UI
         private void Form35_Load(object sender, EventArgs e)
         {
             ///判断当前是一轮还是二轮  如果result表没有数据，说明没有一轮匹配，说明不能进入二轮
-            dtStuvol2 = tm.selectlxStu();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
+            int resum =  tm.GetResultNum();
+            if (resum == 0)
+            {
+                button1.Enabled = false;
+                MessageBox.Show("当前为第一轮志愿选择时间，二轮志愿无法提交，请切换到一轮志愿填报页面【查看学生志愿页面】。");
+            }
+            
+            /////页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
+            dtStuvol2 = tm.selectlxStu();
             dataGridView1.DataSource = dtStuvol2;
             dtheng = tm.dtTeaVol2(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
             if (dtheng.Rows.Count == 0)
@@ -96,8 +104,19 @@ namespace GUI.UI
                     //获取单元格内容中的数字
                     restuno = System.Text.RegularExpressions.Regex.Replace(restuno, @"[^0-9]+", "");
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
-                    XPersonalInformationPreview formStu = new XPersonalInformationPreview(restuno);
-                    formStu.ShowDialog();
+                    XPersonalInformationPreview cform = new XPersonalInformationPreview(restuno);//实例化一个子窗口
+                                                                                                 //设置子窗口不显示为顶级窗口
+                    cform.TopLevel = false;
+                    //设置子窗口的样式，没有上面的标题栏
+                    cform.FormBorderStyle = FormBorderStyle.None;
+                    //填充
+                    cform.Dock = DockStyle.Fill;
+                    //清空控件
+                    this.Controls.Clear();
+                    //加入控件
+                    this.Controls.Add(cform);
+                    //让窗体显示
+                    cform.Show();
                 }
             }
             catch (Exception ex)
