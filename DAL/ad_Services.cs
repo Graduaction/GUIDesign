@@ -876,6 +876,7 @@ on a.GroupID = c.groupid ";
             int row_stucount = stutable.Rows.Count;
             DataTable teatable = ST_GetTeaMatchtable();
             int row_teacount = teatable.Rows.Count;
+
             //将datatable中的值赋给sx_student对象数组
             for (int i = 0; i < row_stucount; i++)
             {
@@ -924,6 +925,7 @@ on a.GroupID = c.groupid ";
                 sx_Students[i] = student;
               
             }
+
             //将datatable中的值赋给sx_teacher对象数组
             for (int i = 0; i < row_teacount; i++)
             {
@@ -961,6 +963,7 @@ on a.GroupID = c.groupid ";
                     teacher.Groupid[4] = Convert.ToInt32(teatable.Rows[i][9]);
                 }
                 sx_Teachers[i] = teacher;
+                sx_Teachers[i].LovestuList = new MyLinkList<sx_student>();//初始化一个链表，用于选择学生
             }
             Console.WriteLine("第二轮表白游戏开始啦！！！");
             //教师有可选组数，遍历每个志愿学生，看学生是否喜欢他
@@ -1029,7 +1032,7 @@ on a.GroupID = c.groupid ";
             Keepinformation.stsx_Students = sx_Students;
             Keepinformation.stsx_Teachers = sx_Teachers;
             Console.WriteLine("\n\n\n\n");
-           // Merge_First_Sec();
+            Merge_First_Sec();
 
 
             return ("二轮匹配结束,点击确定查看匹配结果");
@@ -1043,9 +1046,15 @@ on a.GroupID = c.groupid ";
             sx_teacher[] sx_Teachers = new sx_teacher[20];
             sx_Students = Keepinformation.stsx_Students;
             sx_Teachers = Keepinformation.stsx_Teachers;
-            
-            //sx_student[] sx_Students =new Keepinformation.stsx_Students;
-            //sx_teacher[] sx_Teachers =new Keepinformation.stsx_Teachers;
+
+            ////将datatable中的值赋给sx_teacher对象数组
+            //for (int i = 0; i < sx_Teachers.Length; i++)
+            //{
+            //    sx_teacher teacher = new sx_teacher(20);//实例化对象                
+            //    sx_Teachers[i] = teacher;
+            //    sx_Teachers[i].LovestuList = new MyLinkList<sx_student>();//初始化一个链表，用于选择学生
+            //}
+
             for (int i = 0; i < sx_Students.Length; i++)
             {
                 for (int j = 0; j < sx_Teachers.Length; j++)
@@ -1053,9 +1062,6 @@ on a.GroupID = c.groupid ";
                     if (sx_Teachers[j] != null && sx_Teachers[j].Kexuan > 0 && sx_Students[i] != null && sx_Students[i].Beixuan == 0)
                     {
                         sx_Students[i].Beixuan = 1;
-                        Console.WriteLine(sx_Students[i].Stuname+";"+sx_Students[i].Groupid);
-                        Console.WriteLine(sx_Teachers[j].Teaname+";");
-                        
                         sx_Teachers[j].LovestuList.Append(sx_Students[i]);
 
                         Console.WriteLine("学生" + sx_Students[i].Groupid + "被老师" + sx_Teachers[j].Teaname + "录取啦");
@@ -1064,6 +1070,7 @@ on a.GroupID = c.groupid ";
                     }
                 }
             }
+            
             for (int k = 0; k < sx_Students.Length; k++)
             {
                 if (sx_Students[k] != null && sx_Students[k].Beixuan == 0)

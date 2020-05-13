@@ -109,10 +109,15 @@ namespace GUI.UI
             dataTable.Columns.Add("组长姓名", typeof(string));
             dataTable.Columns.Add("组长学号", typeof(string));
             dataTable.Columns.Add("论文课题", typeof(string));
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1];//声明了一个datacolumn的数组，该数组只有一个元素 
+            PrimaryKeyColumns[0] = dataTable.Columns["学生组号"];//把主键列赋给数组元素 
+            dataTable.PrimaryKey = PrimaryKeyColumns;//指定表的主键为PrimaryKeyColumns主键数组 
             if (sx_Teachers != null)
             {
                 foreach (sx_teacher sx in sx_Teachers)
                 {
+                  
+
                     if (sx != null)
                     {
                         for (int i = 1; i <= sx.LovestuList.GetLength(); i++)
@@ -125,7 +130,7 @@ namespace GUI.UI
                             dataRow["组长学号"] = sx.LovestuList.GetElem(i).Leaderno;
                             dataRow["论文课题"] = sx.LovestuList.GetElem(i).Topic;
                             dataTable.Rows.Add(dataRow);
-                            //Console.WriteLine(dataRow["教师姓名"].ToString());
+                            Console.WriteLine(dataRow["教师姓名"].ToString());
                         }
                         dataGridView1.DataSource = dataTable;
                     }
@@ -159,14 +164,14 @@ namespace GUI.UI
             Excel.Workbook workbook = workbooks.Add(Excel.XlWBATemplate.xlWBATWorksheet);
             Excel.Worksheet worksheet = (Excel.Worksheet)workbook.Worksheets[1];//取得sheet1 
             //写入标题             
-            for (int i = 0; i < dataGridView1.ColumnCount; i++)
-            { worksheet.Cells[1, i + 1] = dataGridView1.Columns[i].HeaderText; }
+            for (int i = 0; i < dataGridView2.ColumnCount; i++)
+            { worksheet.Cells[1, i + 1] = dataGridView2.Columns[i].HeaderText; }
             //写入数值
-            for (int r = 0; r < dataGridView1.Rows.Count; r++)
+            for (int r = 0; r < dataGridView2.Rows.Count; r++)
             {
-                for (int i = 0; i < dataGridView1.ColumnCount; i++)
+                for (int i = 0; i < dataGridView2.ColumnCount; i++)
                 {
-                    worksheet.Cells[r + 2, i + 1] = dataGridView1.Rows[r].Cells[i].Value;
+                    worksheet.Cells[r + 2, i + 1] = dataGridView2.Rows[r].Cells[i].Value;
                 }
                 System.Windows.Forms.Application.DoEvents();
             }
