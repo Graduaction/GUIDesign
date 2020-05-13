@@ -283,6 +283,9 @@ namespace GUI.UI
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Size size = new Size(1150, 620);  //第一个参数是宽度，第二个参数是高度
+
+            this.Size = size;
             pictureBox1.Image = new Bitmap("../../img/横幅2.png");
             this.BackgroundImage = Image.FromFile("../../img/背景.jpg");
 
