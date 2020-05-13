@@ -14,8 +14,7 @@ namespace GUI.UI
 {
     public partial class CheckStudentsVolunteer : Form
     {
-        //教师选志愿介绍：只能一次登录完成，暂时不能存储选到一半的数据，
-        //如果选到一半，退出系统重进的话，只能重新选择，且提交后不能再改动
+        
         //变量定义
         TeacherManager tm = new TeacherManager();
         public string teaNo = LoginInterface.loginid;// 当前登录用户的账号  非常重要
@@ -46,6 +45,14 @@ namespace GUI.UI
 
         private void Form29_Load(object sender, EventArgs e)
         {
+            ///判断当前是一轮还是二轮  如果result表有数据，说明已经一轮匹配，故不能再次进入一轮匹配
+            int resum = tm.GetResultNum();// tm.GetResultNum();
+            if (resum != 0)
+            {
+                button1.Enabled = false;
+                dataGridView1.Enabled = false;
+                MessageBox.Show("当前为第一轮志愿选择已结束，请进行第二轮志愿选择，请切换到一轮志愿填报页面【查看二轮志愿页面】。");
+            }
             DataTable dtStuvol1 = new DataTable();
             dtStuvol1 = tm.selectStuVol1();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
             dataGridView1.DataSource = dtStuvol1;
@@ -71,35 +78,7 @@ namespace GUI.UI
                 //dataGridView1.Enabled = false;
             }
         }
-        //public void hanshu()
-        //{
-        //    Task.Factory.StartNew(() => // 将阻塞线程的操作在另外一个线程中执行，这样就不会堵塞UI线程。   
-        //    {
-        //        dtStuvol = tm.selectStuVol();//页面载入时从数据库获取当前数据库中的所有学生志愿数据并显示在datagridview1中
-        //        dataGridView1.DataSource = dtStuvol;
-        //        dtheng = tm.dtTeaVol(teaNo);//页面载入时从数据库获取当前数据库中的当前教师工号的志愿数据
-        //    });
-        //    if (dtheng.Rows.Count == 0)
-        //    {
-        //        dtshu.Columns.Add("Teano", typeof(string));
-        //        dtshu.Columns.Add("Groupid", typeof(string));
-        //        //设置dtshu的主键，控制不要同一个组插入多次竖向datatable
-        //        dtshu.PrimaryKey = new DataColumn[2] { dtshu.Columns["Teano"], dtshu.Columns["Groupid"] };
-        //        //设置dtheng的主键 
-        //        dtheng.PrimaryKey = new DataColumn[1] { dtheng.Columns["teano"] };
-        //        //以下是针对datagridview的显示设置
-        //        dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//标题居中
-        //        dataGridView1.DefaultCellStyle.BackColor = Color.White;
-        //        dataGridView1.AllowUserToAddRows = false;
-        //        dataGridView1.AllowUserToDeleteRows = false;
-        //    }
-        //    if (dtheng.Rows.Count > 0)
-        //    {
-        //        MessageBox.Show("您已提交选择，您的一轮选择为" + dtheng.Rows[0][2] + "--" + dtheng.Rows[0][3] + "--" + dtheng.Rows[0][4] + "--" + dtheng.Rows[0][5] + "--" + dtheng.Rows[0][6] + "--");
-        //        button1.Enabled = false;
-        //        dataGridView1.Enabled = false;
-        //    }
-        //}
+       
 
         #region 双击学生单元格，查看学生详细信息
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -114,8 +93,21 @@ namespace GUI.UI
                     //获取单元格内容中的数字
                     restuno = System.Text.RegularExpressions.Regex.Replace(restuno, @"[^0-9]+", "");
                     //要用这个带参数的构造函数，把教师查看学生这边获取的学生id传到学生信息页面
-                    XPersonalInformationPreview formStu = new XPersonalInformationPreview(restuno);
-                    formStu.ShowDialog();
+                    //XPersonalInformationPreview formStu = new XPersonalInformationPreview(restuno);
+                    //formStu.ShowDialog();
+                    XPersonalInformationPreview cform = new XPersonalInformationPreview(restuno);//实例化一个子窗口
+                                                                //设置子窗口不显示为顶级窗口
+                    cform.TopLevel = false;
+                    //设置子窗口的样式，没有上面的标题栏
+                    cform.FormBorderStyle = FormBorderStyle.None;
+                    //填充
+                    cform.Dock = DockStyle.Fill;
+                    //清空控件
+                    this.Controls.Clear();
+                    //加入控件
+                    this.Controls.Add(cform);
+                    //让窗体显示
+                    cform.Show();
                 }
             }
             catch (Exception ex)
@@ -156,7 +148,7 @@ namespace GUI.UI
                         dr[1] = re;//groupid 从点击的行索引获取
                         dtshu.Rows.Add(dr);//到此为在datatable中保存新的数据
                         dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Yellow;//点击后该行颜色改变
-                        //i = i + 1;
+                        
                     }
                     else
                     {

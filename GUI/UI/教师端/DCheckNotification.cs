@@ -44,7 +44,7 @@ namespace GUI.UI
             DataTable notetable = tm.selectNote();
             dataGridView1.DataSource = notetable;
             //以下是针对datagridview的显示设置
-            dataGridView1.Columns[1].Width = 400;//通知标题宽度加大
+            dataGridView1.Columns[1].Width = 550;//通知标题宽度加大
             dataGridView1.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;//标题居中
             dataGridView1.DefaultCellStyle.BackColor = Color.White;
             dataGridView1.AllowUserToAddRows = false;
