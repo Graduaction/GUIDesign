@@ -14,8 +14,10 @@ namespace GUI.UI
     public partial class XPersonalInformationPreview : Form
     {
         private StudentManager sm = new StudentManager();
-        private StudentData student = new StudentData();
-        public string stuNo = LoginInterface.loginid;
+        StudentData student = new StudentData()
+        {
+            StuNo = LoginInterface.loginid
+        };
         public XPersonalInformationPreview()
         {
             InitializeComponent();
@@ -23,7 +25,7 @@ namespace GUI.UI
         public XPersonalInformationPreview(string re)
         {
             InitializeComponent();
-            stuNo = re;
+            student.StuNo = re;
         }
         private static XPersonalInformationPreview formInstance;
         public static XPersonalInformationPreview GetIntance
@@ -45,7 +47,7 @@ namespace GUI.UI
         {
             try
             {
-                DataTable dt = sm.GetStudentByNo(stuNo);
+                DataTable dt = sm.GetStudentByNo(student.StuNo);
                 LbStuName.Text = dt.Rows[0]["StuName"].ToString();
                 LbStuProfession.Text = dt.Rows[0]["Profession"].ToString();
                 LbStuPhone.Text = dt.Rows[0]["StuPhone"].ToString();

@@ -72,7 +72,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1313, 1006);
+            this.groupBox1.Size = new System.Drawing.Size(1313, 823);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "查看我的导师";
@@ -85,7 +85,7 @@
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Location = new System.Drawing.Point(79, 57);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1175, 796);
+            this.panel2.Size = new System.Drawing.Size(1175, 754);
             this.panel2.TabIndex = 8;
             // 
             // panel6
@@ -100,7 +100,7 @@
             this.panel6.Controls.Add(this.label22);
             this.panel6.Location = new System.Drawing.Point(27, 304);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(1128, 474);
+            this.panel6.Size = new System.Drawing.Size(1128, 424);
             this.panel6.TabIndex = 12;
             // 
             // label18
@@ -398,7 +398,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1348, 530);
+            this.BackColor = System.Drawing.Color.AliceBlue;
+            this.ClientSize = new System.Drawing.Size(1369, 530);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CheckMentor";
