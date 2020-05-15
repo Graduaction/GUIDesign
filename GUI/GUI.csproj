@@ -276,11 +276,11 @@
     <Compile Include="UI\管理员端\AddStudentInformation.Designer.cs">
       <DependentUpon>AddStudentInformation.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form40.cs">
+    <Compile Include="UI\ChangeStuPwd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form40.Designer.cs">
-      <DependentUpon>Form40.cs</DependentUpon>
+    <Compile Include="UI\ChangeStuPwd.Designer.cs">
+      <DependentUpon>ChangeStuPwd.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Form41.cs">
       <SubType>Form</SubType>
@@ -364,6 +364,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="UI\ChangePwd.resx">
       <DependentUpon>ChangePwd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ChangeStuPwd.resx">
+      <DependentUpon>ChangeStuPwd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\学生端\XHomePage.resx">
       <DependentUpon>XHomePage.cs</DependentUpon>
@@ -486,6 +489,7 @@
       <DependentUpon>ViewResults.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -36,6 +36,21 @@ namespace BLL
         }
         #endregion
 
+        #region 1.2修改密码
+        public bool ChangeStuPwd(string loginId, string loginOPwd, string loginNPwd)
+        {
+            try
+            {
+                return ss.ChangeStuPwd(loginId, loginOPwd, loginNPwd);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+        #endregion
+
         #region 2.1根据学号获取学生对象
         /// <summary>
         /// 根据学号获取学生信息
