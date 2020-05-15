@@ -128,10 +128,12 @@ namespace BLL
             return ts.dtTeaVol(teano);
         }
         #endregion
+        #region 向数据库提交datatable的更新一轮志愿的表teavolheng1
         public int updateTV(DataTable dt)
         {
             return ts.updateTV(dt);
-        }
+        } 
+        #endregion
 
         #region 查找当前登录的教师工号的可带人数
         public int GetGroupNum(string teano)
@@ -161,11 +163,20 @@ namespace BLL
         }
         #endregion
 
-        #region 向数据库提交datatable的更新一轮志愿的表teavolheng
+        #region 向数据库提交datatable的更新二轮志愿的表teavolheng2
         public int updateTV2(DataTable dt)
         {
             return ts.updateTV2(dt);
         }
         #endregion
+
+        #region 查找当前时间双选结果表内记录数
+        public int GetResultNum()
+        {
+            return ts.GetResultNum();
+
+        }
+        #endregion
+
     }
 }

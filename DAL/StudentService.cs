@@ -70,6 +70,40 @@ namespace DAL
         }
         #endregion
 
+        #region 执行学生修改密码
+        /// <summary>
+        /// 执行学生修改密码
+        /// </summary>
+        /// <param name="loginId">修改密码的学号</param>
+        /// <param name="loginOPwd">学生的旧密码</param>
+        /// <param name="loginNPwd">学生的新密码</param>
+        /// <returns></returns>
+
+        public bool ChangeStuPwd(string loginId, string loginOPwd, string loginNPwd)
+        {
+            bool flag;
+            string sql = @"update Student set StuPwd=@loginNPwd where StuNo=@loginId and StuPwd=@loginOPwd";
+            //设置参数
+            SqlParameter[] paras =
+            {
+                new SqlParameter("@loginId",loginId),
+                new SqlParameter("@loginOPwd",loginOPwd),
+                new SqlParameter("@loginNPwd",loginNPwd)
+            };
+            SqlDataReader reader = SQLHelper.ExecuteReader(sql, CommandType.Text, paras);
+            if (reader.Read())
+            {
+                flag = true;
+            }
+            else
+            {
+                flag = false;
+            }
+            return flag;
+        }
+
+        #endregion
+
         #region 2.1根据学号获取学生对象
         /// <summary>
         /// 根据学号获取学生信息
@@ -179,8 +213,7 @@ namespace DAL
         /// <returns>true:已组过队，false:未组过队</returns>
         public bool IsCreateGroup(string stuno)
         {
-            string sql = @"select GroupID ,StuNo  from GroupStu where StuNo =@StuNo 
-";
+            string sql = @"select GroupID ,StuNo  from GroupStu where StuNo =@StuNo";
             SqlParameter[] sqlParameters = new SqlParameter[]
             {
             new SqlParameter("@StuNo",SqlDbType.NVarChar)

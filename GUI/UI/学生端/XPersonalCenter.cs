@@ -14,8 +14,10 @@ namespace GUI.UI
     public partial class XPersonalCenter : Form
     {
         StudentManager sm = new StudentManager();
-        StudentData student = new StudentData();
-        public string stuNo = LoginInterface.loginid;
+        StudentData student = new StudentData()
+        {
+            StuNo = LoginInterface.loginid
+        };
 
         public XPersonalCenter()
         {
@@ -40,7 +42,7 @@ namespace GUI.UI
         }
         private void XPersonalCenter_Load(object sender, EventArgs e)
         {
-            DataTable dt = sm.GetStudentByNo(stuNo);
+            DataTable dt = sm.GetStudentByNo(student.StuNo);
             TxtStuName.Text = dt.Rows[0]["StuName"].ToString();
             TxtStuNo.Text = dt.Rows[0]["StuNo"].ToString();
             TxtStuAcademy.Text = dt.Rows[0]["Academy"].ToString();
@@ -49,7 +51,6 @@ namespace GUI.UI
             TxtStuPhone.Text = dt.Rows[0]["StuPhone"].ToString();
             TxtStuQQ.Text = dt.Rows[0]["StuQQ"].ToString();
             TxtStuEmail.Text = dt.Rows[0]["StuEmail"].ToString();
-            TxtStuNewPwd.Text = dt.Rows[0]["StuPwd"].ToString();
             TxtStuPerIntro.Text = dt.Rows[0]["StuPerIntro"].ToString();
             TxtStuHonors.Text = dt.Rows[0]["StuHonors"].ToString();
             string gender = dt.Rows[0]["Gender"].ToString();
