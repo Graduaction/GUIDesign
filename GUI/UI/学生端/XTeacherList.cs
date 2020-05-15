@@ -17,7 +17,6 @@ namespace GUI.UI
         StudentData student = new StudentData()
         {
             StuNo = LoginInterface.loginid
-            //StuNo = "16209010016"
         };
         GroupTableData groupTableData = new GroupTableData();
         TeacherData teacher = new TeacherData();
@@ -72,16 +71,6 @@ namespace GUI.UI
                 this.Controls.Add(dPersonalInformation);
                 dPersonalInformation.Show();
             }
-            /*else if (e.ColumnIndex == dataGridView1.Columns["操作1"].Index)
-            {
-                //点击选择弹出志愿序号进行选择
-                //dataGridView1.Rows[e.RowIndex].DefaultCellStyle.BackColor = Color.Blue;//点击后该行颜色改变
-                dataGridView1["操作1", e.RowIndex].Value = "已选择"; 
-            }
-            else if (e.ColumnIndex == dataGridView1.Columns["操作2"].Index)
-            {
-                dataGridView1["操作1", e.RowIndex].Value = "选择";
-            }*/
         }
 
         private void BtnVolFirst_Click(object sender, EventArgs e)

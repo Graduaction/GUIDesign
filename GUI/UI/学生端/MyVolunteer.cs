@@ -17,7 +17,6 @@ namespace GUI.UI
         StudentData student = new StudentData()
         {
             StuNo = LoginInterface.loginid
-            //StuNo = "16209020028"
         };
         TeacherData teacher = new TeacherData();
         GroupTableData groupTable = new GroupTableData();
@@ -43,9 +42,23 @@ namespace GUI.UI
         }
         private void MyVolunteer_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = sm.CheckMyVol(student.StuNo);
-            GetVolSort();
-            GetVolStatus();
+            if (sm.IsCreateGroup(student.StuNo))//判断学生是否组队
+            {
+                dataGridView1.DataSource = sm.CheckMyVol(student.StuNo);
+                if (dataGridView1.Rows.Count<= 0)
+                {
+                    MessageBox.Show("你所在的小组还未提交志愿");
+                }
+                else
+                {
+                    GetVolSort();
+                    GetVolStatus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("你还未组队");
+            }
         }
         private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -63,10 +76,10 @@ namespace GUI.UI
                 this.Controls.Add(dPersonalInformation);
                 dPersonalInformation.Show();
             }
-            else if (e.ColumnIndex == dataGridView1.Columns["Control"].Index)
+            /*else if (e.ColumnIndex == dataGridView1.Columns["Control"].Index)
             {
                 MessageBox.Show("test");
-            }
+            }*/
         }
         public void GetVolSort()
         {
@@ -98,6 +111,7 @@ namespace GUI.UI
         {
             //志愿状态
             DataTable dataTable1 = sm.MyMentor(student.StuNo);
+            //MessageBox.Show(dataTable1.Rows.Count.ToString());
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 teacher.TeaNo = dataGridView1["工号", i].Value.ToString();//获取志愿列表里的导师工号

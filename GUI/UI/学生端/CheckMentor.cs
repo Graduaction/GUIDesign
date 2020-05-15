@@ -17,7 +17,6 @@ namespace GUI.UI
         StudentData student = new StudentData()
         {
             StuNo = LoginInterface.loginid
-            //StuNo = "16209010016"
         };
         public string teaNo;
         public CheckMentor()

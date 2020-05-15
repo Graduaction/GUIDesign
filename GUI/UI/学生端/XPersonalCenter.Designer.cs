@@ -36,6 +36,7 @@
             this.TxtStuPerIntro = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
             this.TxtStuName = new System.Windows.Forms.TextBox();
             this.TxtStuAcademy = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,9 +56,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TxtStuNo = new System.Windows.Forms.TextBox();
             this.BtnUpdate = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtStuNewPwd = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,7 +82,7 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1322, 816);
+            this.groupBox1.Size = new System.Drawing.Size(1302, 816);
             this.groupBox1.TabIndex = 30;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "个人中心";
@@ -99,7 +97,7 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(20, 333);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1284, 402);
+            this.panel2.Size = new System.Drawing.Size(1267, 402);
             this.panel2.TabIndex = 57;
             // 
             // label9
@@ -145,8 +143,6 @@
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label14);
-            this.panel1.Controls.Add(this.TxtStuNewPwd);
-            this.panel1.Controls.Add(this.label12);
             this.panel1.Controls.Add(this.TxtStuName);
             this.panel1.Controls.Add(this.TxtStuAcademy);
             this.panel1.Controls.Add(this.label1);
@@ -167,8 +163,19 @@
             this.panel1.Controls.Add(this.TxtStuNo);
             this.panel1.Location = new System.Drawing.Point(20, 66);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1284, 249);
+            this.panel1.Size = new System.Drawing.Size(1267, 249);
             this.panel1.TabIndex = 56;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.ForeColor = System.Drawing.Color.Red;
+            this.label14.Location = new System.Drawing.Point(857, 220);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(307, 15);
+            this.label14.TabIndex = 69;
+            this.label14.Text = "备注：带星号内容如需更改，需与管理员联系";
             // 
             // TxtStuName
             // 
@@ -193,18 +200,18 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("宋体", 14F);
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(85, 20);
+            this.label1.Location = new System.Drawing.Point(73, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 24);
+            this.label1.Size = new System.Drawing.Size(94, 24);
             this.label1.TabIndex = 30;
-            this.label1.Text = "姓名：";
+            this.label1.Text = "*姓名：";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("宋体", 14F);
             this.label13.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label13.Location = new System.Drawing.Point(703, 189);
+            this.label13.Location = new System.Drawing.Point(693, 183);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(82, 24);
             this.label13.TabIndex = 49;
@@ -237,18 +244,18 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("宋体", 14F);
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(367, 22);
+            this.label2.Location = new System.Drawing.Point(355, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 24);
+            this.label2.Size = new System.Drawing.Size(94, 24);
             this.label2.TabIndex = 31;
-            this.label2.Text = "学号：";
+            this.label2.Text = "*学号：";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("宋体", 14F);
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(391, 187);
+            this.label11.Location = new System.Drawing.Point(391, 183);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 24);
             this.label11.TabIndex = 47;
@@ -256,7 +263,7 @@
             // 
             // TxtStuPhone
             // 
-            this.TxtStuPhone.Location = new System.Drawing.Point(183, 185);
+            this.TxtStuPhone.Location = new System.Drawing.Point(183, 181);
             this.TxtStuPhone.Multiline = true;
             this.TxtStuPhone.Name = "TxtStuPhone";
             this.TxtStuPhone.Size = new System.Drawing.Size(131, 26);
@@ -296,7 +303,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("宋体", 14F);
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(37, 185);
+            this.label10.Location = new System.Drawing.Point(37, 181);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 24);
             this.label10.TabIndex = 46;
@@ -313,7 +320,7 @@
             // 
             // TxtStuQQ
             // 
-            this.TxtStuQQ.Location = new System.Drawing.Point(455, 189);
+            this.TxtStuQQ.Location = new System.Drawing.Point(455, 185);
             this.TxtStuQQ.Multiline = true;
             this.TxtStuQQ.Name = "TxtStuQQ";
             this.TxtStuQQ.Size = new System.Drawing.Size(159, 26);
@@ -321,7 +328,7 @@
             // 
             // TxtStuEmail
             // 
-            this.TxtStuEmail.Location = new System.Drawing.Point(781, 189);
+            this.TxtStuEmail.Location = new System.Drawing.Point(781, 183);
             this.TxtStuEmail.Multiline = true;
             this.TxtStuEmail.Name = "TxtStuEmail";
             this.TxtStuEmail.Size = new System.Drawing.Size(177, 26);
@@ -332,11 +339,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("宋体", 14F);
             this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(656, 108);
+            this.label7.Location = new System.Drawing.Point(643, 110);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(130, 24);
+            this.label7.Size = new System.Drawing.Size(142, 24);
             this.label7.TabIndex = 40;
-            this.label7.Text = "综测成绩：";
+            this.label7.Text = "*综测成绩：";
             // 
             // TxtStuNo
             // 
@@ -358,36 +365,6 @@
             this.BtnUpdate.Text = "提交";
             this.BtnUpdate.UseVisualStyleBackColor = true;
             this.BtnUpdate.Click += new System.EventHandler(this.BtnInsert_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("宋体", 19F);
-            this.label12.ForeColor = System.Drawing.SystemColors.InfoText;
-            this.label12.Location = new System.Drawing.Point(1099, 76);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 33);
-            this.label12.TabIndex = 53;
-            this.label12.Text = "照片";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("宋体", 14F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(993, 191);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(106, 24);
-            this.label14.TabIndex = 54;
-            this.label14.Text = "新密码：";
-            // 
-            // TxtStuNewPwd
-            // 
-            this.TxtStuNewPwd.Location = new System.Drawing.Point(1105, 191);
-            this.TxtStuNewPwd.Multiline = true;
-            this.TxtStuNewPwd.Name = "TxtStuNewPwd";
-            this.TxtStuNewPwd.Size = new System.Drawing.Size(145, 26);
-            this.TxtStuNewPwd.TabIndex = 55;
             // 
             // XPersonalCenter
             // 
@@ -440,8 +417,6 @@
         private System.Windows.Forms.TextBox TxtStuAcademy;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox TxtStuNewPwd;
     }
 }
