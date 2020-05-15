@@ -6,7 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using BLL;
+using Model;
+using NPOI.HSSF.UserModel;
+using NPOI.POIFS.FileSystem;
+using NPOI.Util;
+using NPOI.SS.UserModel;
+using System.IO;
+using NPOI.XSSF.UserModel;
+using Excel = Microsoft.Office.Interop.Excel;
+using Microsoft.CSharp;
 using System.Security.Permissions; //需加的
+using NPOI.SS.Formula.Functions;
 
 namespace GUI.UI
 {
@@ -38,30 +49,38 @@ namespace GUI.UI
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            //邮件标题
-            string strtitle = "这是标题";
-            Object[] objArray = new Object[1];
-            objArray[0] = (Object)strtitle;
-            webBrowser1.Document.InvokeScript("SetTitile", objArray);
-
-            //邮件内容
-            string name = @"<font color=""#FF0000""><h1>hello world</h1></font>!sendry lee.";
-            objArray = new Object[1];
-            objArray[0] = (Object)name;
-            webBrowser1.Document.InvokeScript("SetContent", objArray);
+           
         }
 
         private void Form11_Load(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(Application.StartupPath + "/HandyEditor-1.6.1/index.html");
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string strtitle = webBrowser1.Document.InvokeScript("GetTitile").ToString();
-            string strfile = webBrowser1.Document.InvokeScript("GetFileUrl").ToString();
-            string strcontent = webBrowser1.Document.InvokeScript("GetContent").ToString();
-            MessageBox.Show("邮件的标题是：" + strtitle + "\n" + "附件：" + strfile + "\n" + "内容：" + strcontent);
+            
+            ad_ServicesBLL BLL = new ad_ServicesBLL();
+            InformationData InformationData = new InformationData();
+            
+            
+            InformationData.InfoTitle = textBox1.Text;
+            InformationData.InfoContent = textBox3.Text;
+            if (BLL.ReleasingNotices(InformationData))
+            {
+                MessageBox.Show("发布成功", "提示", MessageBoxButtons.OK);
+                textBox1.Text = "";
+                textBox2.Text = "";
+                textBox3.Text = "";
+                
+                
+            }
+            else
+            {
+                MessageBox.Show("发布失败", "提示", MessageBoxButtons.OKCancel);
+            }
+
+
         }
 
         private void label1_Click(object sender, EventArgs e)

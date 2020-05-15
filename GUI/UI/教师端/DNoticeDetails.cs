@@ -48,5 +48,10 @@ namespace GUI.UI
             //让窗体显示
             cform.Show();
         }
+
+        private void tbc_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

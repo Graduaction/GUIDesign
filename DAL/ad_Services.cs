@@ -1089,7 +1089,26 @@ on a.GroupID = c.groupid ";
             DataTable dataTable = SQLHelper.ExecuteQuery(sql);
             return dataTable;
         }
-
+        public int ReleasingNotices(InformationData InformationData)
+        {
+            string sql = @"insert into Information (InfoTitle,InfoContent) values(@InfoTitle,@InfoContent)";
+            SqlParameter[] sqlParameter = new SqlParameter[]
+            {
+                
+                
+                new SqlParameter("@InfoTitle",SqlDbType.NVarChar),
+                new SqlParameter("@InfoContent",SqlDbType.NVarChar),
+               
+                
+            };
+            
+            
+            sqlParameter[0].Value = InformationData.InfoTitle;
+            sqlParameter[1].Value = InformationData.InfoContent;
+            
+            int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
+            return result;
+        }
 
 
         #region 判断表中是否有该学号的存在 ExecutScale

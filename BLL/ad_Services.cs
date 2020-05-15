@@ -259,5 +259,17 @@ namespace BLL
         {
             return sDAL.SelectFromResuit();
         }
+        public bool ReleasingNotices(InformationData InformationData)
+        {
+            int result = sDAL.ReleasingNotices(InformationData);
+            if (result != 0)
+            {
+                return true;//插入成功
+            }
+            else
+            {
+                return false;//插入失败
+            }
+        }
     }
 }

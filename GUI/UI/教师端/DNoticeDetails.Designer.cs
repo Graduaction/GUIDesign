@@ -73,6 +73,7 @@
             this.tbc.ReadOnly = true;
             this.tbc.Size = new System.Drawing.Size(908, 260);
             this.tbc.TabIndex = 2;
+            this.tbc.TextChanged += new System.EventHandler(this.tbc_TextChanged);
             // 
             // panel2
             // 
@@ -130,7 +131,7 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "通知详情";
             // 
-            // NoticeDetails
+            // DNoticeDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -139,7 +140,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "NoticeDetails";
+            this.Name = "DNoticeDetails";
             this.Text = "Form24";
             this.Load += new System.EventHandler(this.NoticeDetails_Load);
             this.panel3.ResumeLayout(false);
