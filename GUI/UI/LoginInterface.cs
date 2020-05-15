@@ -23,8 +23,8 @@ namespace GUI.UI
         readonly TeacherManager tm = new TeacherManager();
 
         readonly ad_ServicesBLL ad_ServicesBLL = new ad_ServicesBLL();
-        public static string loginid = "16209010016";//登入账号
-        //public static string loginid;//登入账号
+        //public static string loginid = "16209010016";//登入账号
+        public static string loginid;//登入账号
 
         #endregion
 
