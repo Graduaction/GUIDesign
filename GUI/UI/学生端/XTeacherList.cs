@@ -48,9 +48,10 @@ namespace GUI.UI
                 groupBox2.Enabled = false;
                 label11.Text = "*请先组队后再进行志愿填报";
             }
-            if (!sm.IsLeader(student.StuNo))
+            else if (!sm.IsLeader(student.StuNo))
             {
-                groupBox2.Enabled = false;
+                groupBox2.Enabled = false; 
+                label11.Text = "*请联系队长填报志愿";
             }
         }
 

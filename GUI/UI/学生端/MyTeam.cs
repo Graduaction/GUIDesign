@@ -102,21 +102,20 @@ namespace GUI.UI
             //选择队员
             if (sm.IsCreateGroup(student.StuNo))//判断自己是否组队
             {
-                if (!sm.IsCreateGroup(stu_no))//判断当前行的学生是否组队
+                try
                 {
-                    try
+                    if (!sm.IsCreateGroup(stu_no))//判断当前行的学生是否组队
                     {
                         dataGridView1.DataSource = sm.SelectGroupStu(groupTable.GroupID, stu_no);//选择队员并查看我的队伍
                     }
-                    catch (Exception)
+                    else
                     {
-
-                        MessageBox.Show("请在学生列表选择", "操作失误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                    }
+                        MessageBox.Show("该学生已组队，无法选择为组员","错误提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } 
                 }
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("该学生已组队，无法选择为组员","错误提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("请在学生列表选择", "操作失误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
             }
             else
@@ -135,7 +134,6 @@ namespace GUI.UI
                 }
                 catch (Exception)
                 {
-
                     MessageBox.Show("请在队伍列表选择", "操作失误", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
                 }
             }

@@ -138,7 +138,7 @@ namespace DAL
         /// <returns>返回受影响行数</returns>
         public int UpdateStu(StudentData studentData)
         {
-            string sql = @"update  Student set  StuPhone=@StuPhone,StuQQ=@StuQQ,StuEmail=@StuEmail,StuPerIntro=@StuPerIntro,StuHonors=@StuHonors,StuPwd=@StuPwd where StuNo=@StuNo";
+            string sql = @"update  Student set  StuPhone=@StuPhone,StuQQ=@StuQQ,StuEmail=@StuEmail,StuPerIntro=@StuPerIntro,StuHonors=@StuHonors where StuNo=@StuNo";
             SqlParameter[] sqlParameter = new SqlParameter[]
             {
                 new SqlParameter("@StuPhone",SqlDbType.NVarChar),
@@ -146,7 +146,6 @@ namespace DAL
                 new SqlParameter("@StuEmail",SqlDbType.NVarChar),
                 new SqlParameter("@StuPerIntro",SqlDbType.NVarChar),
                 new SqlParameter("@StuHonors",SqlDbType.NVarChar),
-                new SqlParameter("@StuPwd",SqlDbType.NVarChar),
                 new SqlParameter("@StuNo",studentData.StuNo)
             };
             sqlParameter[0].Value = studentData.StuPhone;
@@ -154,7 +153,6 @@ namespace DAL
             sqlParameter[2].Value = studentData.StuEmail;
             sqlParameter[3].Value = studentData.StuPerIntro;
             sqlParameter[4].Value = studentData.StuHonors;
-            sqlParameter[5].Value = studentData.StuPwd;
             int result = SQLHelper.ExecuteNonQuery(sql, CommandType.Text, sqlParameter);//执行insert/update/delete，返回受影响的行数
             return result;
         }
