@@ -40,13 +40,13 @@
             this.BtnVolThird = new System.Windows.Forms.Button();
             this.BtnVolSecond = new System.Windows.Forms.Button();
             this.BtnVolFirst = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.TxtVolThird = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.TxtVolSecond = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtVolFirst = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -207,17 +207,6 @@
             this.BtnVolFirst.UseVisualStyleBackColor = true;
             this.BtnVolFirst.Click += new System.EventHandler(this.BtnVolFirst_Click);
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(952, 518);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(150, 15);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "*请联系队长填报志愿";
-            // 
             // TxtVolThird
             // 
             this.TxtVolThird.Location = new System.Drawing.Point(126, 178);
@@ -271,6 +260,16 @@
             this.label4.Size = new System.Drawing.Size(75, 15);
             this.label4.TabIndex = 9;
             this.label4.Text = "第一志愿:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(952, 518);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 15);
+            this.label11.TabIndex = 17;
             // 
             // XTeacherList
             // 
