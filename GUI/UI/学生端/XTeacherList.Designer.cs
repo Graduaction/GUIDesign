@@ -134,7 +134,6 @@
             this.groupBox2.Controls.Add(this.BtnVolThird);
             this.groupBox2.Controls.Add(this.BtnVolSecond);
             this.groupBox2.Controls.Add(this.BtnVolFirst);
-            this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.TxtVolThird);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.TxtVolSecond);
@@ -212,7 +211,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.Color.Red;
-            this.label11.Location = new System.Drawing.Point(116, 351);
+            this.label11.Location = new System.Drawing.Point(952, 518);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(150, 15);
@@ -282,6 +281,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label11);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "XTeacherList";
             this.Text = "Form18";

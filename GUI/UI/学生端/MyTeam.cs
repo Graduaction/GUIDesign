@@ -53,17 +53,21 @@ namespace GUI.UI
                 groupTable.Leaderno = dataGridView1["学号", 0].Value.ToString();//获取队长学号
                 //判断该学生是否组队，若true则显示队长姓名
                 textBox1.Text = dataGridView1["姓名", 0].Value.ToString();//获取队长姓名
-                /*if (!sm.IsLeader(student.StuNo))
+                if (!sm.IsLeader(student.StuNo))
                 {
                     //判断是否为队长，是则可以选择/删除队员
                     button1.Enabled = false;
                     button3.Enabled = false;
-                }*/
+                    label3.Visible = true;
+                    label3.Text = "*你无法选择/删除队员，请联系队长操作";
+                }
             }
             else
             {
                 //若false队长姓名为空，你需要进行组队才能显示队伍信息
                 textBox1.Text = " ";
+                label2.Visible = true;
+                label2.Text = "*你还未组队，请先组队";
             }
         }
 
