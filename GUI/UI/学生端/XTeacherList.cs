@@ -43,6 +43,11 @@ namespace GUI.UI
         private void XTeacherList_Load(object sender, EventArgs e)
         {
             dataGridView1.DataSource = sm.StuCheckTeaList();
+            if (!sm.IsCreateGroup(student.StuNo))
+            {
+                groupBox2.Enabled = false;
+                label11.Text = "*请先组队后再进行志愿填报";
+            }
             if (!sm.IsLeader(student.StuNo))
             {
                 groupBox2.Enabled = false;
